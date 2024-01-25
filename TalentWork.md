@@ -6,6 +6,6 @@
 
 1.   
 2. Fredi Alexander Caballero Leon  
-3.   
+3. Nilo Brayan Vallejo Pablo  
 4.   
 5.   
