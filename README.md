@@ -9,7 +9,7 @@
 ## Ejecutar proyecto TalentWork
 
 1. Clona el repositorio de tu proyecto desde tu terminal  
-git clone https://github.com/FrediCaballero/Mantenimiento.git
+git clone https://github.com/rembrandtubalde/SanMarcosMantenimientoSWVerano2024.git  
 
 2. Accede al directorio del proyecto  
 cd Mantenimiento
