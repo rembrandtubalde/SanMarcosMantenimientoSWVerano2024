@@ -14,8 +14,8 @@ git clone https://github.com/FrediCaballero/Mantenimiento.git
 2. Accede al directorio del proyecto  
 cd Mantenimiento
 
-3. Cambiar a rama del grupo
-git switch TalentWork
+3. Cambiar a rama del grupo  
+git switch TalentWork  
 
 4. Instala las dependencias de Composer  
 composer install
