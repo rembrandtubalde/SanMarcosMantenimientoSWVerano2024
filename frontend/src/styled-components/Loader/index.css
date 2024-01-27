@@ -1,0 +1,22 @@
+.loader {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.loader__circle {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  top: 0;
+  left: 0
+}
+
+.loader__circle:hover {
+  border-top: 2px solid var(--white);
+}

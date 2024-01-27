@@ -1,0 +1,50 @@
+.sidebar__switch {
+  position: relative;
+  width: 60px;
+}
+
+.sidebar__switch label {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: var(--charcoal);
+  border-radius: 50px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.sidebar__switch input {
+  position: absolute;
+  display: none;
+}
+
+.sidebar__switch--slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.sidebar__switch input:checked ~ .sidebar__switch--slider {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar__switch--slider::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: inset 10px -4px 0px 0px rgba(255, 255, 255, 0.7);
+  background-color: var(--charcoal);
+  transition: 0.3s;
+}
+
+input:checked ~ .sidebar__switch--slider::before {
+  transform: translateX(25px);
+  background-color: var(--charcoal);
+  box-shadow: none;
+}

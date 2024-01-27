@@ -1,0 +1,8 @@
+.location__marker {
+  font-size: 32px;
+  color: var(--error-red);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
