@@ -12,7 +12,7 @@
 git clone https://github.com/rembrandtubalde/SanMarcosMantenimientoSWVerano2024.git  
 
 2. Accede al directorio del proyecto  
-cd Mantenimiento
+cd SanMarcosMantenimientoSWVerano2024
 
 3. Cambiar a rama del grupo  
 git switch TalentWork  
