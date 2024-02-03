@@ -1,0 +1,7 @@
+/dataApi/fastapi-env
+/__pycache__
+*.pyc
+/datasets/full_scores.scv
+datasets/full_scores.scv
+full_scores.scv
+.venv
