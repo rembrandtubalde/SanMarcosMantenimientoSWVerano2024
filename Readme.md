@@ -8,13 +8,20 @@
 *Integrantes*
 - Yeyson Samir Cano Carbajo
 - Gustavo Alonso Tuyo Acero
-- b
-- c
-- d
+- Richar Quispe Surco
+- Bianca Elizabeth Romero Diaz
+- Richard Saul Alvarez Huarsaya
 
 ![Alt text](src/MLOps.jpg)
 
 
+## **CONTEXTO** :white_circle:
+
+El proyecto propuesto se presenta como una aplicación que fusiona las disciplinas de Machine Learning, Operations, y elementos característicos de DevOps en un contexto. La esencia central del proyecto gira en torno a la creación de una API, alimentada por datos detallados sobre películas y usuarios. Este sistema inteligente aprovecha técnicas de Extracción, Transformación y Carga (ETL) para consolidar conjuntos de datos que incluyen información vital sobre películas, como títulos, horas vistas, y más, así como datos específicos del usuario.
+
+El contexto del proyecto se establece en el  cruce entre la creciente demanda de plataformas de transmisión de contenido, como Amazon Prime, DisneyPlus y Netflix, y las capacidades avanzadas de Machine Learning. En este escenario, nuestro proyecto permitirá a los usuarios acceder a información detallada sobre películas y recibir recomendaciones personalizadas basadas en su historial de visualización y preferencias.
+
+Se empleará procesos de ETL para fusionar los datos provenientes de diversas fuentes, creando así un conjunto de información holística. Este enfoque va a facilitar la construcción de una API dinámica y eficiente que actúa como un motor de recomendación. 
 
 ## **ESTRUCTURA DEL PROYECTO** :white_circle:
 
