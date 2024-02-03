@@ -8,7 +8,7 @@
 *Integrantes*
 - Yeyson Samir Cano Carbajo
 - Gustavo Alonso Tuyo Acero
-- b
+- Richar Quispe Surco
 - c
 - d
 
