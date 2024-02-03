@@ -7,7 +7,7 @@
 ### *Por Grupo 3*
 *Integrantes*
 - Yeyson Samir Cano Carbajo
-- a
+- Gustavo Alonso Tuyo Acero
 - b
 - c
 - d
