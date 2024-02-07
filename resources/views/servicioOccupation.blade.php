@@ -3,9 +3,15 @@
 
 @section('contenido_js')
     <!-- Core theme JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous">
+    </script>
 
-    <script src="https://js.pusher.com/7.0/pusher.min.js" integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7" crossorigin="anonymous"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"
+        integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7"
+        crossorigin="anonymous">
+    </script>
     @livewireStyles
 
 @endsection
@@ -40,15 +46,35 @@
                     <div class="px-4 px-lg-5 my-5">
                         
                         <div class="row gx-4 gx-lg-5 align-items-center">
-                            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" /></div>
+                            <div class="col-md-6">
+                                <img class="card-img-top mb-5 mb-md-0"
+                                    src="{{  $serviceProfile->imagen  }}"
+                                    alt="Imagen del servicio"
+                                    style="width:512px !important;"/>
+                            </div>
                             <div class="col-md-6">
                                 <h1 class="display-5 fw-bolder">{{ $serviceProfile->ser_occ_name }}</h1>
 
-                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}" class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}</a>
+                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}"
+                                    class="h5 fw-bolder">
+                                    {{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}
+                                </a>
                                 <br>
-                                <label><strong>Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->email }} <label></label>
+                                <label>
+                                    <strong>
+                                        Email : &nbsp;
+                                    </strong>
+                                </label>
+                                {{ $serviceProfile->IntermediateUseOcc->email }}
+                                <label></label>
                                 <br>
-                                <label><strong>Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->birthdate }} <label></label>
+                                <label>
+                                    <strong>
+                                        Año de nacimiento : &nbsp;
+                                    </strong>
+                                </label>
+                                {{ $serviceProfile->IntermediateUseOcc->birthdate }}
+                                <label></label>
 
 
                                 <div class="card text-center">
@@ -71,16 +97,26 @@
                                     <div class="card-body">
                                     <h5 class="card-title">S/{{ $serviceProfile->precio }}</h5>
                                         <h5>Calificación por usuarios
-                                                    <h4> 
+                                                    <h4>
                                                         <ul class="list-inline">
-                                                        <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ? ' yellow': ''}}"></em></li>
-                                                        <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ? ' yellow': ''}}"></em></li>
-                                                        <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ? ' yellow': ''}}"></em></li>
-                                                        <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ? ' yellow': ''}}"></em></li>
-                                                        <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ? ' yellow': ''}}"></em></li>
+                                                            <li class="list-inline-item">
+                                                                <em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ? ' yellow': ''}}"></em>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ? ' yellow': ''}}"></em>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ? ' yellow': ''}}"></em>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ? ' yellow': ''}}"></em>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ? ' yellow': ''}}"></em>
+                                                            </li>
                                                         </ul>
                                                     </h4>
-                                        </h5> 
+                                        </h5>
                                     <p class="card-text">{{ $serviceProfile->descripcion }}</p>
                                     <div class="d-flex">
                                         @php
@@ -88,7 +124,9 @@
                                         @endphp
                                         @if(auth()->user()!=null)
                                             @if(auth()->user()->id == $serviceProfile->IntermediateUseOcc->id)
-                                                <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
+                                                <button class="btn btn-outline-dark flex-shrink-0"
+                                                    disabled
+                                                    type="button">
                                                     <em class="bi-cart-fill me-1"></em>
                                                     Tu eres el del servicio
                                                 </button>
@@ -104,16 +142,25 @@
 
                                                 @endforeach
                                                 @if($receivedServiceNow == true)
-                                                    <button class="btn btn-outline-dark flex-shrink-0" disabled type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button class="btn btn-outline-dark flex-shrink-0"
+                                                        disabled
+                                                        type="button"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
                                                         <em class="bi-cart-fill me-1"></em>
                                                         Ya lo contrataste
                                                     </button>
                                                     <br>
-                                                    <div class="text-danger">* Para comunicarte con el que ofrece el servicio, presione chat: </div>
+                                                    <div class="text-danger">
+                                                        * Para comunicarte con el que ofrece el servicio, presione chat:
+                                                    </div>
 
 
                                                 @else
-                                                    <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data"
+                                                        type="button"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
                                                         <em class="bi-cart-fill me-1"></em>
                                                         Contratar
                                                     </button>
@@ -122,7 +169,9 @@
                                                 @endif
                                             @endif
                                         @else
-                                            <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
+                                            <button class="btn btn-outline-dark flex-shrink-0"
+                                                onclick="window.location.href='{{ route('registrouser') }}'"
+                                                type="button">
                                                 <em class="bi-cart-fill me-1"></em>
                                                 Contratar
                                             </button>
@@ -145,15 +194,35 @@
                 <section class="py-5">
                     <div class="px-4 px-lg-5 my-5">
                         <div class="row gx-4 gx-lg-5 align-items-center">
-                            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" alt="..." /></div>
+                            <div class="col-md-6">
+                                <img class="card-img-top mb-5 mb-md-0"
+                                src="{{  $serviceProfile->imagen  }}"
+                                style="width:512px !important;"
+                                alt="..." />
+                            </div>
                             <div class="col-md-6">
                                 <h1 class="display-5 fw-bolder">{{ $serviceProfile->ser_occ_name }}</h1>
 
-                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}" class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}</a>
+                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}"
+                                    class="h5 fw-bolder">
+                                    {{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}
+                                </a>
                                 <br>
-                                <label><strong>Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->email }} <label></label>
+                                <label>
+                                    <strong>
+                                        Email : &nbsp;
+                                    </strong>
+                                </label>
+                                {{ $serviceProfile->IntermediateUseOcc->email }}
+                                <label></label>
                                 <br>
-                                <label><strong>Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->birthdate }} <label></label>
+                                <label>
+                                    <strong>
+                                        Año de nacimiento : &nbsp;
+                                    </strong>
+                                </label>
+                                {{ $serviceProfile->IntermediateUseOcc->birthdate }}
+                                <label></label>
     
 
 
@@ -179,13 +248,23 @@
                                     <h5 class="card-title">S/{{ $serviceProfile->precio }}</h5>
 
                                         <h5>Calificación por usuarios
-                                            <h4> 
+                                            <h4>
                                                 <ul class="list-inline">
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ? ' yellow': ''}}"></em></li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ? ' yellow': ''}}"></em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ? ' yellow': ''}}"></em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ? ' yellow': ''}}"></em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ? ' yellow': ''}}"></em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ? ' yellow': ''}}"></em>
+                                                </li>
                                                 </ul>
                                             </h4>
                                         </h5>
@@ -197,7 +276,9 @@
                                         @endphp
                                         @if(auth()->user()!=null)
                                             @if(auth()->user()->id == $serviceProfile->IntermediateUseOcc->id)
-                                                <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
+                                                <button class="btn btn-outline-dark flex-shrink-0"
+                                                disabled
+                                                type="button">
                                                     <em class="bi-cart-fill me-1"></em>
                                                     Tu eres el del servicio
                                                 </button>
@@ -213,17 +294,26 @@
 
                                                 @endforeach
                                                 @if($receivedServiceNow == true)
-                                                    <button class="btn btn-outline-dark flex-shrink-0" disabled type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button class="btn btn-outline-dark flex-shrink-0"
+                                                        disabled type="button"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
                                                         <em class="bi-cart-fill me-1"></em>
                                                         Ya lo contrataste
                                                     </button>
                                                     <br>
-                                                    <div class="text-danger">* Para comunicarte con el que ofrece el servicio, presione chat: </div>
+                                                    <div class="text-danger">
+                                                        * Para comunicarte con el que ofrece el servicio, presione chat:
+                                                    </div>
 
 
                                                 @else
-                                                    <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        <em class="bi-cart-fill me-1"></em>
+                                                    <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data"
+                                                        type="button"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
+                                                        <em class="bi-cart-fill me-1">
+                                                        </em>
                                                         Contratar
                                                     </button>
 
@@ -231,7 +321,9 @@
                                                 @endif
                                             @endif
                                         @else
-                                            <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
+                                            <button class="btn btn-outline-dark flex-shrink-0"
+                                                onclick="window.location.href='{{ route('registrouser') }}'"
+                                                type="button">
                                                 <em class="bi-cart-fill me-1"></em>
                                                 Contratar
                                             </button>
@@ -264,13 +356,36 @@
 
         <form class="" action="{{ route('contractDetailsData') }}" method="POST" enctype="" novalidate>
             @csrf
-            <input type="hidden" class="set-user-offer-input" name="userOffer" value="{{ $serviceProfile->use_id }}" required>
-            <input type="hidden" class="set-price-offer-input" name="priceOffer" value="{{ $serviceProfile->precio }}" required>
-            <input type="hidden" class="set-service-offer-input" name="serviceOffer" value="{{ $serviceProfile->id }}" required>
-            <input type="hidden" class="set-type-offer-input" name="typeOfJob" value="1" required>
-            <input type="hidden" class="set-service-offer-input" name="img1" value="{{ $serviceProfile->imagen }}" required>
-
-            <input type="hidden" class="set-status-offer-input" name="statusInitial" value="{{1}}" required>
+            <input type="hidden"
+                class="set-user-offer-input"
+                name="userOffer"
+                value="{{ $serviceProfile->use_id }}"
+                required>
+            <input type="hidden"
+                class="set-price-offer-input"
+                name="priceOffer"
+                value="{{ $serviceProfile->precio }}"
+                required>
+            <input type="hidden"
+                class="set-service-offer-input"
+                name="serviceOffer"
+                value="{{ $serviceProfile->id }}"
+                required>
+            <input type="hidden"
+                class="set-type-offer-input"
+                name="typeOfJob"
+                value="1"
+                required>
+            <input type="hidden"
+                class="set-service-offer-input"
+                name="img1"
+                value="{{ $serviceProfile->imagen }}"
+                required>
+            <input type="hidden"
+                class="set-status-offer-input"
+                name="statusInitial"
+                value="{{1}}"
+                required>
 
 
             {{-- Datos que no se procesan, solo para mejorar el estilo --}}
