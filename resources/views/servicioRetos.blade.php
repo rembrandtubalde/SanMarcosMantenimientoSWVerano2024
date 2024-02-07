@@ -214,16 +214,30 @@
                                             @if ( $serviceProfile->precio_actual>=$serviceProfile->precio*0.25 && $serviceProfile->IntermediateChange->cha_25_percent_active==false)
 
                                             <div class="row">
-                                                <div class="col-md-12 d-flex justify-content-center">
-                                                    <div class="alert alert-danger" role="alert">
-                                                        * Los pagos fueron INHABILITADOS hasta que subas un video
+                                                <div class="col-md-12
+                                                d-flex
+                                                justify-content-center">
+                                                    <div class="alert
+                                                    alert-danger"
+                                                    role="alert">
+                                                        * Los pagos fueron
+                                                        INHABILITADOS hasta
+                                                        que subas un video
                                                       </div>
 
                                                 </div>
                                                 {{-- Subir video o enlace --}}
-                                                <div class="col-md-12 d-flex justify-content-center" data-toggle="modal" data-target="#modalInsertVideo">
-                                                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                                        <em class="fa fa-upload"></em>
+                                                <div class="col-md-12
+                                                d-flex
+                                                justify-content-center"
+                                                data-toggle="modal"
+                                                data-target="#modalInsertVideo">
+                                                    <button class="btn
+                                                    btn-outline-dark
+                                                    flex-shrink-0"
+                                                    type="button">
+                                                        <em class="fa
+                                                        fa-upload"></em>
                                                         Subir video
                                                     </button>
 
@@ -237,41 +251,101 @@
 
                                         @else
                                         <div class="row ">
-                                            <div class="col-md-12 d-flex justify-content-center">
+                                            <div class="col-md-12
+                                            d-flex
+                                            justify-content-center">
                                                 <nav>
-                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                        <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-stripe" role="tab" aria-controls="nav-profile" aria-selected="false"><img style="width:40px;" src="{{ asset('img/stripe.png') }}" alt=""></a>
+                                                    <div class="nav nav-tabs"
+                                                    id="nav-tab"
+                                                    role="tablist">
+                                                        <a class="nav-item nav-link active"
+                                                        id="nav-profile-tab"
+                                                        data-toggle="tab"
+                                                        href="#nav-stripe"
+                                                        role="tab"
+                                                        aria-controls="nav-profile"
+                                                        aria-selected="false"><img
+                                                        style="width:40px;"
+                                                        src="{{ asset('img/stripe.png') }}"
+                                                        alt=""></a>
                                                     </div>
                                                 </nav>
                                              </div>
 
                                              @if ( $serviceProfile->precio_actual>=$serviceProfile->precio*0.25 && $serviceProfile->IntermediateChange->cha_25_percent_active==false)
                                                 {{-- Llega al 25% y no tiene video --}}
-                                                <button disabled class="btn btn-danger theme--create bttn-large flex mb3 ">
-                                                    Estamos pidiendo un video de prueba al que ofrece el servicio
+                                                <button disabled class="btn
+                                                btn-danger
+                                                theme--create
+                                                bttn-large
+                                                flex mb3 ">
+                                                    Estamos pidiendo un video
+                                                     de prueba al que ofrece
+                                                      el servicio
                                                 </button>
                                                 <label class="text-danger" for="">
-                                                * Actualmente las donaciones estan inhabilitadas, hasta que el usuario coloque un video de prueba.Sea paciente
+                                                * Actualmente las donaciones
+                                                estan inhabilitadas,
+                                                hasta que el usuario
+                                                coloque un video de prueba.
+                                                Sea paciente
                                                 </label>
                                              @else
-                                             <div class="col-md-12">
-                                                <div class="tab-content" id="nav-tabContent">
+                                             <div
+                                             class="col-md-12"
+                                             >
+                                                <div class="tab-content"
+                                                id="nav-tabContent">
 
                                                     {{-- Pago para stripe --}}
-                                                    <div class="tab-pane fade show active" id="nav-stripe" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                    <div class="tab-pane
+                                                    fade
+                                                    show
+                                                    active"
+                                                    id="nav-stripe"
+                                                    role="tabpanel"
+                                                    aria-labelledby="nav-profile-tab">
                                                         <br>
                                                         @if($serviceProfile->precio <=$serviceProfile->precio_actual)
-                                                            <button style="cursor: default !important" disabled class="bttn bttn-primary theme--create bttn-large flex mb3 ">
+                                                            <button
+                                                            style="cursor: default !important"
+                                                            disabled class="bttn
+                                                            bttn-primary
+                                                            theme--create
+                                                            bttn-large
+                                                            flex
+                                                            mb3 ">
                                                                 !Alcanzo la meta¡
                                                             </button>
                                                         @else
 
-                                                        <form action="{{ route('proccessPaymentStripe2') }}" method="POST">
+                                                        <form action="{{ route('proccessPaymentStripe2') }}"
+                                                        method="POST">
+
                                                             @csrf
-                                                            <input type="hidden" name="serviceOffer" value="{{ $serviceProfile->id }}">
-                                                            <input type="hidden" name="cantidadMeta" value="{{ $serviceProfile->precio }}">
-                                                            <input type="hidden" name="cantidadActual" value="{{ $serviceProfile->precio_actual }}">
-                                                            <input type="number" name="cantidadDonacion" required step="0.01" min="1" max="{{ $serviceProfile->precio-$serviceProfile->precio_actual }}" class="form-control" placeholder="Insertar cantidad a donar">
+                                                            <input type="hidden"
+                                                            name="serviceOffer"
+                                                            value="{{ $serviceProfile->id }}"
+                                                            >
+
+                                                            <input type="hidden"
+                                                            name="cantidadMeta"
+                                                            value="{{ $serviceProfile->precio }}"
+                                                            >
+
+                                                            <input type="hidden"
+                                                            name="cantidadActual"
+                                                            value="{{ $serviceProfile->precio_actual }}"
+                                                            >
+
+                                                            <input type="number"
+                                                            name="cantidadDonacion"
+                                                            required step="0.01" min="1"
+                                                            max="{{ $serviceProfile->precio-$serviceProfile->precio_actual }}"
+                                                            class="form-control"
+                                                            placeholder="Insertar cantidad a donar"
+                                                            >
+
                                                             @error('cantidadDonacion')
                                                             <div class="alert alert-danger" role="alert">
                                                               <strong>Atención.</strong> {{ $message }}
@@ -292,16 +366,32 @@
                                                                 data-image="https://logos-world.net/wp-content/uploads/2021/03/Stripe-Symbol.png"
                                                                 data-locale="es">
                                                             </script>
+
                                                             <script>
                                                                 // Esconde el button por defecto
                                                                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                                                             </script>
-                                                            <button type="submit" class="bttn bttn-primary theme--create bttn-large flex mb3 keyboard-focusable">
-                                                                Patrocina este proyecto (stripe)
+
+                                                            <button type="submit"
+                                                            class="bttn
+                                                            bttn-primary
+                                                            theme--create
+                                                            bttn-large
+                                                            flex mb3
+                                                            keyboard-focusable">
+                                                                Patrocina este
+                                                                proyecto (stripe)
                                                             </button>
-                                                            <label class="text-info" for="">
-                                                                * Cuando llegue al 25% o mas la pagina exigirá un video sobre evidencia del servicio, asi que dona con precaución
-                                                                (Si una donacion cubre todo el costo de todas maneras exigiremos el video)
+                                                            <label class="text-info"
+                                                            for="">
+                                                                * Cuando llegue al 25% o
+                                                                mas la pagina exigirá
+                                                                un video sobre evidencia
+                                                                del servicio, asi que dona
+                                                                con precaución
+                                                                (Si una donacion cubre
+                                                                todo el costo de todas
+                                                                 maneras exigiremos el video)
                                                             </label>
 
                                                         </form>
