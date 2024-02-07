@@ -146,7 +146,8 @@
                                     $ytendstring=end($ytendarray);
                                     $ytendarray=explode("&", $ytendstring);
                                     $ytcode=$ytendarray[0];
-                                    echo "<iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/$ytcode\" title=\"Navigation menu\" frameborder=\"0\" allowfullscreen></iframe>";
+                                    echo "<iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/$ytcode\" title=\"Navigation menu\" style=\"border: 0;\" allowfullscreen></iframe>";
+
                                 @endphp
                                 </div>
                                 <br>
