@@ -27,7 +27,7 @@ git switch TalentWork
 composer install
 
 5. Copia el archivo de entorno de ejemplo  
-cp .env.example .env
+copy .env.example .env
 
 6. Genera la clave de la aplicación  
 php artisan key:generate
