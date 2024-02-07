@@ -467,7 +467,8 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <button type="submit" class="btn" style="background-color: rgba(10, 169, 190, 0.61)">Comentar</button>
+                                    <button type="submit" class="btn"
+                                        style="background-color: rgba(10, 169, 190, 0.61)">Comentar</button>
                                 </div>
                             </div>
                         </div>
@@ -486,17 +487,30 @@
                                     <div class="">
                                         <a class="text-decoration-none" href="#">
                                             @if($serviceProfile->use_id == $coment->use_id)
-                                            <img class="" src="https://i.postimg.cc/ryg6tyH9/operator-m.png" width="50" height="50" alt="...">
+                                            <img class=""
+                                                src="https://i.postimg.cc/ryg6tyH9/operator-m.png"
+                                                width="50"
+                                                height="50"
+                                                alt="...">
                                             @else
-                                            <img class="" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" width="50" height="50" alt="...">
+                                            <img class=""
+                                                rc="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"
+                                                width="50"
+                                                height="50"
+                                                alt="...">
                                             @endif
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 pl-2">
-                                        <a class="text-decoration-none" href="{{ route('perfil',$coment->PostCommentUser->id) }}">
-                                            <h2 class="text-capitalize h5 mb-0">{{ $coment->PostCommentUser->name }}</h2>
+                                        <a class="text-decoration-none"
+                                            href="{{ route('perfil',$coment->PostCommentUser->id) }}">
+                                            <h2 class="text-capitalize h5 mb-0">
+                                                {{ $coment->PostCommentUser->name }}
+                                            </h2>
                                         </a>
-                                        <p class="small text-secondary m-0 mt-1">Posteado el {{ $coment->created_at }}</p>
+                                        <p class="small text-secondary m-0 mt-1">
+                                            Posteado el {{ $coment->created_at }}
+                                        </p>
                                     </div>
 
                                 </div>
@@ -525,7 +539,7 @@
                                                         @php
                                                             $likeUser = true;
                                                             break;
-                                                        @endphp                                                    
+                                                        @endphp
                                                     @endif
                                                 @endforeach
                                                 @if($likeUser==true)
@@ -534,27 +548,41 @@
                                                     @csrf
                                                     <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
                                                     <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                    <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                    <button class="small text-decoration-none" type="submit"
+                                                        style="border: none;background-color:transparent;
+                                                            color:#007bff !important;text-transform:none !important;
+                                                            padding:0px">
                                                         <em class="fa fa-thumbs-up"></em>  Me gusta
-                                                    </button>    
+                                                    </button>
                                                 </form>
 
 
                                                 @else
                                                     <form action="{{ route('likeComment') }}" method="POST">
                                                         @csrf
-                                                        <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
+                                                        <input type="hidden"
+                                                            name="idUser"
+                                                            value="{{ auth()->user()->id }}">
                                                         <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                        <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                        <button class="small text-decoration-none"
+                                                            type="submit" style="border: none;
+                                                            background-color:transparent;
+                                                            color:#007bff !important;text-transform:none !important;
+                                                            padding:0px">
                                                             <em class="far fa-thumbs-up"></em>  Me gusta
-                                                        </button>    
+                                                        </button>
                                                     </form>
 
                                                 @endif
                                                 @else
-                                                    <button class="small text-decoration-none" type="button" onclick="window.location.href='{{ route('registrouser') }}'" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                    <button class="small text-decoration-none"
+                                                        type="button"
+                                                        onclick="window.location.href='{{ route('registrouser') }}'"
+                                                        style="border: none;background-color:transparent;
+                                                            color:#007bff !important;text-transform:none !important;
+                                                            padding:0px">
                                                         <em class="far fa-thumbs-up"></em>  Me gusta
-                                                    </button>    
+                                                    </button>
                                                 @endauth
 
 
