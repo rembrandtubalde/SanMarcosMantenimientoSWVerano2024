@@ -1,5 +1,3 @@
-<p align=right><img src=https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png height=40>><p>
-
 # <h1 align=center> **PROYECTO DE MANTENIMIENTO**</h1>
 
 ## **Machine Learning Operations (MLOps)** 
