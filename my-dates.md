@@ -4,6 +4,6 @@
 - Gonza Soto, Raquel Stacy.
 - Alata Gutierrez, Jose Rodolfo.
 - Lopez Terrones, Xiomy Ximena.
-- Alvarado Arroyo Diego AKira.
+- Alvarado Arroyo Diego AKira..
 
 
