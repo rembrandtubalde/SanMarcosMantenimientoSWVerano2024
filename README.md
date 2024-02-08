@@ -82,6 +82,38 @@ npm install
 ```bash
 npm run start
 ```
+## Scripts Disponibles
+
+En el directorio del proyecto, puedes ejecutar:
+
+### `npm start`
+
+Ejecuta la aplicación en modo de desarrollo.\
+La página se recargará cuando realices cambios.\
+También podrías ver cualquier error de estilo en la consola.
+
+### `npm test`
+
+Inicia el corredor de pruebas en modo interactivo.\
+
+### `npm run build`
+
+Compila la aplicación para producción en la carpeta `build`.\
+Empaqueta correctamente React en modo de producción y optimiza la construcción para obtener el mejor rendimiento.
+
+La construcción se minifica y los nombres de archivo incluyen los hashes.\
+¡Tu aplicación está lista para ser desplegada!
+
+### `npm run eject`
+**Nota: esto es una operación de un solo sentido. ¡Una vez que haces `eject`, no puedes volver atrás!**
+
+Si no estás satisfecho con la herramienta de construcción y las opciones de configuración, puedes `eject` en cualquier momento. Este comando eliminará la dependencia de construcción única de tu proyecto.
+
+En su lugar, copiará todos los archivos de configuración y las dependencias transitivas (webpack, Babel, ESLint, etc.) directamente en tu proyecto para que tengas control total sobre ellos. Todavía funcionarán todos los comandos excepto `eject`, pero apuntarán a los scripts copiados para que puedas ajustarlos. En este punto, estás por tu cuenta.
+
+No es necesario utilizar `eject` nunca. El conjunto de funciones seleccionado es adecuado para despliegues pequeños y medianos, y no debes sentirte obligado a usar esta función. Sin embargo, entendemos que esta herramienta no sería útil si no pudieras personalizarla cuando estés listo para hacerlo.
+
+
 ## Mantenimiento 
 
 En el trabajo de mantenimiento de software, planeamos migrar desde la actual arquitectura de capas altamente acoplada a una arquitectura más modular y desacoplada. Este cambio busca mejorar la flexibilidad, facilitar la escalabilidad y reducir la complejidad del código. La transición se realizará de manera cuidadosa para minimizar posibles impactos en la funcionalidad existente, asegurando una transición suave hacia un mantenimiento más eficiente y sostenible a largo plazo
