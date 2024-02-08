@@ -1,0 +1,43 @@
+.location__places {
+	height: calc(100vh - 200px);
+  width: 100%;
+  max-width: calc(100vw - 750px);
+  flex: 1;
+}
+
+.location__title {
+  font-weight: normal;
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+
+.location__list {
+  display: flex;
+  overflow-x: scroll;
+  margin-bottom: 12px;
+}
+
+.location__list .content {
+  margin-right: 48px;
+  margin-bottom: 0;
+}
+
+.location__list::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.location__list::-webkit-scrollbar-thumb {
+  background: var(--dark-grey);
+  border-radius: 4px;
+}
+
+.location__list::-webkit-scrollbar-thumb:active {
+  background-color: var(--dark-grey);
+}
+
+.location__map {
+	width: 480px;
+	height: calc(100vh - 200px);
+	padding-left: 48px;
+}

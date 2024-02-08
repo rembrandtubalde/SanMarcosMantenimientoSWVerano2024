@@ -1,0 +1,13 @@
+.password-confirm__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.showPasswordButton {
+	position: absolute;
+	display: inline;
+	left: calc(317px - 45px);
+	bottom: 48%;
+	cursor: pointer;
+	color: inherit;
+}

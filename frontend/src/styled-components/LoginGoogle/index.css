@@ -1,0 +1,26 @@
+.google-icon-wrapper {
+  padding: 10px 34px;
+	border-radius: 30px;
+	background-color: var(--sunray);
+	border: 2px solid var(--primary-color);
+	color: var(--white);
+	cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	box-shadow: 0px 14px 23px rgba(28, 37, 44, 0.08);
+}
+
+.google-icon-wrapper:hover {
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.google-icon-text {
+	font-family: inherit;
+  color: var(--text-grey);
+  font-weight: bold;
+	font-size: 16px;
+  padding-left: 10px;
+}

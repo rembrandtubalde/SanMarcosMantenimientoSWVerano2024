@@ -1,0 +1,37 @@
+.favorites__list {
+  width: 100%;
+}
+
+.favorites {
+	display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-column-gap: 32px;
+	width: 100%;
+	height: 100%;
+  overflow-y: scroll;
+}
+
+.favorites {
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+  padding: 0 8px;
+}
+
+.favorites > div {
+  width: 400px;
+  justify-self: center;
+}
+
+.favorites::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.favorites::-webkit-scrollbar-thumb {
+  background: var(--dark-grey);
+  border-radius: 4px;
+}
+
+.favorites::-webkit-scrollbar-thumb:active {
+  background-color: var(--dark-grey);
+}

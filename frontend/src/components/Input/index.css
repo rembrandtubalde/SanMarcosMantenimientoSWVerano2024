@@ -1,0 +1,29 @@
+.input {
+  padding: 12px 24px;
+  font-size: 16px;
+	color: var(--dark-grey);
+	border: 1.5px var(--dark-grey) solid;
+	background-color: var(--sunray);
+	border-radius: 20px;
+	transition: .2s;
+	margin-bottom: 18px;
+	width: 100%;
+}
+
+.input::placeholder {
+	color: var(--dark-grey);
+}
+
+.input:focus {
+	background-color: var(--white);
+	color: var(--text-grey);
+}
+
+.input--pass {
+	position: relative;
+	color: var(--text-grey);
+}
+
+.input--fail {
+	border: 1.5px solid var(--error-red);
+}
