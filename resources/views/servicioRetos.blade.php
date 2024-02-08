@@ -204,9 +204,17 @@
                                   <span class="ksr-green-700 inline-block bold type-16 type-28-md">
                                   <span class="ksr-green-500">S/{{ $serviceProfile->precio_actual }}</span>
                                   </span>
-                                  <p class="card-text">contribuido de <span class="money">{{ $serviceProfile->precio }} US$ </span></p>
-                                  <div class="block type-16 type-28-md bold dark-grey-500"><span> {{ $serviceProfile->IntermediateChange->cha_count }} </span></div>
-                                  <p class="card-text">patrocinadores</p>
+                                  <p
+                                     class="card-text">contribuido de <span
+                                     class="money">{{ $serviceProfile->precio }} US$ </span>
+                                  </p>
+                                  <div
+                                     class="block type-16 type-28-md bold dark-grey-500"><span>
+                                     {{ $serviceProfile->IntermediateChange->cha_count }} </span>
+                                  </div>
+                                  <p
+                                    class="card-text">patrocinadores
+                                  </p>
 
                                   <div class="">
 
