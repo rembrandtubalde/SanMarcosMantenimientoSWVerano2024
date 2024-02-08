@@ -167,11 +167,19 @@
                         <div class="col-md-6">
                             <h1 class="display-5 fw-bolder">{{ $serviceProfile->IntermediateChange->cha_name }}</h1>
 
-                            <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}" class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}</a>
+                            <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}"
+                               class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}</a>
                             <br>
-                            <label><strong>Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->email }} <label></label>
+                            <label><strong>
+
+                                Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->email }}
+
+                            <label></label>
                             <br>
-                            <label><strong>Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->birthdate }} <label></label>
+                            <label><strong>
+                                Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->birthdate }}
+                            <label></label>
+
                             <br>
                             <div class="card text-center">
                                 <div class="card-header">
