@@ -1,5 +1,5 @@
 # Proyecto My Dates
-## Integrantes
+## Integrantes,.
 - Vasquez Palomino, Ashel Joseph.
 - Gonza Soto, Raquel Stacy.
 - Alata Gutierrez, Jose Rodolfo.
