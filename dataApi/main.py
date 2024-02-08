@@ -147,3 +147,26 @@ def get_actor(platform: str, release_year: int) -> Tuple[int, List[str]]:
     
     # Devolver el resultado como una tupla con la cantidad máxima y la lista de actores
     return max_appearances, most_common_actors
+
+
+# Creando la función 5: Sistema de recomendacion de películas con mayor rating en base al año dado.
+def get_recommendation(year: int) -> str:
+    try:
+        # Filtrar las películas por el año especificado
+        movies_of_year = df[df['release_year'] == year]
+        
+        # Ordenar las películas por rating de forma descendente y seleccionar las 10 mejores
+        top_movies = movies_of_year.sort_values(by='score', ascending=False).head(10)
+        
+        # Verificar si hay películas para el año especificado
+        if top_movies.empty:
+            return "Lo siento, no se encontraron películas para el año especificado."
+        
+        # Seleccionar una película aleatoria de las 10 mejores
+        random_movie = random.choice(top_movies['title'].tolist())
+        
+        return f"¡Recomendación: {random_movie} es una de las mejores películas de {year}!"
+
+    except Exception as e:
+        return f"Error: {str(e)}"
+
