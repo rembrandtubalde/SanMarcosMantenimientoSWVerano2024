@@ -85,3 +85,27 @@ npm run start
 ## Mantenimiento 
 
 En el trabajo de mantenimiento de software, planeamos migrar desde la actual arquitectura de capas altamente acoplada a una arquitectura más modular y desacoplada. Este cambio busca mejorar la flexibilidad, facilitar la escalabilidad y reducir la complejidad del código. La transición se realizará de manera cuidadosa para minimizar posibles impactos en la funcionalidad existente, asegurando una transición suave hacia un mantenimiento más eficiente y sostenible a largo plazo
+
+## Tecnologías usadas
+
+### Backend
+
+Dentro del backend estamos usando tecnologías que giran entorno al lenguaje Javascript:
+
+- Node.js
+- Express.js
+- EsLint
+- Nodemon
+- Mongoose
+- JWT's para la autenticación
+
+### Frontend
+
+Dentro del frontend también se usan herramientas que giran en torno al lenguaje Javascript:
+
+- React
+- Framer Motion
+- Redux
+- Axios
+- EsLint
+- Styled Components
