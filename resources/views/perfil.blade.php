@@ -2,8 +2,12 @@
 
 @section('contenido_js')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-<script src="https://vjs.zencdn.net/7.2/video.min.js" integrity="sha384-XF5dKLDmkHsv5ravG7c53yK0eaLEQ4tTprSTHS6B8DTgMwppYU1BDHx7EfNeLs5j" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+<script src="https://vjs.zencdn.net/7.2/video.min.js"
+    integrity="sha384-XF5dKLDmkHsv5ravG7c53yK0eaLEQ4tTprSTHS6B8DTgMwppYU1BDHx7EfNeLs5j"
+    crossorigin="anonymous"></script>
 
 @endsection
 
@@ -58,20 +62,49 @@
                                     <p class="proile-rating">CALIFICACION : <span>8/10</span></p>
                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Personales</a>
+                                    <a class="nav-link active" 
+                                        id="home-tab"
+                                        data-toggle="tab"
+                                        href="#home"
+                                        role="tab"
+                                        aria-controls="home" 
+                                        aria-selected="true">Datos Personales</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Servicios</a>
+                                    <a class="nav-link"
+                                        id="profile-tab"
+                                        data-toggle="tab"
+                                        href="#profile"
+                                        role="tab"
+                                        aria-controls="profile"
+                                        aria-selected="false">Servicios</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="reto-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="reto" aria-selected="false">Reto activo</a>
+                                    <a class="nav-link"
+                                        id="reto-tab"
+                                        data-toggle="tab"
+                                        href="#reto" role="tab"
+                                        aria-controls="reto"
+                                        aria-selected="false">Reto activo</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="historia-tab" data-toggle="tab" href="#historia" role="tab" aria-controls="historia" aria-selected="false">Historial de retos</a>
+                                    <a class="nav-link"
+                                        id="historia-tab"
+                                        data-toggle="tab"
+                                        href="#historia"
+                                        role="tab"
+                                        aria-controls="historia"
+                                        aria-selected="false">Historial de retos</a>
                                 </li>
                                 @if (auth()->user()->id == $user->id)
                                     <li class="nav-item">
-                                        <a class="nav-link" id="solicitudes-tab" data-toggle="tab" href="#solicitudes" role="tab" aria-controls="solicitudes" aria-selected="false">Solicitudes de contratos</a>
+                                        <a class="nav-link"
+                                            id="solicitudes-tab" 
+                                            data-toggle="tab"
+                                            href="#solicitudes"
+                                            role="tab"
+                                            aria-controls="solicitudes"
+                                            aria-selected="false">Solicitudes de contratos</a>
                                     </li>
                                 @endif
 
@@ -81,11 +114,18 @@
                     <div class="col-md-2">
                         @if(auth()->user()->id == $user->id)
                             @if (auth()->user()->premium == false)
-                                <button type="button" class="btn btn-success" name="btnAddMore" onclick="window.location.href='{{route('premium')}}'">
+                                <button type="button"
+                                    class="btn btn-success"
+                                    name="btnAddMore"
+                                    onclick="window.location.href='{{route('premium')}}'">
                                     Hazte Premium
                                 </button>
                             @endif
-                            <button type="button" class="profile-edit-btn" name="btnAddMore" data-toggle="modal" data-target="#myModal" >
+                            <button type="button"
+                                class="profile-edit-btn"
+                                name="btnAddMore"
+                                data-toggle="modal"
+                                data-target="#myModal" >
                             Editar Perfil
                             </button>
                         @endif
