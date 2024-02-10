@@ -62,12 +62,12 @@
                                     <p class="proile-rating">CALIFICACION : <span>8/10</span></p>
                                  <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" 
+                                    <a class="nav-link active"
                                         id="home-tab"
                                         data-toggle="tab"
                                         href="#home"
                                         role="tab"
-                                        aria-controls="home" 
+                                        aria-controls="home"
                                         aria-selected="true">Datos Personales</a>
                                 </li>
                                 <li class="nav-item">
@@ -99,7 +99,7 @@
                                 @if (auth()->user()->id == $user->id)
                                     <li class="nav-item">
                                         <a class="nav-link"
-                                            id="solicitudes-tab" 
+                                            id="solicitudes-tab"
                                             data-toggle="tab"
                                             href="#solicitudes"
                                             role="tab"
