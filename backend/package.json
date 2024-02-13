@@ -4,7 +4,7 @@
   "description": "Backend realizado para la aplicación web \"myDates\" que será desarrollada para el curso de Calidad de Software",
   "main": "src/index.js",
   "scripts": {
-    "build": "rm -rf dist && babel src -d dist",
+    "build": "tsc",
     "test": "SET NODE_ENV=test jest --verbose --runInBand",
     "start": "SET NODE_ENV=production node dist/index.js",
     "dev": "SET NODE_ENV=development npm run build && nodemon dist/index.js",
@@ -32,6 +32,8 @@
     "@babel/core": "^7.18.5",
     "@babel/node": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^20.11.17",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -51,6 +53,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.0",
     "multer": "1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0"
+    "multer-storage-cloudinary": "^4.0.0",
+    "typescript": "^5.3.3"
   }
 }
