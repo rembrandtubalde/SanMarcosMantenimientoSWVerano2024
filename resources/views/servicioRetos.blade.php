@@ -600,8 +600,15 @@
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
-                                        Realizar Comentario</a>
+                                    <a class="nav-link active" 
+                                       id="posts-tab" 
+                                       data-toggle="tab" 
+                                       href="#posts" 
+                                       role="tab" 
+                                       aria-controls="posts" 
+                                       aria-selected="true">
+                                        Realizar Comentario
+                                    </a>
                                 </li>
                             </ul>
                         </div>
