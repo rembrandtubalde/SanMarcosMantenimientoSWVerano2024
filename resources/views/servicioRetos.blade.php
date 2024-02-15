@@ -4,11 +4,11 @@
 @section('contenido_js')
     <!-- Core theme JS-->
     @livewireStyles
-    <script 
+    <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
         integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
         crossorigin="anonymous"></script>
-    <script 
+    <script
         src="https://js.pusher.com/7.0/pusher.min.js"
         integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7"
         crossorigin="anonymous"></script>
@@ -135,7 +135,10 @@
                     <div class="row gx-4 gx-lg-5 align-items-center">
 
                         <div class="col-md-6">
-                            <img class="card-img-top mb-5 mb-md-0" src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" alt="..." />
+                            <img class="card-img-top mb-5 mb-md-0"
+                                src="{{  $serviceProfile->imagen  }}"
+                                style="width:512px !important;"
+                                alt="..." />
 
 
                             @if($serviceProfile->IntermediateChange->cha_video!=null)
@@ -143,7 +146,9 @@
                                 {{-- Video --}}
                                 <h4>Video</h4>
 
-                                <div class="hero__pic set-bg"  data-setbg="img/hero/hero-video.png" style="background-image: url(&quot;https://img.freepik.com/vector-gratis/fondo-negro-foco-luz_1017-27230.jpg?size=626&ext=jpg&quot;);">
+                                <div class="hero__pic set-bg"
+                                    data-setbg="img/hero/hero-video.png"
+                                    style="background-image: url(&quot;https://img.freepik.com/vector-gratis/fondo-negro-foco-luz_1017-27230.jpg?size=626&ext=jpg&quot;);">
 
                                 @php
                                     $ytarray=explode("/", $serviceProfile->IntermediateChange->cha_video);
@@ -152,8 +157,12 @@
                                     $ytendstring=end($ytendarray);
                                     $ytendarray=explode("&", $ytendstring);
                                     $ytcode=$ytendarray[0];
-                                    echo "<iframe width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/$ytcode\" title=\"Navigation menu\" style=\"border: 0;\" allowfullscreen></iframe>";
-
+                                    echo "<iframe width=\"100%\"
+                                        height=\"315\"
+                                        src=\"https://www.youtube.com/embed/$ytcode\"
+                                        title=\"Navigation menu\"
+                                        style=\"border: 0;\"
+                                        allowfullscreen></iframe>";
                                 @endphp
                                 </div>
                                 <br>
@@ -168,26 +177,31 @@
                             <h1 class="display-5 fw-bolder">{{ $serviceProfile->IntermediateChange->cha_name }}</h1>
 
                             <a href="{{ route('perfil',$serviceProfile->IntermediateUseOcc->id) }}"
-                               class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}</a>
+                               class="h5 fw-bolder">
+                               {{ $serviceProfile->IntermediateUseOcc->name." ".$serviceProfile->IntermediateUseOcc->lastname }}
+                            </a>
                             <br>
-                            <label><strong>
-
-                                Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->email }}
-
+                            <label>
+                                <strong>
+                                    Email : &nbsp;
+                                </strong>
+                            </label>
+                            {{ $serviceProfile->IntermediateUseOcc->email }}
                             <label></label>
                             <br>
-                            <label><strong>
-                                Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseOcc->birthdate }}
+                            <label>
+                                <strong>
+                                Año de nacimiento : &nbsp;
+                                </strong>
+                            </label>
+                            {{ $serviceProfile->IntermediateUseOcc->birthdate }}
                             <label></label>
-
                             <br>
                             <div class="card text-center">
                                 <div class="card-header">
                                   <ul class="nav nav-tabs card-header-tabs">
                                     <li class="nav-item">
-
                                         <a class="nav-link active" aria-current="true" href="">Servicio</a>
-
                                     </li>
                                   </ul>
                                 </div>
@@ -225,7 +239,9 @@
                                         @if(auth()->user()->id == $serviceProfile->IntermediateUseOcc->id)
                                             <div class="row">
                                                     <div class="col-md-12 d-flex justify-content-center">
-                                                        <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
+                                                        <button class="btn btn-outline-dark flex-shrink-0"
+                                                            disabled
+                                                            type="button">
                                                             <em class="bi-cart-fill me-1"></em>
                                                             Tu eres el del servicio
                                                         </button>
@@ -372,7 +388,10 @@
                                                             @error('cantidadDonacion')
                                                             <div class="alert alert-danger" role="alert">
                                                               <strong>Atención.</strong> {{ $message }}
-                                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                              <button type="button"
+                                                                class="close"
+                                                                data-dismiss="alert"
+                                                                aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                               </button>
                                                             </div>
@@ -381,7 +400,8 @@
 
 
                                                             <br>
-                                                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                                            <script src="https://checkout.stripe.com/checkout.js"
+                                                                class="stripe-button"
                                                                 data-key="{{ config('services.stripe.key') }}"
                                                                 data-name="{{ $serviceProfile->IntermediateChange->cha_name }}"
                                                                 data-description="{{ $serviceProfile->description }}"
