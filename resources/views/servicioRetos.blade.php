@@ -481,19 +481,38 @@
 
                         <!-- Cuerpo modal -->
                         <div class="modal-corpo">
-                            <div class="m-1" id="formulario">
+                            <div class="m-1" 
+                                 id="formulario">
                                 <label class="">Contratado por: Usuario nuevo</label><br>
                                 <label>Hora: </label><br>
-                                <input type="time" class="form-control" value="{{ old('hourForm') }}" name="hourForm">
-                                <label class="m-1">Fecha: </label>
-                                <input type="date" class="form-control" value="{{ old('dateForm') }}" name="dateForm" min="2020-11-02" id="fechaContrato" required>
+                                <input type="time" 
+                                       class="form-control" 
+                                       value="{{ old('hourForm') }}" 
+                                       name="hourForm">
 
-                                <label class="m-1" for="">Lugar</label>
-                                <input type="text" class="form-control" name="addressForm" value="{{ old('addressForm') }}" placeholder="Lugar">
+                                <label class="m-1">Fecha: </label>
+                                <input type="date" 
+                                       class="form-control" 
+                                       value="{{ old('dateForm') }}" 
+                                       name="dateForm" 
+                                       min="2020-11-02" 
+                                       id="fechaContrato" 
+                                       required>
+
+                                <label class="m-1" 
+                                       for="">Lugar</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       name="addressForm" 
+                                       value="{{ old('addressForm') }}" 
+                                       placeholder="Lugar">
 
 
                                 <label class="m-1">Descripcion</label><br>
-                                <input class="form-control" name="descriptionForm" value="{{ old('descriptionForm') }}" placeholder="Descripcion">
+                                <input class="form-control" 
+                                       name="descriptionForm" 
+                                       value="{{ old('descriptionForm') }}" 
+                                       placeholder="Descripcion">
                             </div>
                         </div>
 
