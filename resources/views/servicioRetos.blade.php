@@ -566,7 +566,13 @@
                                 <h5 class="card-title">Preguntas Frecuentes</h5>
                                 @auth
                                     @if(auth()->user()->id == $serviceProfile->use_id)
-                                    <button type="button" class="btn btn-sm btn-primary" name="btnpregunta" data-toggle="modal" data-target="#Modalpregunta">Añadir Pregunta Frecuente</button>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-sm btn-primary" 
+                                        name="btnpregunta" 
+                                        data-toggle="modal" 
+                                        data-target="#Modalpregunta">Añadir Pregunta Frecuente
+                                    </button>
                                     @endif
                                 @endauth
 
