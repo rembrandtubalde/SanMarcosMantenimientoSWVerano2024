@@ -1,10 +1,12 @@
-import http from 'http';
-import app from './app';
+import { Server } from './app';
 
 const PORT = process.env.PORT || 3001;
 
-const server = http.createServer(app);
+const server = new Server(PORT);
 
-server.listen(PORT, () => {
-  console.log(`Server running on PORT ${PORT}`);
-});
+try {
+  server.listen();
+} catch (e) {
+  console.log(e);
+  process.exit(1);
+}
