@@ -1,5 +1,5 @@
 type EnvironmentVariables = {
-  PORT: number;
+  PORT?: number;
   MONGODB_URI: string;
   SECRET: string;
   GOOGLE_API_KEY: string;
