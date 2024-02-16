@@ -902,7 +902,9 @@
 
                                 <div class="form-group col-md-12">
                                 <label for="inputEmail4">Responder Pregunta Frecuente</label>
-                                <input type="text" name="respuesta" class="form-control @error('respuesta') is-invalid @enderror" id="inputRespuesta" placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
+                                <input type="text" name="respuesta" class="form-control @error('respuesta') is-invalid @enderror" 
+                                id="inputRespuesta" placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
+
                                 @error('respuesta')
                                     <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
