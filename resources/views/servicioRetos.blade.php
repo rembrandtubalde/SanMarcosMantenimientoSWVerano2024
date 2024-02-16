@@ -924,7 +924,8 @@
 
                         </button>
 
-                        <button id="cerrarBtn" type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                        <button id="cerrarBtn" type="button" class="btn btn-outline-danger"
+                        data-dismiss="modal">Cerrar</button>
 
                         </div>
 
