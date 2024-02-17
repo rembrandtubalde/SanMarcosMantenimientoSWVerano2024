@@ -1,4 +1,7 @@
-export class User {
+import { BaseEntity } from "../../Shared/domain/BaseEntity";
+
+export class User extends BaseEntity {
+  readonly id: string;
   readonly name: string;
   readonly lastName: string;
   readonly email: string;
@@ -8,6 +11,7 @@ export class User {
   readonly avatar: string;
 
   constructor(
+    id: string,
     name: string,
     lastName: string,
     email: string,
@@ -16,6 +20,8 @@ export class User {
     country: string,
     avatar: string
   ) {
+    super();
+    this.id = id;
     this.name = name;
     this.lastName = lastName;
     this.email = email;
@@ -26,6 +32,7 @@ export class User {
   }
 
   static create(
+    id: string,
     name: string,
     lastName: string,
     email: string,
@@ -34,8 +41,20 @@ export class User {
     country: string,
     avatar: string
   ) {
-      const user = new User(name, lastName, email, password, passwordConfirm, country, avatar);
+      const user = new User(id, name, lastName, email, password, passwordConfirm, country, avatar);
 
       return user;
+  }
+
+  toPrimitives() {
+    return {
+      name: this.name,
+      lastName: this.lastName,
+      email: this.email,
+      password: this.password,
+      passwordConfirm: this.passwordConfirm,
+      country: this.country,
+      avatar: this.avatar
+    }
   }
 }

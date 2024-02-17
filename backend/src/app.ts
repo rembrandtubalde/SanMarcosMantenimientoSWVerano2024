@@ -3,33 +3,19 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import * as http from 'http';
 
-// config
-import { config } from './config';
-
 // routes
 import { UserRoute } from './api/User';
 import { LoginRoute } from './api/Login';
 import { PlaceRoute } from './api/Place';
 import { FavoritesRoute } from './api/Favorites';
 import { DateRoute } from './api/Date';
+import userRoutes from './api/routes/user.routes';
 
 // middlewares
 import {
   logger, requestLogger, unknownEndpoint, errorHandler,
 } from './middlewares';
 import bodyParser from 'body-parser';
-
-const connectDB = async () => {
-  try {
-    await mongoose.connect(config.MONGODB_URI);
-
-    logger.info('MongoDB connected succesfully');
-  } catch (error) {
-    logger.error('Some error has ocurred: ', error.message);
-  }
-};
-
-connectDB();
 
 export class Server {
   private express: express.Express;
@@ -48,7 +34,7 @@ export class Server {
     this.express.use('/api/v1/dates', DateRoute);
     this.express.use('/api/v1/favorites', FavoritesRoute);
     this.express.use('/api/v1/placeinfo', PlaceRoute);
-    this.express.use('/api/v1/auth/register', UserRoute);
+    this.express.use('/api/v1/auth/register', userRoutes);
     this.express.use('/api/v1/auth/login', LoginRoute);
     this.express.use('/ping', (req, res) => res.send('pong!'));
     this.express.use('/', (req, res) => res.send('Hi!'));

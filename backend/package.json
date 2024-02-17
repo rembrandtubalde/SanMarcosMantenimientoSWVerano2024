@@ -2,12 +2,12 @@
   "name": "back-my-dates",
   "version": "0.1.0",
   "description": "Backend realizado para la aplicación web \"myDates\" que será desarrollada para el curso de Calidad de Software",
-  "main": "src/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
     "test": "SET NODE_ENV=test jest --verbose --runInBand",
     "start": "SET NODE_ENV=production node dist/src/index.js",
-    "dev": "SET NODE_ENV=development npm run build && nodemon dist/src/index.js",
+    "dev": "SET NODE_ENV=development && npm run build && nodemon dist/src/index.js",
     "serve": "node dist/src/index.js",
     "lint": "eslint .",
     "prepare": "husky install"
@@ -57,6 +57,7 @@
     "mongoose": "^6.4.0",
     "multer": "1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
+    "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
   }
 }

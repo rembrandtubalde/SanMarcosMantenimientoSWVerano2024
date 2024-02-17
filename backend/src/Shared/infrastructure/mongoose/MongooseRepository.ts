@@ -1,6 +1,7 @@
-import { Collection, Connection } from "mongoose";
+import { Collection, Connection, Model, Schema, model } from "mongoose";
+import { BaseEntity } from "../../domain/BaseEntity";
 
-export abstract class MongooseRepository<T> {
+export abstract class MongooseRepository<T extends BaseEntity> {
   constructor(private _client: Promise<Connection>) {}
   
   protected abstract collectionName(): string;
@@ -16,8 +17,8 @@ export abstract class MongooseRepository<T> {
   protected async persist(id: string, entity: T): Promise<void> {
     const collection = await this.collection();
 
-    const document = { ...entity, _id: id, id: undefined };
-
-    await collection.updateOne({ _id: id }, { $set: document }, { upsert: true });
+    const document = {...entity.toPrimitives(), _id: id, id: undefined };
+    
+    await collection.updateOne({ _id: id }, { $set: document}, { upsert: true })
   }
 }

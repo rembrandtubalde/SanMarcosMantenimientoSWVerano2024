@@ -1,15 +1,15 @@
-import { connect } from 'mongoose';
+import { createConnection, Connection } from 'mongoose';
 import MongooseConfig from "./MongooseConfig";
 
 export class MongoClientFactory {
-  static async createClient(config: MongooseConfig): Promise<typeof import("mongoose")> {
+  static async createClient(config: MongooseConfig): Promise<Connection> {
     try {
-      const connection = await connect(config.url);
+      const connection = await createConnection(config.url).asPromise();
 
+      console.log("MongoDB is connected successfully");
       return connection;
     } catch (e) {
       throw new Error("Error ocurred connecting to DB");
     }
   }
-
 }
