@@ -111,5 +111,53 @@ Link de URL pública (expira el 23-03-2022)
 En este mismo repositorio podras encontrar algunos **[links de ayuda](https://github.com/HX-PRomero/PI_ML_OPS/blob/main/Material%20de%20apoyo.md)**. Recuerda que no son los unicos recursos que puedes utilizar!
 <br/>
 
+----
 
 # MLOPS-Mantenimiento
+## Parte 1: Adaptativo (Yeyson Samir Cano Carbajo)
+**Objetivos:**  
+Actualización de los requisitos del sistema y el archivo main.py para cumplir con las nuevas versiones y dependencias de Python.
+Diseñar una ruta en main.py para integrar el modelo de Machine Learning.
+
+**Actividades:**  
+- Revisar los requisitos actuales del sistema y compararlos con las nuevas versiones y dependencias de Python.  
+- Modificar el archivo main.py para integrar las actualizaciones y asegurar la compatibilidad con las nuevas versiones.  
+- Diseñar e implementar una ruta en main.py que permita la integración del modelo de Machine Learning de manera eficiente y efectiva.
+
+## Parte 2: Adaptativo (Richard Saul Alvarez Huarsaya)
+**Objetivo:**  
+Actualizar el código del proceso ETL a las nuevas versiones y dependencias de Python.
+
+**Actividades:**  
+- Revisar el código del proceso ETL existente.  
+- Identificar las dependencias y versiones de Python actuales en el proceso ETL.  
+- Actualizar el código del proceso ETL para garantizar la compatibilidad con las nuevas versiones y dependencias de Python.
+
+## Parte 3: Correctivo (Gustavo Alonso Tuyo Acero)
+**Objetivo:**  
+Reactivar el código para el Sistema de Recomendación con Machine Learning (si no hay errores en la lógica, cambiar a adaptativo).
+
+**Actividades:**  
+- Analizar el código actual del Sistema de Recomendación con Machine Learning.
+- Identificar y corregir cualquier error lógico que pueda estar presente en el código.
+- Reactivar el código del Sistema de Recomendación para garantizar su funcionalidad óptima.
+
+## Parte 4: Perfectivo (Bianca Elizabeth Romero Diaz)
+**Objetivo:**  
+Crear una interfaz para consumir la API (en una carpeta nueva).
+
+**Actividades:**  
+- Diseñar la estructura de la interfaz para consumir la API.
+- Desarrollar la interfaz de usuario de manera intuitiva y amigable.
+- Integrar la interfaz con la API existente y asegurar su correcto funcionamiento.
+
+## Parte 5: Adaptativo (Richar Quispe Surco)
+**Objetivo:**  
+Despliegue de  la API y agregar documentación.
+
+**Actividades:**  
+- Preparar el entorno de despliegue para la API aplicando la tecnologia Docker.
+- Implementar el despliegue de la API en un entorno de producción.
+- Generar documentación detallada del proceso del mantenimeinto.
+
+

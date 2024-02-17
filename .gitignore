@@ -5,3 +5,4 @@
 datasets/full_scores.scv
 full_scores.scv
 .venv
+/ml_interfaz/node_modules
