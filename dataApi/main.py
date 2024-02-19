@@ -1,29 +1,17 @@
 # Importante librerías necesarias
 from fastapi import FastAPI, Query
-from typing import Optional
-from typing import List, Tuple, Union
-from enum import Enum,IntEnum
+from typing import List, Tuple
+from enum import Enum
 
 import pandas as pd
 
-class ListaNum(IntEnum):
-    pass
-
-opciones_anio = [year for year in range(1980, 2022)]
-
-class ListaAnios(str, Enum):
-    opcion1 = "2019"
-    opcion2 = "1981"
-    opcion3 = "1982"
-    opcion4 = "1983"
-
-class ListaPlat(str, Enum):
+class Plataformas(str, Enum):
     opcion1 = "disney"
     opcion2 = "hulu"
     opcion3 = "netflix"
     opcion4 = "amazon"
 
-class ListaTipoDuration(str, Enum):
+class TipoDuracion(str, Enum):
     opcion1 = "min"
     opcion2 = "season"
 
@@ -49,8 +37,8 @@ df = pd.read_csv('datasets/full_titles.csv')
     description = "Obtén la película con mayor duración o serie con más temporadas aplicando filtros opcionales de año, plataforma y tipo de duración.")
 def get_max_duration(
     release_year: int = Query(None, description="Ingresa un año entre 1980 y 2021"),
-    platform: str = Query(None, description="Ingresa una plataforma: amazon, disney, hulu o netflix"), 
-    duration_type: ListaTipoDuration = Query(None, description="Selecciona el tipo de duración eligiendo 'min' para pelicula o 'season' para serie")):
+    platform: Plataformas = Query(None, description="Ingresa una plataforma: amazon, disney, hulu o netflix"), 
+    duration_type: TipoDuracion = Query(None, description="Selecciona el tipo de duración eligiendo 'min' para pelicula o 'season' para serie")):
 
     # Crear una copia del DataFrame original para evitar modificar los datos originales
     df_copy = df.copy()
@@ -101,14 +89,14 @@ def get_max_duration(
 # Creando la función 2: cantidad de películas por plataforma con un puntaje mayor a XX en determinado año
 # la función debe llamarse get_score_count(platform, scored, year)
 @app.get(
-        "/score_count/{platform}/{scored}/{release_year}",
+        "/score_count",
         summary = "Películas y series según score",
         description = "Obtén la cantidad de películas con un puntaje mayor al que ingreses en determinado año y plataforma, criterios obligatorios."
 )
 def get_score_count(
-    platform: str,
-    scored: float = Query(None, description="Ingresa un puntaje hasta con dos decimales"),
-    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021")):
+    platform: Plataformas,
+    scored: float = Query(..., description="Ingresa un puntaje hasta con dos decimales, entre 3 y 4. Usa el punto para separar decimales.", ge=3, le=4),
+    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021", ge=1980, le=2021)):
 
     try:        
         # Validando plataforma correcta
@@ -132,12 +120,12 @@ def get_score_count(
 # Creando la función 3: cantidad de películas por plataforma con filtro de PLATAFORMA.
 # La función debe llamarse get_count_platform(platform)
 @app.get(
-        "/count_platform/{platform}",
+        "/count_platform",
         summary = "Cantidad de películas y series por plataforma",
         description = "Obtén la cantidad de películas y series registradas en nuestra base de datos según la plataforma elegida."
 )
 def get_count_platform(
-    platform: str = Query(..., description="Ingresa una plataforma: amazon, disney, hulu o netflix")):
+    platform: Plataformas):
 
     try:        
         # Validando plataforma correcta
@@ -163,8 +151,8 @@ def get_count_platform(
         description = "Obtén al actor que aparece en la mayor cantidad de películas y series según plataforma y año elegidos como filtros obligatorios."
 )
 def get_actor(
-    platform: str = Query(..., description="Ingresa una plataforma: amazon, disney, hulu o netflix"),
-    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021")) -> Tuple[int, List[str]]:
+    platform: Plataformas,
+    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021", ge=1980, le=2021)) -> Tuple[int, List[str]]:
 
     # Validando plataforma correcta
     if platform is not None and platform.lower() not in ['amazon', 'disney', 'hulu', 'netflix']:
