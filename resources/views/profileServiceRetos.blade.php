@@ -15,8 +15,10 @@
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }} ">
-        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600'
+            rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300'
+            rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
         <style>
             .description-service {
@@ -24,7 +26,7 @@
                 overflow: hidden;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
-            }            
+            }
         </style>
 @endsection
 
@@ -62,23 +64,33 @@
                                 @endif
                             </div>
     
-                            
-                            <h2><a href="{{ route('showProfileServiceRetos',$service->id) }}">{{ $service->IntermediateChange->cha_name }}</a></h2>
+                            <h2>
+                                <a href="{{ route('showProfileServiceRetos',$service->id) }}">
+                                    {{ $service->IntermediateChange->cha_name }}
+                                </a>
+                            </h2>
                             <div class="product-carousel-price">
-                                 <a href="{{ route('perfil',$service->use_id) }}">{{ $service->IntermediateUseOcc->name }}</a> 
-                            </div>  
+                                 <a href="{{ route('perfil',$service->use_id) }}">
+                                    {{ $service->IntermediateUseOcc->name }}
+                                </a>
+                            </div>
                             <div class="product-carousel-price description-service">
                                 {{ $service->descripcion }}
-                            </div>  
+                            </div>
                             <div class="product-carousel-price">
-                                <ins>${{ $service->precio_actual }} de ${{ $service->precio }}  contribuido</ins> 
-                            </div>  
+                                <ins>${{ $service->precio_actual }} de ${{ $service->precio }}  contribuido</ins>
+                            </div>
                             
                             <div class="product-option-shop">
-                                <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="{{ route('showProfileServiceRetos',$service->id) }}">Ver más</a>
-                            </div>                       
+                                <a class="add_to_cart_button"
+                                    data-quantity="1"
+                                    data-product_sku=""
+                                    data-product_id="70"
+                                    rel="nofollow"
+                                    href="{{ route('showProfileServiceRetos',$service->id) }}">Ver más</a>
+                            </div>
                         </div>
-                    </div>                
+                    </div>
                 @endforeach
 
 @endsection
