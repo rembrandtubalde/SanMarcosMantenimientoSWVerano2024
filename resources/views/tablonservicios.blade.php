@@ -3,9 +3,18 @@
 
 @section('contenido_js')
     
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-<script src="https://js.pusher.com/7.0/pusher.min.js" integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous">
+</script>
+<script src="https://js.pusher.com/7.0/pusher.min.js"
+    integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7"
+    crossorigin="anonymous">
+</script>
 @endsection
 
 @section('contenido_cSS')
@@ -47,7 +56,7 @@
                     <select>
                         @foreach ($talentos as $talento)
                             <option>
-                            {{ $talento->ser_tal_name }} 
+                            {{ $talento->ser_tal_name }}
                             </option>
                         @endforeach
                     </select>
@@ -57,7 +66,7 @@
                     <select>
                         @foreach ($ocupaciones as $ocupacion)
                             <option>
-                            {{ $ocupacion->ser_occ_name }} 
+                            {{ $ocupacion->ser_occ_name }}
                             </option>
                         @endforeach
                     </select>
@@ -68,19 +77,30 @@
 
                 @foreach ($servicios as $servicio)
                     <div class="col-3 mt-2 text-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$servicio->id}}">
+                        <button type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#myModal-{{$servicio->id}}">
                             @if ($servicio->use_id == auth()->user()->id)
                                 Tu solicitud
-                            @else   
+                            @else
                                 Ver detalles
                             @endif
                         </button>
                         
-                        <div class="modal fade" id="myModal-{{$servicio->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade"
+                            id="myModal-{{$servicio->id}}"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="exampleModalCenterTitle"
+                            aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLongTitle"><p>Servicio: {{ $servicio->servicio }}</p></h5>
+                                  <h5 class="modal-title"
+                                    id="exampleModalLongTitle">
+                                    <p>Servicio: {{ $servicio->servicio }}</p>
+                                  </h5>
                                 </div>
                                 <div class="modal-body">
                                     <p>Descripcion: {{ $servicio->descripcion }}</p>
@@ -89,7 +109,9 @@
                                 </div>
                                 <div class="modal-footer">
                                     @if ($servicio->use_id == auth()->user()->id)
-                                        <form method="POST" class="eliminar-servicio" action="{{route("servicio.destroy",$servicio->id) }}">
+                                        <form method="POST"
+                                            class="eliminar-servicio"
+                                            action="{{route("servicio.destroy",$servicio->id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <input type="submit" class="btn btn-danger" Value="Eliminar solicitud"/>
@@ -109,11 +131,19 @@
 
         </div>
         <div class="col-2 my-2" style="margin:0px;">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Solicitar servicio nuevo</button>
+            <button class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Solicitar servicio nuevo
+            </button>
         </div>
         <form action="{{route('tablon.servicio')}}" method="POST" >
             @csrf
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="false">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -123,14 +153,21 @@
                     <div class="modal-body px-4">
                         <div class="my-2">
                             <label for="nombre_servicio" class="form-label">Servicio:</label>
-                            <input type="text" name="nombre" value="{{ old('nombre') }}" class="form-control" id="nombre_servicio">
+                            <input type="text"
+                                name="nombre"
+                                value="{{ old('nombre') }}"
+                                class="form-control"
+                                id="nombre_servicio">
                             @if($errors->has('nombre'))
                                 <span class="badge bg-danger text-light">{{ $errors->first('nombre') }}</span>
                             @endif
                         </div>
                         <div class="mb-2">
-                            <label for="descripcion_servicio" class="form-label">Descripción:</label>
-                            <textarea class="form-control" name="descripcion" id="descripcion_servicio" rows="2">{{ old('descripcion') }}</textarea>
+                            <label for="descripcion_servicio"class="form-label">Descripción:</label>
+                            <textarea class="form-control"
+                                name="descripcion"
+                                id="descripcion_servicio"
+                                rows="2">{{ old('descripcion') }}</textarea>
                             @if($errors->has('descripcion'))
                                 <span class="badge bg-danger text-light">{{ $errors->first('descripcion') }}</span>
                             @endif
@@ -138,14 +175,22 @@
                         <div class="row">
                             <div class="my-2 col-6">
                                 <label for="precio_servicio" class="form-label">Precio:</label>
-                                <input type="text" name="precio" value="{{ old('precio') }}" class="form-control" id="precio_servicio" placeholder="S/">
+                                <input type="text"
+                                    name="precio"
+                                    value="{{ old('precio') }}"
+                                    class="form-control"
+                                    id="precio_servicio"
+                                    placeholder="S/">
                                 @if($errors->has('precio'))
                                 <span class="badge bg-danger text-light">{{ $errors->first('precio') }}</span>
                             @endif
                             </div>
                             <div class="my-2 col-6">
                                 <label for="tipo_servicio" class="form-label">Tipo:</label><br>
-                                <select class="form-select form-control form-select-sm"  value="{{ old('tipo') }}"name="tipo" aria-label=".form-select-sm example">
+                                <select class="form-select form-control form-select-sm"
+                                    value="{{ old('tipo') }}"
+                                    name="tipo"
+                                    aria-label=".form-select-sm example">
                                     <option value="Talento">Talento</option>
                                     <option value="Ocupacion">Ocupación</option>
                                 </select>
@@ -155,7 +200,12 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                        <button type="button"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                            Cancelar
+                        </button>
                       <button type="submit" class="btn btn-success">Publicar solicitud</button>
                     </div>
                   </div>
@@ -169,7 +219,10 @@
 
 
 @section('contenido_abajo_js')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" integrity="sha256-5m8PEKx1fPywHlsheZsDTqNh+Hlm2D0/+uWH6lvwOwY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"
+    integrity="sha256-5m8PEKx1fPywHlsheZsDTqNh+Hlm2D0/+uWH6lvwOwY="
+    crossorigin="anonymous">
+</script>
 
 @if (session('eliminado') == 'ok')
     <script>
@@ -207,11 +260,11 @@
         confirmButtonText: 'Eliminar solicitud',
         cancelButtonText: 'Cancelar'
         }).then((result) => {
-        if (result.isConfirmed) {    
+        if (result.isConfirmed) {
             this.submit();
         }
         })
 
-    })    
+    })
 </script>
 @endsection
