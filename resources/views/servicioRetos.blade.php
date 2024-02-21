@@ -501,37 +501,37 @@
 
                         <!-- Cuerpo modal -->
                         <div class="modal-corpo">
-                            <div class="m-1" 
+                            <div class="m-1"
                                  id="formulario">
                                 <label class="">Contratado por: Usuario nuevo</label><br>
                                 <label>Hora: </label><br>
-                                <input type="time" 
-                                       class="form-control" 
-                                       value="{{ old('hourForm') }}" 
+                                <input type="time"
+                                       class="form-control"
+                                       value="{{ old('hourForm') }}"
                                        name="hourForm">
 
                                 <label class="m-1">Fecha: </label>
-                                <input type="date" 
-                                       class="form-control" 
-                                       value="{{ old('dateForm') }}" 
-                                       name="dateForm" 
-                                       min="2020-11-02" 
-                                       id="fechaContrato" 
+                                <input type="date"
+                                       class="form-control"
+                                       value="{{ old('dateForm') }}"
+                                       name="dateForm"
+                                       min="2020-11-02"
+                                       id="fechaContrato"
                                        required>
 
-                                <label class="m-1" 
+                                <label class="m-1"
                                        for="">Lugar</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       name="addressForm" 
-                                       value="{{ old('addressForm') }}" 
+                                <input type="text"
+                                       class="form-control"
+                                       name="addressForm"
+                                       value="{{ old('addressForm') }}"
                                        placeholder="Lugar">
 
 
                                 <label class="m-1">Descripcion</label><br>
-                                <input class="form-control" 
-                                       name="descriptionForm" 
-                                       value="{{ old('descriptionForm') }}" 
+                                <input class="form-control"
+                                       name="descriptionForm"
+                                       value="{{ old('descriptionForm') }}"
                                        placeholder="Descripcion">
                             </div>
                         </div>
@@ -566,11 +566,11 @@
                                 <h5 class="card-title">Preguntas Frecuentes</h5>
                                 @auth
                                     @if(auth()->user()->id == $serviceProfile->use_id)
-                                    <button 
-                                        type="button" 
-                                        class="btn btn-sm btn-primary" 
-                                        name="btnpregunta" 
-                                        data-toggle="modal" 
+                                    <button
+                                        type="button"
+                                        class="btn btn-sm btn-primary"
+                                        name="btnpregunta"
+                                        data-toggle="modal"
                                         data-target="#Modalpregunta">Añadir Pregunta Frecuente
                                     </button>
                                     @endif
@@ -600,12 +600,12 @@
                         <div class="card-header">
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" 
-                                       id="posts-tab" 
-                                       data-toggle="tab" 
-                                       href="#posts" 
-                                       role="tab" 
-                                       aria-controls="posts" 
+                                    <a class="nav-link active"
+                                       id="posts-tab"
+                                       data-toggle="tab"
+                                       href="#posts"
+                                       role="tab"
+                                       aria-controls="posts"
                                        aria-selected="true">
                                         Realizar Comentario
                                     </a>
@@ -888,9 +888,15 @@
                             <div class="form-row">
 
                             <div class="form-group col-md-12">
-                                <label for="inputEmail4">Escribir Pregunta Frecuente</label>
-                                <input type="text" name="pregunta" class="form-control @error('pregunta') is-invalid @enderror" 
-                                id="inputPregunta" placeholder="Escribe la Pregunta Frecuente*" value="{{ old('pregunta')}}" />
+                                <label for="inputEmail4">
+                                    Escribir Pregunta Frecuente
+                                </label>
+                                <input type="text"
+                                    name="pregunta"
+                                    class="form-control @error('pregunta') is-invalid @enderror"
+                                    id="inputPregunta"
+                                    placeholder="Escribe la Pregunta Frecuente*"
+                                    value="{{ old('pregunta')}}" />
 
                                 @error('pregunta')
                                     <span class="invalid-feedback" role="alert">
@@ -904,8 +910,12 @@
 
                                 <div class="form-group col-md-12">
                                 <label for="inputEmail4">Responder Pregunta Frecuente</label>
-                                <input type="text" name="respuesta" class="form-control @error('respuesta') is-invalid @enderror" 
-                                id="inputRespuesta" placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
+                                <input type="text"
+                                    name="respuesta"
+                                    class="form-control @error('respuesta') is-invalid @enderror"
+                                    id="inputRespuesta"
+                                    placeholder="Responda la Pregunta Frecuente*"
+                                    value="{{ old('respuesta')}}" />
 
                                 @error('respuesta')
                                     <span class="invalid-feedback" role="alert">
@@ -914,10 +924,6 @@
                                 @enderror
                                 </div>
                             </div>
-
-
-
-
 
 
                         </div>
