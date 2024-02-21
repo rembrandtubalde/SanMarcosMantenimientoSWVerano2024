@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { Controller } from "./Controller";
 import { createUserUseCase } from '../../Shared/infrastructure/dependencies';
+import { Uuid } from "../../Shared/domain/value-objects/Uuid";
 
 type UserPutRequest = Request & {
   body: {
-    id: string;
     name: string;
     lastName: string;
     email: string;
@@ -18,10 +18,10 @@ type UserPutRequest = Request & {
 export class UserPutController implements Controller {
   async run(req: UserPutRequest, res: Response) {
     try {
-      const { id, name, lastName, email, password, passwordConfirm, country, avatar } = req.body;
+      const { name, lastName, email, password, passwordConfirm, country, avatar } = req.body;
       
       await createUserUseCase.execute({
-        id,
+        id: Uuid.random().value,
         name,
         lastName,
         email,

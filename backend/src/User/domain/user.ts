@@ -1,24 +1,29 @@
 import { BaseEntity } from "../../Shared/domain/BaseEntity";
+import { UserAvatar } from "./UserAvatar";
+import { UserCountry } from "./UserCountry";
+import { UserEmail } from "./UserEmail";
+import { UserId } from "./UserId";
+import { UserLastName } from "./UserLastName";
+import { UserName } from "./UserName";
+import { UserPassword } from "./UserPassword";
 
 export class User extends BaseEntity {
-  readonly id: string;
-  readonly name: string;
-  readonly lastName: string;
-  readonly email: string;
-  readonly password: string;
-  readonly passwordConfirm: string;
-  readonly country: string;
-  readonly avatar: string;
+  readonly id: UserId;
+  readonly name: UserName;
+  readonly lastName: UserLastName;
+  readonly email: UserEmail;
+  readonly password: UserPassword;
+  readonly country: UserCountry;
+  readonly avatar: UserAvatar;
 
   constructor(
-    id: string,
-    name: string,
-    lastName: string,
-    email: string,
-    password: string,
-    passwordConfirm: string,
-    country: string,
-    avatar: string
+    id: UserId,
+    name: UserName,
+    lastName: UserLastName,
+    email: UserEmail,
+    password: UserPassword,
+    country: UserCountry,
+    avatar: UserAvatar
   ) {
     super();
     this.id = id;
@@ -26,35 +31,61 @@ export class User extends BaseEntity {
     this.lastName = lastName;
     this.email = email;
     this.password = password;
-    this.passwordConfirm = passwordConfirm;
     this.country = country;
     this.avatar = avatar;
   }
 
   static create(
-    id: string,
-    name: string,
-    lastName: string,
-    email: string,
-    password: string,
-    passwordConfirm: string,
-    country: string,
-    avatar: string
-  ) {
-      const user = new User(id, name, lastName, email, password, passwordConfirm, country, avatar);
+    id: UserId,
+    name: UserName,
+    lastName: UserLastName,
+    email: UserEmail,
+    password: UserPassword,
+    country: UserCountry,
+    avatar: UserAvatar
+  ): User {
+    const user = new User(
+      id,
+      name,
+      lastName,
+      email,
+      password,
+      country,
+      avatar
+    )
 
-      return user;
+    return user;
   }
 
-  toPrimitives() {
+  static fromPrimitives(plainData: {
+    id: string;
+    name: string;
+    lastName: string;
+    email: string;
+    password: string;
+    country: string;
+    avatar: string;
+  }): User {
+      return new User(
+        new UserId(plainData.id),
+        new UserName(plainData.name),
+        new UserLastName(plainData.lastName),
+        new UserEmail(plainData.email),
+        new UserPassword(plainData.password),
+        new UserCountry(plainData.country),
+        new UserAvatar(plainData.avatar)
+      );
+  }
+
+  toPrimitives(): any {
     return {
-      name: this.name,
-      lastName: this.lastName,
-      email: this.email,
-      password: this.password,
-      passwordConfirm: this.passwordConfirm,
-      country: this.country,
-      avatar: this.avatar
+      id: this.id.value,
+      name: this.name.value,
+      lastName: this.lastName.value,
+      email: this.email.value,
+      password: this.password.value,
+      country: this.country.value,
+      avatar: this.avatar.value
     }
   }
 }

@@ -34,9 +34,12 @@
     "@babel/preset-env": "^7.18.2",
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
+    "@types/errorhandler": "^1.5.3",
     "@types/express": "^4.17.21",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^20.11.17",
+    "@types/uuid": "^9.0.8",
+    "@types/uuid-validate": "^0.0.3",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -51,6 +54,7 @@
     "cloudinary": "^1.30.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
+    "errorhandler": "^1.5.1",
     "express": "^4.18.1",
     "google-auth-library": "^8.0.3",
     "jsonwebtoken": "^8.5.1",
@@ -58,6 +62,8 @@
     "multer": "1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "uuid": "^9.0.1",
+    "uuid-validate": "^0.0.3"
   }
 }
