@@ -132,7 +132,9 @@ export const Register = () => {
               handleChange={handleChange}
               handleKeyDown={handleKeyDown}
             />
-            <Dropdown handleSelect={handleSelect} options={options} label='País' />
+
+         
+
           </RegisterStyled.InputsContainer>
           <RegisterStyled.FormPrompt>
             <SubTitle fontSize='14px'>Si aún no tienes cuenta, registrate{' '}</SubTitle>
