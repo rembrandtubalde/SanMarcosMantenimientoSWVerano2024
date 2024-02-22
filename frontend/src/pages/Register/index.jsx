@@ -1,25 +1,20 @@
 /* eslint-disable no-undef */
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
-import countryList from 'react-select-country-list';
 
 import { register } from '../../redux/state/authSlice';
-
 import { Input } from '../../components/Input';
-
 import { Button } from '../../styled-components/Button';
 import { LoginGoogle } from '../../styled-components/LoginGoogle';
-import { Dropdown } from '../../styled-components/Dropdown';
 import { Error as ErrorMessage } from '../../styled-components/Error';
 import { PasswordInput } from '../../styled-components/PasswordInput';
 import { SubTitle } from '../../styled-components/Text';
 
 import useForm from '../../hooks/useForm';
 import { clearMessages } from '../../redux/state/messageSlice';
-
 import * as RegisterStyled from './Register.styled';
 
 import logo from '../../assets/logo/logo.png';
@@ -27,7 +22,6 @@ import backgroundImage from '../../assets/images/fondo1.jpg';
 
 export const Register = () => {
   const dispatch = useDispatch();
-  const options = useMemo(() => countryList().getData(), []);
 
   useEffect(() => {
     dispatch(clearMessages());
@@ -37,7 +31,6 @@ export const Register = () => {
     name: '',
     email: '',
     lastName: '',
-    country: '',
     password: '',
     avatar: '',
     passwordConfirm: ''
@@ -48,7 +41,6 @@ export const Register = () => {
     handleChange,
     handleKeyDown,
     handleSubmit,
-    handleSelect,
     setValues,
     error,
     isLoading
@@ -81,12 +73,30 @@ export const Register = () => {
     onError: errorResponse => console.log(errorResponse),
   });
 
+  // Obtener la ubicación geográfica del usuario a través de la API de geolocalización del navegador
+  useEffect(() => {
+    const getUserCountry = async () => {
+      try {
+        const response = await axios.get('https://ipapi.co/json/');
+        const country = response.data.country_name; // Obtener el nombre del país desde la respuesta
+        setValues(prevValues => ({
+          ...prevValues,
+          country
+        }));
+      } catch (error) {
+        console.error('Error al obtener la ubicación del usuario:', error);
+      }
+    };
+
+    getUserCountry();
+  }, []);
+
   return (
     <RegisterStyled.Container backgroundImage={backgroundImage}>
       <RegisterStyled.FormWrapper>
         <form className='form_wrapper__container'>
           <div className='logo_container'>
-            <img src={logo} />
+            <img src={logo} alt="Logo" />
           </div>
           <RegisterStyled.TitleContainer>
             <h1>Registrarse</h1>
@@ -132,13 +142,10 @@ export const Register = () => {
               handleChange={handleChange}
               handleKeyDown={handleKeyDown}
             />
-
-         
-
           </RegisterStyled.InputsContainer>
           <RegisterStyled.FormPrompt>
-            <SubTitle fontSize='14px'>Si aún no tienes cuenta, registrate{' '}</SubTitle>
-            <Link to='/'>aqui.</Link>
+            <SubTitle fontSize='14px'>Si aún no tienes cuenta, regístrate{' '}</SubTitle>
+            <Link to='/'>aquí.</Link>
           </RegisterStyled.FormPrompt>
           <Button
             type='submit'
@@ -148,7 +155,7 @@ export const Register = () => {
           />
         </form>
         <RegisterStyled.Separator>
-          o registrate con
+          o regístrate con
         </RegisterStyled.Separator>
         <LoginGoogle handleGoogleLogin={googleLogin} />
       </RegisterStyled.FormWrapper>
