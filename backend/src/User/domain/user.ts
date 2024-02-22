@@ -15,6 +15,7 @@ export class User extends BaseEntity {
   readonly password: UserPassword;
   readonly country: UserCountry;
   readonly avatar: UserAvatar;
+  readonly hashedPassword: string;
 
   constructor(
     id: UserId,
@@ -23,7 +24,8 @@ export class User extends BaseEntity {
     email: UserEmail,
     password: UserPassword,
     country: UserCountry,
-    avatar: UserAvatar
+    avatar: UserAvatar,
+    hashedPassword: string
   ) {
     super();
     this.id = id;
@@ -33,6 +35,7 @@ export class User extends BaseEntity {
     this.password = password;
     this.country = country;
     this.avatar = avatar;
+    this.hashedPassword = hashedPassword;
   }
 
   static create(
@@ -42,7 +45,8 @@ export class User extends BaseEntity {
     email: UserEmail,
     password: UserPassword,
     country: UserCountry,
-    avatar: UserAvatar
+    avatar: UserAvatar,
+    hashedPassword: string
   ): User {
     const user = new User(
       id,
@@ -51,7 +55,8 @@ export class User extends BaseEntity {
       email,
       password,
       country,
-      avatar
+      avatar,
+      hashedPassword
     )
 
     return user;
@@ -65,6 +70,7 @@ export class User extends BaseEntity {
     password: string;
     country: string;
     avatar: string;
+    hashedPassword: string;
   }): User {
       return new User(
         new UserId(plainData.id),
@@ -73,7 +79,8 @@ export class User extends BaseEntity {
         new UserEmail(plainData.email),
         new UserPassword(plainData.password),
         new UserCountry(plainData.country),
-        new UserAvatar(plainData.avatar)
+        new UserAvatar(plainData.avatar),
+        plainData.hashedPassword
       );
   }
 
@@ -83,9 +90,9 @@ export class User extends BaseEntity {
       name: this.name.value,
       lastName: this.lastName.value,
       email: this.email.value,
-      password: this.password.value,
       country: this.country.value,
-      avatar: this.avatar.value
+      avatar: this.avatar.value,
+      password: this.hashedPassword,
     }
   }
 }

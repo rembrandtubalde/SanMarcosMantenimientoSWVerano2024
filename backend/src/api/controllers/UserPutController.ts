@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Controller } from "./Controller";
 import { createUserUseCase } from '../../Shared/infrastructure/dependencies';
 import { Uuid } from "../../Shared/domain/value-objects/Uuid";
+import httpStatus from "http-status";
 
 type UserPutRequest = Request & {
   body: {
@@ -16,11 +17,11 @@ type UserPutRequest = Request & {
 }
 
 export class UserPutController implements Controller {
-  async run(req: UserPutRequest, res: Response) {
+  async run(req: UserPutRequest, res: Response, next: Function) {
     try {
       const { name, lastName, email, password, passwordConfirm, country, avatar } = req.body;
       
-      await createUserUseCase.execute({
+      const newUser = {
         id: Uuid.random().value,
         name,
         lastName,
@@ -29,11 +30,17 @@ export class UserPutController implements Controller {
         passwordConfirm,
         country,
         avatar
-      })
+      }
 
-      res.status(201).send();
+      const userSaved = await createUserUseCase.execute({ ...newUser });
+      delete userSaved.password;
+    
+      res.status(httpStatus.CREATED).send({
+        status: 'success',
+        user: userSaved,
+      });
     } catch (error) {
-      res.status(500).send();
+      next(error);
     }
   }
 }

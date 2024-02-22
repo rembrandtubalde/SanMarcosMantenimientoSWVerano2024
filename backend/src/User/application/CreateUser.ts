@@ -1,5 +1,6 @@
 import { UserRepository } from "../domain/user.repository";
 import { User } from '../domain/user';
+import { PasswordEncryptor } from "../domain/PasswordEncryptor";
 
 export interface IUserData {
   id: string,
@@ -13,9 +14,12 @@ export interface IUserData {
 }
 
 export class CreateUser {
-  constructor(private repository: UserRepository) {}
+  constructor(
+    private repository: UserRepository,
+    private passwordEncryptor: PasswordEncryptor
+  ) {}
 
-  async execute(props: IUserData): Promise<void> {
+  async execute(props: IUserData): Promise<any> {
     this.ensurePasswordsMatch(props.password, props.passwordConfirm);
 
     const user = User.fromPrimitives({
@@ -25,13 +29,16 @@ export class CreateUser {
       email: props.email,
       password: props.password,
       country: props.country,
-      avatar: props.avatar
+      avatar: props.avatar,
+      hashedPassword: await this.passwordEncryptor.encrypt(props.password)
     })
 
     await this.repository.save(user);
+
+    return user.toPrimitives();
   }
 
-  private ensurePasswordsMatch(password: string, passwordToConfirm) {
+  private ensurePasswordsMatch(password: string, passwordToConfirm: string) {
     if (password !== passwordToConfirm) {
       throw new Error("Passwords doesn't match")
     }

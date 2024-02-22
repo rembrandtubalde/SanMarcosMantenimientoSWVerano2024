@@ -9,6 +9,7 @@ export class MongoClientFactory {
       console.log("MongoDB is connected successfully");
       return connection;
     } catch (e) {
+      console.log(e)
       throw new Error("Error ocurred connecting to DB");
     }
   }

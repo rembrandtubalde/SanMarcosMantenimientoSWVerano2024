@@ -1,5 +1,4 @@
 import { Server } from './app';
-import mongoose from 'mongoose';
 
 const PORT = process.env.PORT || 3001;
 
