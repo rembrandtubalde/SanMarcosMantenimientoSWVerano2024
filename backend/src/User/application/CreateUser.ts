@@ -20,8 +20,6 @@ export class CreateUser {
 	) {}
 
 	async execute(props: IUserData): Promise<any> {
-		this.ensurePasswordsMatch(props.password, props.passwordConfirm);
-
 		const user = User.fromPrimitives({
 			id: props.id,
 			name: props.name,
@@ -30,8 +28,12 @@ export class CreateUser {
 			password: props.password,
 			country: props.country,
 			avatar: props.avatar,
-			hashedPassword: await this.passwordEncryptor.encrypt(props.password),
 		});
+
+		const hashedPassword = await this.passwordEncryptor.encrypt(props.password);
+		user.setHashedPassword(hashedPassword);
+
+		this.ensurePasswordsMatch(props.password, props.passwordConfirm);
 
 		await this.repository.save(user);
 

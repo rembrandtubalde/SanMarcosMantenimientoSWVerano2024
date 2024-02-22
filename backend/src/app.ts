@@ -53,7 +53,6 @@ export class Server {
 		this.express.use(errorMidd);
 
 		router.use((error: Error, req: Request, res: Response, next: Function) => {
-			console.error(error);
 			res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
 				status: 'error',
 				name: error.name,
