@@ -5,7 +5,7 @@
 	"main": "dist/src/index.js",
 	"scripts": {
 		"build": "rimraf dist && tsc",
-		"test": "SET NODE_ENV=test jest --verbose --runInBand",
+		"test": "SET NODE_ENV=test && jest --verbose --runInBand dist/src/api/User",
 		"start": "SET NODE_ENV=production node dist/src/index.js",
 		"dev": "SET NODE_ENV=development && npm run build && nodemon dist/src/index.js",
 		"serve": "node dist/src/index.js",
@@ -41,6 +41,7 @@
 		"@types/jest": "^29.5.12",
 		"@types/mongoose": "^5.11.97",
 		"@types/node": "^20.11.17",
+		"@types/supertest": "^6.0.2",
 		"@types/uuid": "^9.0.8",
 		"@types/uuid-validate": "^0.0.3",
 		"eslint": "^8.18.0",

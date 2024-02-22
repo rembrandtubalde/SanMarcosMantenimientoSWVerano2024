@@ -19,7 +19,7 @@ import { DateRoute } from './api/Date';
 import { registerRoutes } from './api/routes';
 
 // middlewares
-import { requestLogger, unknownEndpoint } from './middlewares';
+import { requestLogger, unknownEndpoint, errorHandler as errorMidd } from './middlewares';
 
 export class Server {
 	private express: express.Express;
@@ -38,6 +38,7 @@ export class Server {
 		router.use(errorHandler());
 		this.express.use(router);
 
+		// Registrando las rutas de la API V2
 		registerRoutes(router);
 
 		// Registrando las rutas de la API V1
@@ -46,11 +47,10 @@ export class Server {
 		this.express.use('/api/v1/placeinfo', PlaceRoute);
 		this.express.use('/api/v1/auth/register', UserRoute);
 		this.express.use('/api/v1/auth/login', LoginRoute);
+		this.express.use('/ping', (req, res) => res.send('pong!'));
+		this.express.use('/', (req, res) => res.send('Hi!'));
 
-		// Registrando las rutas de la API V2
-
-		// this.express.use('/ping', (req, res) => res.send('pong!'));
-		// this.express.use('/', (req, res) => res.send('Hi!'));
+		this.express.use(errorMidd);
 
 		router.use((error: Error, req: Request, res: Response, next: Function) => {
 			console.error(error);
@@ -75,5 +75,9 @@ export class Server {
 
 	getHttpServer() {
 		return this.httpServer;
+	}
+
+	getExpress() {
+		return this.express;
 	}
 }

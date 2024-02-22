@@ -2,6 +2,6 @@ import { StringValueObject } from '../../Shared/domain/value-objects/StringValue
 
 export class UserCountry extends StringValueObject {
 	constructor(value: string) {
-		super(value);
+		super(value, 'Debes seleccionar un país');
 	}
 }

@@ -40,7 +40,7 @@ export class CreateUser {
 
 	private ensurePasswordsMatch(password: string, passwordToConfirm: string) {
 		if (password !== passwordToConfirm) {
-			throw new Error("Passwords doesn't match");
+			throw new Error('Las contraseñas no coinciden');
 		}
 	}
 }

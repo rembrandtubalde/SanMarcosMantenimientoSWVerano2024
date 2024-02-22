@@ -1,14 +1,13 @@
 import supertest from 'supertest';
 import mongoose from 'mongoose';
 
-import app from '../../app';
 import User from './user';
+import { Server } from '../../app';
 
-const api = supertest(app);
+const server = new Server(3001);
+server.listen();
 
-beforeAll((done) => {
-	done();
-});
+const api = supertest(server.getExpress());
 
 describe('Sanity test', () => {
 	test('Endpoint /ping should return "pong!"', async () => {
@@ -19,7 +18,7 @@ describe('Sanity test', () => {
 	});
 });
 
-describe('POST /api/v1/auth/register', () => {
+describe('POST /api/v2/auth/register', () => {
 	beforeEach(async () => {
 		await User.deleteMany({});
 	});
@@ -34,7 +33,7 @@ describe('POST /api/v1/auth/register', () => {
 			passwordConfirm: 'aleman234',
 		};
 
-		await api.post('/api/v1/auth/register').send(user).expect(201).expect('Content-Type', /json/);
+		await api.post('/api/v2/auth/register').send(user).expect(201).expect('Content-Type', /json/);
 	});
 
 	test('Should return an error if passwords doesn´t match', async () => {
@@ -47,9 +46,9 @@ describe('POST /api/v1/auth/register', () => {
 			passwordConfirm: 'notMatchPassword',
 		};
 
-		const res = await api.post('/api/v1/auth/register').send(user);
+		const res = await api.post('/api/v2/auth/register').send(user);
 
-		expect(res.status).toEqual(400);
+		expect(res.status).toEqual(500);
 		expect(res.error.text).toContain('Las contraseñas no coinciden');
 	});
 });

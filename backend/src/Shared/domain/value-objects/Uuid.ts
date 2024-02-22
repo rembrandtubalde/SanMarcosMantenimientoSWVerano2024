@@ -5,7 +5,7 @@ import { ValueObject } from './ValueObject';
 
 export class Uuid extends ValueObject<string> {
 	constructor(value: string) {
-		super(value);
+		super(value, '');
 		this.ensureIsValidUuid(value);
 	}
 
