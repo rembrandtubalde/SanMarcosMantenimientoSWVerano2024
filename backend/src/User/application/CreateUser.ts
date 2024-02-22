@@ -1,46 +1,46 @@
-import { UserRepository } from "../domain/user.repository";
+import { UserRepository } from '../domain/user.repository';
 import { User } from '../domain/user';
-import { PasswordEncryptor } from "../domain/PasswordEncryptor";
+import { PasswordEncryptor } from '../domain/PasswordEncryptor';
 
 export interface IUserData {
-  id: string,
-  name: string,
-  lastName: string,
-  email: string,
-  password: string,
-  passwordConfirm: string,
-  country: string,
-  avatar: string
+	id: string;
+	name: string;
+	lastName: string;
+	email: string;
+	password: string;
+	passwordConfirm: string;
+	country: string;
+	avatar: string;
 }
 
 export class CreateUser {
-  constructor(
-    private repository: UserRepository,
-    private passwordEncryptor: PasswordEncryptor
-  ) {}
+	constructor(
+		private repository: UserRepository,
+		private passwordEncryptor: PasswordEncryptor,
+	) {}
 
-  async execute(props: IUserData): Promise<any> {
-    this.ensurePasswordsMatch(props.password, props.passwordConfirm);
+	async execute(props: IUserData): Promise<any> {
+		this.ensurePasswordsMatch(props.password, props.passwordConfirm);
 
-    const user = User.fromPrimitives({
-      id: props.id,
-      name: props.name,
-      lastName: props.lastName,
-      email: props.email,
-      password: props.password,
-      country: props.country,
-      avatar: props.avatar,
-      hashedPassword: await this.passwordEncryptor.encrypt(props.password)
-    })
+		const user = User.fromPrimitives({
+			id: props.id,
+			name: props.name,
+			lastName: props.lastName,
+			email: props.email,
+			password: props.password,
+			country: props.country,
+			avatar: props.avatar,
+			hashedPassword: await this.passwordEncryptor.encrypt(props.password),
+		});
 
-    await this.repository.save(user);
+		await this.repository.save(user);
 
-    return user.toPrimitives();
-  }
+		return user.toPrimitives();
+	}
 
-  private ensurePasswordsMatch(password: string, passwordToConfirm: string) {
-    if (password !== passwordToConfirm) {
-      throw new Error("Passwords doesn't match")
-    }
-  }
+	private ensurePasswordsMatch(password: string, passwordToConfirm: string) {
+		if (password !== passwordToConfirm) {
+			throw new Error("Passwords doesn't match");
+		}
+	}
 }

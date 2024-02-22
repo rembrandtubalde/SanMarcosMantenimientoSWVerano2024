@@ -1,3 +1,3 @@
 export abstract class BaseEntity {
-  abstract toPrimitives(): any;
+	abstract toPrimitives(): any;
 }

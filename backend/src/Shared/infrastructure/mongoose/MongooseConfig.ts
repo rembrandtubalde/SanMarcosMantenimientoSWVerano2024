@@ -1,5 +1,5 @@
 interface MongooseConfig {
-  url: string;
-};
+	url: string;
+}
 
 export default MongooseConfig;

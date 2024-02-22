@@ -1,7 +1,7 @@
-import { StringValueObject } from "../../Shared/domain/value-objects/StringValueObject";
+import { StringValueObject } from '../../Shared/domain/value-objects/StringValueObject';
 
 export class UserCountry extends StringValueObject {
-  constructor(value: string) {
-    super(value);
-  }
+	constructor(value: string) {
+		super(value);
+	}
 }
