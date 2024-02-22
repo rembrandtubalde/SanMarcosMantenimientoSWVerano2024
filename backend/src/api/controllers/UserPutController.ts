@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Controller } from './Controller';
-import { createUserUseCase } from '../../Shared/infrastructure/dependencies';
-import { Uuid } from '../../Shared/domain/value-objects/Uuid';
+import { createUserUseCase } from '../../v2/Shared/infrastructure/dependencies';
+import { Uuid } from '../../v2/Shared/domain/value-objects/Uuid';
 import httpStatus from 'http-status';
 
 type UserPutRequest = Request & {

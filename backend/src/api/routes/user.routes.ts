@@ -1,5 +1,5 @@
 import { Response, Router } from 'express';
-import { userPutController } from '../../Shared/infrastructure/dependencies';
+import { userPutController } from '../../v2/Shared/infrastructure/dependencies';
 import upload from '../../config/multer.config';
 
 export const register = (router: Router) => {

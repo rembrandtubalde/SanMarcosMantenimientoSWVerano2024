@@ -1,4 +1,4 @@
-import { Collection, Connection, Model, Schema, model } from 'mongoose';
+import { Collection, Connection } from 'mongoose';
 import { BaseEntity } from '../../domain/BaseEntity';
 
 export abstract class MongooseRepository<T extends BaseEntity> {

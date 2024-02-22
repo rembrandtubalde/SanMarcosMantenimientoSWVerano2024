@@ -2,7 +2,7 @@ import { MongoClientFactory } from '../mongoose/MongooseClientFactory';
 import { MongooseConfigFactory } from '../mongoose/MongooseConfigFactory';
 import { MongooseUserRepository } from '../../../User/infrastructure/persistence/MongooseUserRepository';
 import { CreateUser } from '../../../User/application/CreateUser';
-import { UserPutController } from '../../../api/controllers/UserPutController';
+import { UserPutController } from '../../../../api/controllers/UserPutController';
 import { BcryptPasswordEncryptor } from '../../../User/infrastructure/BcryptPasswordEncryptor';
 
 const mongoConfig = MongooseConfigFactory.createConfig();
