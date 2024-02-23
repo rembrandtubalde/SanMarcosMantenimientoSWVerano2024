@@ -19,7 +19,7 @@ class Filtroservicio extends Component
     public $talentoS = false;
     public $ocupacionS = false;
     public $tipo = "";
-    public $serviciosTec; 
+    public $serviciosTec;
     public $serviciosTal;
 
     protected $rules = [

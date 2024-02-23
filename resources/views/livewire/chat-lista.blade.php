@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" style="margin-top: 20px; margin-bottom: 40px">
     <div class="col-6 overflow-scroll" style="height: 100%;"><br>
       @foreach ($datos as $mensaje)
 
@@ -27,7 +27,9 @@
         <div class="card-body" style="height: 60vh; overflow-y: auto;">
         @if($mensajes)
             @foreach ($mensajes as $hist)
-                <div class="{{ $hist->envia == auth()->user()->id ? 'text-right bg-light-blue' : 'text-left bg-light-gray' }} mb-2 rounded p-2">
+                <div class="{{ $hist->envia == auth()->user()->id ?
+                     'text-right bg-light-blue' :
+                      'text-left bg-light-gray' }} mb-2 rounded p-2">
                     <p style="{{ $hist->envia == auth()->user()->id ? 'background-color: #007bff;
                           border-radius: 1rem;
                           padding: 5px 5px 5px 5px;

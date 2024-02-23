@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Servicios</h2>
+                        <h2>Retos</h2>
                     </div>
                 </div>
             </div>
