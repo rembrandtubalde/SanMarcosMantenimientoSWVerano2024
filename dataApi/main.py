@@ -195,6 +195,11 @@ def get_actor(
 
 # Creando la función 5: Sistema de recomendacion de películas con mayor rating en base al año dado.
 # Se hizo un cambio más y otro extra
+@app.get(
+        "/recomendation",
+        summary = "Recomendación",
+        description = "Obtén una recomendación de las películas con mayor rating en base al año dado."
+)
 def get_recommendation(
         release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021")) -> str:
     try:
@@ -211,7 +216,7 @@ def get_recommendation(
         # Seleccionar una película aleatoria de las 10 mejores
         random_movie = random.choice(top_movies['title'].tolist())
         
-        return f"¡Recomendación: {random_movie} es una de las mejores películas de {year}!"
+        return f"¡Recomendación: {random_movie} es una de las mejores películas de {release_year}!"
 
     except Exception as e:
         return f"Error: {str(e)}"
