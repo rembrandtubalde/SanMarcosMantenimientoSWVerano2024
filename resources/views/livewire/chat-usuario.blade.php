@@ -8,10 +8,14 @@
             <div class="portlet portlet-default">
                 <div class="portlet-heading">
                     <div class="portlet-title">
-                        <h4><em class="fa fa-circle text-green"></em>{{ $serviceProfile->IntermediateUseOcc->name }}</h4>
+                        <h4>
+                            <em class="fa fa-circle text-green"></em>{{ $serviceProfile->IntermediateUseOcc->name }}
+                        </h4>
                     </div>
                     <div class="portlet-widgets">
-                        <a data-toggle="collapse" onclick="closeForm()" data-parent="#accordion" href="#chat"><em class="fa fa-chevron-down"></em></a>
+                        <a data-toggle="collapse" onclick="closeForm()" data-parent="#accordion" href="#chat">
+                            <em class="fa fa-chevron-down"></em>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -24,14 +28,27 @@
                                     @foreach ($datos as $datom)
                                         @if($datom->envia == auth()->user()->id)
                                             <div class="rounded m-1">
-                                                <h5 class="text-right"><strong><small>{{ $datom->fecha }}</small> - {{ auth()->user()->name }}</strong></h5>
-                                                <p class="text-right" style="font-size:1.1rem;">{{ $datom->mensaje}}</p><hr>
-                                            </div>        
+                                                <h5 class="text-right">
+                                                    <strong>
+                                                        <small>
+                                                            {{ $datom->fecha }}
+                                                        </small> - {{ auth()->user()->name }}
+                                                    </strong></h5>
+                                                <p class="text-right" style="font-size:1.1rem;">
+                                                    {{ $datom->mensaje}}
+                                                </p><hr>
+                                            </div>
                                         @else
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <p class="float-left my-auto align-middle"  style="font-size:1.1rem;"><strong>{{ $serviceProfile->IntermediateUseOcc->name }}<small> - {{ $datom->fecha }}</small></strong><br>{{ $datom->mensaje}}</p>
+                                                        <p class="float-left my-auto align-middle"
+                                                            style="font-size:1.1rem;">
+                                                            <strong>
+                                                                {{ $serviceProfile->IntermediateUseOcc->name }}
+                                                                <small> - {{ $datom->fecha }}</small>
+                                                            </strong><br>{{ $datom->mensaje}}
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div><hr>
@@ -41,12 +58,16 @@
                             </div>
                         </div>
                     </div>
-                </div>     
+                </div>
             </div>
             
                 <div class="form-group row">
                     <div class="col-8">
-                        <input class="form-control form-control-lg inputChat" wire:keydown.enter="enviarMensaje" type="text" placeholder="Escribir mensaje..." wire:model="mensaje">
+                        <input class="form-control form-control-lg inputChat"
+                            wire:keydown.enter="enviarMensaje"
+                            type="text"
+                            placeholder="Escribir mensaje..."
+                            wire:model="mensaje">
                     </div>
                     <div class="col-4">
                         <button class="btn btn-block btn-success" wire:click="enviarMensaje">Enviar</button>
