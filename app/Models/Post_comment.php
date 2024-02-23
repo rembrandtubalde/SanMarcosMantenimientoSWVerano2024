@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post_comment extends Model
 {
     use HasFactory;
-    protected $table = 'Post_comments';
+    protected $table = 'post_comments';
 
     protected $fillable = [
         //'comentario', 'us_com', 'serpro_id'
