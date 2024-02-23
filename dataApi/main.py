@@ -1,7 +1,8 @@
 # Importante librerías necesarias
 from fastapi import FastAPI, Query
-from typing import List, Tuple
+from typing import List, Dict, Union
 from enum import Enum
+from pydantic import BaseModel
 
 import pandas as pd
 
@@ -74,8 +75,6 @@ def get_max_duration(
             "La película/serie con mayor duración es:" : {
             "Título": max_duration_movie["title"],
             "Plataforma": max_duration_movie["platform"],
-    #       "Director": max_duration_movie["director"],
-    #        "Año": max_duration_movie["release_year"],
             "Duración": f"{max_duration_movie['duration_int']} {max_duration_movie['duration_type']}"
             }
         }
@@ -109,7 +108,10 @@ def get_score_count(
         # Verificar que hay al menos una película que cumpla con los filtros
         if not df_filtered.empty:
             count = df_filtered.groupby('platform').size()
-            return count.to_dict()
+            result = {
+                "Cantidad de películas": count.to_dict()
+            }
+            return result
         else:
             return("No se encontró nigún título con los parámetros ingresados.")
 
@@ -138,7 +140,10 @@ def get_count_platform(
         #luego hago un conteo del tamaño del filtro que hice
         count = len(df_filtered)
 
-        return count
+        result = {
+            "Cantidad de películas": count
+        }
+        return result
 
     except ValueError as e:
         return {"error": str(e)}
@@ -147,12 +152,12 @@ def get_count_platform(
 # Creando la función 4: actor que más se repite según plataforma y año. (La función debe llamarse get_actor(platform, year))
 @app.get(
         "/actor",
-        summary = "Actor con más apariciones",
-        description = "Obtén al actor que aparece en la mayor cantidad de películas y series según plataforma y año elegidos como filtros obligatorios."
+        summary = "Actor(es) con más apariciones",
+        description = "Obtén actor(es) que aparece(n) en la mayor cantidad de películas y series según plataforma y año elegidos como filtros obligatorios."
 )
 def get_actor(
     platform: Plataformas,
-    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021", ge=1980, le=2021)) -> Tuple[int, List[str]]:
+    release_year: int = Query(..., description="Ingresa un año entre 1980 y 2021", ge=1980, le=2021)) -> Dict[str, Union[int, List[str]]]:
 
     # Validando plataforma correcta
     if platform is not None and platform.lower() not in ['amazon', 'disney', 'hulu', 'netflix']:
@@ -178,8 +183,14 @@ def get_actor(
     # Filtrar los actores que aparecen la cantidad máxima de veces, excluyendo "no data"
     most_common_actors = [actor for actor in actor_counts if actor_counts[actor] == max_appearances and actor != "no data"]
     
+    result = {
+        "Apariciones": max_appearances,
+        "Actor(es)": most_common_actors
+    }
+    return result
+
     # Devolver el resultado como una tupla con la cantidad máxima y la lista de actores
-    return max_appearances, most_common_actors
+    #return max_appearances, most_common_actors
 
 
 # Creando la función 5: Sistema de recomendacion de películas con mayor rating en base al año dado.
