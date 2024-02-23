@@ -73,57 +73,58 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin: auto;">
 
                 @foreach ($servicios as $servicio)
-                    <div class="col-3 mt-2 text-center">
-                        <button type="button"
-                            class="btn btn-primary"
-                            data-toggle="modal"
-                            data-target="#myModal-{{$servicio->id}}">
-                            @if ($servicio->use_id == auth()->user()->id)
-                                Tu solicitud
-                            @else
-                                Ver detalles
-                            @endif
-                        </button>
-                        
-                        <div class="modal fade"
-                            id="myModal-{{$servicio->id}}"
-                            tabindex="-1"
-                            role="dialog"
-                            aria-labelledby="exampleModalCenterTitle"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title"
-                                    id="exampleModalLongTitle">
-                                    <p>Servicio: {{ $servicio->servicio }}</p>
-                                  </h5>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Descripcion: {{ $servicio->descripcion }}</p>
-                                    <p>Tipo: {{ $servicio->tipo }}</p>
-                                    <p>Precio: {{ $servicio->precio }}</p>
-                                </div>
-                                <div class="modal-footer">
-                                    @if ($servicio->use_id == auth()->user()->id)
-                                        <form method="POST"
-                                            class="eliminar-servicio"
-                                            action="{{route("servicio.destroy",$servicio->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="submit" class="btn btn-danger" Value="Eliminar solicitud"/>
-                                        </form>
+
+                    <div class="col-4 mt-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $servicio->servicio }}</h5>
+                                <p class="card-text">{{ $servicio->descripcion }}</p>
+
+                                <div style="display: flex;justify-content: space-between;align-items: center;">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$servicio->id}}">
+                                        @if ($servicio->use_id == auth()->user()->id)
+                                            Tu solicitud
+                                        @else   
+                                            Ver detalles
+                                        @endif
+                                    </button>
+                                    @if ($servicio->tipo == 'Talento')
+                                        <span class="badge badge-success" style="font-size: 100%;">T</span>
+                                    @elseif ($servicio->tipo == 'Ocupacion')
+                                        <span class="badge badge-warning" style="font-size: 100%;">O</span>
                                     @endif
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
                                 </div>
-                              </div>
+                                <div class="modal fade" id="myModal-{{$servicio->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle"><p style="margin-bottom: 0px;">Servicio: {{ $servicio->servicio }}</p></h5>
+                                        </div>
+                                            <div class="modal-body" style="padding: 16px 16px 16px 16px;">
+                                                <p><i class="fas fa-info-circle" style="margin-right: 15px;"></i>Descripcion: {{ $servicio->descripcion }}</p>
+                                                <p><i class="fas fa-tags" style="margin-right: 15px;width: 16px;"></i>Tipo: {{ $servicio->tipo }}</p>
+                                                <p><i class="fas fa-dollar-sign" style="margin-right: 15px;width: 16px;"></i>Precio: {{ $servicio->precio }}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                @if ($servicio->use_id == auth()->user()->id)
+                                                    <form method="POST" class="eliminar-servicio" action="{{route("servicio.destroy",$servicio->id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" class="btn btn-danger" Value="Eliminar solicitud"/>
+                                                    </form>
+                                                @endif
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <p><strong>{{ $servicio->descripcion }}</strong></p>
                     </div>
+
                     <hr>
                 @endforeach
                 
