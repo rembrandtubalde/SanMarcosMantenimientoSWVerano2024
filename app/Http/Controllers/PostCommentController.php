@@ -40,7 +40,7 @@ class PostCommentController extends Controller
     
                     break;
                 default :
-                    return ("No se pudo procesar");
+                    return "No se pudo procesar";
             }
 
         $comment->save();
@@ -77,7 +77,7 @@ class PostCommentController extends Controller
 
                 break;
             default :
-                return ("No se pudo procesar");
+                return "No se pudo procesar";
         }
 
         $question->save();
