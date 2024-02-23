@@ -40,7 +40,7 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                         <div
                         class="profile-img">
                             <img
-                            src="https://www.emprendiendohistorias.com/wp-content/uploads/2020/05/trabajos-online-por-internet.jpg" alt=""/>
+                            src="https://acortar.link/MKyYau" alt=""/>
                             <div
                             class="file btn btn-lg btn-primary">
                                 Cambiar foto
@@ -445,13 +445,31 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 @foreach($user->UseOccIntermediate as $serviceUsers)
                                 <div class="d-flex justify-content-between form-details-get">
-                                    <input type="hidden" class="get-user-offer-input" name="userOffer" value="{{ $serviceUsers->use_id }}" required>
-                                    <input type="hidden" class="get-price-offer-input" name="priceOffer" value="{{ $serviceUsers->precio }}" required>
-                                    <input type="hidden" class="get-service-offer-input" name="serviceOffer" value="{{ $serviceUsers->id }}" required>
-                                    <input type="hidden" class="get-type-offer-input" name="typeOfJob" value="1">
+                                    <input
+                                    type="hidden"
+                                    class="get-user-offer-input"
+                                    name="userOffer"
+                                    value="{{ $serviceUsers->use_id }}" required>
+                                    <input
+                                    type="hidden"
+                                    class="get-price-offer-input"
+                                    name="priceOffer"
+                                    value="{{ $serviceUsers->precio }}" required>
+                                    <input
+                                    type="hidden"
+                                    class="get-service-offer-input"
+                                    name="serviceOffer"
+                                    value="{{ $serviceUsers->id }}" required>
+                                    <input
+                                    type="hidden"
+                                    class="get-type-offer-input"
+                                    name="typeOfJob" value="1">
                                     @if($serviceUsers->use_occ_group_payment)
                                     @else
-                                        <a href="{{ route('showProfileServiceOccupation',$serviceUsers->id) }}">{{ $serviceUsers->ser_occ_name }}</a>
+                                        <a
+                                        href="{{ route('showProfileServiceOccupation',$serviceUsers->id) }}">
+                                        {{ $serviceUsers->ser_occ_name }}
+                                    </a>
                                     @endif
 
 
@@ -471,8 +489,11 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                                 @if($serviceUsers->use_occ_group_payment)
                                                 @else
 
-                                                    <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
-                                                        <em class="bi-cart-fill me-1"></em>
+                                                    <button
+                                                    class="btn btn-outline-dark flex-shrink-0" disabled
+                                                    type="button">
+                                                        <em
+                                                        class="bi-cart-fill me-1"></em>
                                                         Tu eres el del servicio
                                                     </button>
 
@@ -491,9 +512,18 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
 
                                             @endforeach
                                             @if($receivedServiceNow2 == true)
-                                            <div class="text-danger">* Para comunicarte <br> con el que<br> ofrece el servicio<br>, presione <a href="">AQUI</a> </div>
+                                            <div
+                                            class="text-danger">
+                                            * Para comunicarte
+                                            <br> con el que
+                                            <br> ofrece el servicio
+                                            <br>, presione
+                                            <a href="">AQUI</a> </div>
 
-                                            <button type="button" class="btn btn-secondary p-3 btn-details-now-data" disabled>
+                                            <button
+                                            type="button"
+                                            class="btn btn-secondary p-3 btn-details-now-data"
+                                            disabled>
                                                 Contratar
                                             </button>
                                             <br>
@@ -501,7 +531,10 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                                 @if($serviceUsers->use_occ_group_payment)
                                                 @else
 
-                                                    <button type="button" class="btn btn-secondary p-3 btn-details-now-data" onclick="window.location.href='{{ route('showProfileServiceOccupation',$serviceUsers->id) }}'">
+                                                    <button
+                                                    type="button"
+                                                    class="btn btn-secondary p-3 btn-details-now-data"
+                                                    onclick="window.location.href='{{ route('showProfileServiceOccupation',$serviceUsers->id) }}'">
                                                         Contratar
                                                     </button>
                                                 @endif
@@ -511,8 +544,12 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                             @endif
                                         @endif
                                     @else
-                                        <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
-                                            <em class="bi-cart-fill me-1"></em>
+                                        <button
+                                        class="btn btn-outline-dark flex-shrink-0"
+                                        onclick="window.location.href='{{ route('registrouser') }}'"
+                                        type="button">
+                                            <em
+                                            class="bi-cart-fill me-1"></em>
                                             Contratar
                                         </button>
 
@@ -526,20 +563,47 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
 
                                 @foreach($user->UseTalIntermediate as $serviceTalUsers)
                                     <div class="d-flex justify-content-between form-details-get">
-                                        <input type="hidden" class="get-user-offer-input" name="userOffer" value="{{ $serviceTalUsers->use_id }}" required>
-                                        <input type="hidden" class="get-price-offer-input" name="priceOffer" value="{{ $serviceTalUsers->precio }}" required>
-                                        <input type="hidden" class="get-service-offer-input" name="serviceOffer" value="{{ $serviceTalUsers->id }}" required>
-                                        <input type="hidden" class="get-type-offer-input" name="typeOfJob" value="2">
+                                        <input
+                                        type="hidden"
+                                        class="get-user-offer-input"
+                                        name="userOffer"
+                                        value="{{ $serviceTalUsers->use_id }}"
+                                        required>
 
-                                        <a href="{{ route('showProfileServiceTalent',$serviceTalUsers->id) }}">{{ $serviceTalUsers->ser_tal_name }}</a>
+                                        <input
+                                        type="hidden"
+                                        class="get-price-offer-input"
+                                        name="priceOffer"
+                                        value="{{ $serviceTalUsers->precio }}"
+                                        required>
+                                        <input
+                                        type="hidden"
+                                        class="get-service-offer-input"
+                                        name="serviceOffer"
+                                        value="{{ $serviceTalUsers->id }}"
+                                        required>
+                                        <input
+                                        type="hidden"
+                                        class="get-type-offer-input"
+                                        name="typeOfJob"
+                                        value="2">
+
+                                        <a
+                                        href="{{ route('showProfileServiceTalent',$serviceTalUsers->id) }}">
+                                        {{ $serviceTalUsers->ser_tal_name }}
+                                    </a>
 
                                     @php
                                         $receivedServiceNow = false;
                                     @endphp
                                     @if(auth()->user()!=null)
                                         @if(auth()->user()->id == $serviceTalUsers->IntermediateUseTal->id)
-                                            <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
-                                                <em class="bi-cart-fill me-1"></em>
+                                            <button
+                                            class="btn btn-outline-dark flex-shrink-0"
+                                            disabled
+                                            type="button">
+                                                <em
+                                                class="bi-cart-fill me-1"></em>
                                                 Tu eres el del servicio
                                             </button>
 
@@ -554,15 +618,27 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
 
                                             @endforeach
                                             @if($receivedServiceNow == true)
-                                            <div class="text-danger">* Para comunicarte <br> con el que<br> ofrece el servicio<br>, presione <a href="">AQUI</a> </div>
+                                            <div
+                                            class="text-danger">
+                                            * Para comunicarte
+                                            <br> con el que
+                                            <br> ofrece el servicio
+                                            <br>, presione
+                                            <a href="">AQUI</a> </div>
 
-                                            <button type="button" class="btn btn-secondary p-3 btn-details-now-data" disabled>
+                                            <button
+                                            type="button"
+                                            class="btn btn-secondary p-3 btn-details-now-data"
+                                            disabled>
                                                 Contratar
                                             </button>
                                             <br>
                                             @else
 
-                                            <button type="button" class="btn btn-secondary p-3" onclick="window.location.href='{{ route('showProfileServiceTalent',$serviceTalUsers->id) }}'">
+                                            <button
+                                            type="button"
+                                            class="btn btn-secondary p-3"
+                                            onclick="window.location.href='{{ route('showProfileServiceTalent',$serviceTalUsers->id) }}'">
                                                 Contratar
                                             </button>
 
@@ -571,8 +647,12 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                             @endif
                                         @endif
                                     @else
-                                        <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
-                                            <em class="bi-cart-fill me-1"></em>
+                                        <button
+                                        class="btn btn-outline-dark flex-shrink-0"
+                                        onclick="window.location.href='{{ route('registrouser') }}'"
+                                        type="button">
+                                            <em
+                                            class="bi-cart-fill me-1"></em>
                                             Contratar
                                         </button>
 
@@ -585,15 +665,33 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                             </div>
                             {{-- Sin reto registrado--}}
 
-                            <div class="tab-pane fade" id="reto" role="tabpanel" aria-labelledby="reto-tab">
+                            <div
+                            class="tab-pane fade"
+                            id="reto"
+                            role="tabpanel"
+                            aria-labelledby="reto-tab">
                                 @if(count($user->UseOccIntermediate->where('use_occ_group_payment',true))==0 )
-                                    <div class="row pr-4 ml-2 py-3 px-1" >
-                                        <div class="col-4 rounded " >
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRAvXbCfEK1M6djzeOmvBz82N4VozHuhjXgKV5LEvcuvbpzyoVUoYC99zeipVug8du4uk&usqp=CAU" class="rounded" style="width: 100% !important;" alt="imagen de servicio">
+                                    <div
+                                    class="row pr-4 ml-2 py-3 px-1" >
+                                        <div
+                                        class="col-4 rounded " >
+                                            <img
+                                            src="https://acortar.link/DHhDUE"
+                                            class="rounded"
+                                            style="width: 100% !important;"
+                                            alt="imagen de servicio">
                                         </div>
-                                        <div class="col-8">
-                                            <h2 class="fs-4"> No tienes ningún reto registrado</h2>
-                                            <a href="{{ route('offerMyServiceChange') }}" class= "badge badge-light text-dark">Registre su reto aquí</a>
+                                        <div
+                                        class="col-8">
+                                            <h2
+                                            class="fs-4">
+                                            No tienes ningún reto registrado
+                                        </h2>
+                                            <a
+                                            href="{{ route('offerMyServiceChange') }}"
+                                            class= "badge badge-light text-dark">
+                                            Registre su reto aquí
+                                        </a>
                                         </div>
                                     </div>
                                 @else
@@ -604,28 +702,46 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                             }
                                         @endphp
                                     @endforeach
-                                    {{-- Este es el código comentado de cuando sí hay un evento registrado --}}
-                                    <div class="row col-sm-12">
-                                        <div class="col-md-6">
+                                    <div
+                                    class="row col-sm-12">
+                                        <div
+                                        class="col-md-6">
                                             <label>Nombre del reto</label>
-
                                         </div>
-                                        <div class="col-md-6">
-                                            <a href="{{ route('showProfileServiceRetos',$retoActivo->id) }}" class="badge badge-light text-dark"><p>{{ $retoActivo->IntermediateChange->cha_name }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                                                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                        <div
+                                        class="col-md-6">
+                                            <a
+                                            href="{{ route('showProfileServiceRetos',$retoActivo->id) }}"
+                                            class="badge badge-light text-dark">
+                                            <p>{{ $retoActivo->IntermediateChange->cha_name }} <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            fill="currentColor"
+                                            class="bi bi-box-arrow-up-right"
+                                            viewBox="0 0 16 16">
+                                                <path
+                                                fill-rule="evenodd"
+                                                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                                <path
+                                                fill-rule="evenodd"
+                                                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
                                             </svg> </p></a>
 
                                         </div>
                                     </div>
 
 
-                                    <div class="row col-sm-12">
-                                        <div class="col-md-6">
+                                    <div
+                                    class="row col-sm-12">
+                                        <div
+                                        class="col-md-6">
                                             <label>Meta</label>
                                         </div>
-                                        <div class="col-md-6">
-                                            <p class="small">$ {{ $retoActivo->precio }}</p>
+                                        <div
+                                        class="col-md-6">
+                                            <p
+                                            class="small">$ {{ $retoActivo->precio }}</p>
                                         </div>
                                     </div>
 
@@ -633,15 +749,29 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                         $porcentaje = ($retoActivo->precio_actual*100/$retoActivo->precio);
                                     @endphp
                                     @if($porcentaje==0)
-                                        <div class="col-sm-12 progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="{{ $porcentaje }}" aria-valuemin="0" aria-valuemax="100">
+                                        <div
+                                        class="col-sm-12 progress">
+                                            <div
+                                            class="progress-bar progress-bar-striped progress-bar-animated"
+                                            role="progressbar"
+                                            style="width: 100%"
+                                            aria-valuenow="{{ $porcentaje }}"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100">
                                                 {{ $porcentaje }}%
                                             </div>
                                         </div>
 
                                     @else
-                                        <div class="col-sm-12 progress">
-                                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $porcentaje }}%;min-width:5%" aria-valuenow="{{ $porcentaje }}" aria-valuemin="0" aria-valuemax="100">
+                                        <div
+                                        class="col-sm-12 progress">
+                                            <div
+                                            class="progress-bar progress-bar-striped progress-bar-animated"
+                                            role="progressbar"
+                                            style="width: {{ $porcentaje }}%;min-width:5%"
+                                            aria-valuenow="{{ $porcentaje }}"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100">
                                                 {{ number_format($porcentaje,2) }}%
                                             </div>
                                         </div>
@@ -650,8 +780,10 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
 
 
                                     <br>
-                                    <div class="row col-sm-12">
-                                        <div class="col-sm-12 contenedor">
+                                    <div
+                                    class="row col-sm-12">
+                                        <div
+                                        class="col-sm-12 contenedor">
                                             @if($retoActivo->IntermediateChange->cha_video !=null)
                                                 @php
                                                     $ytarray=explode("/", $retoActivo->IntermediateChange->cha_video);
@@ -668,12 +800,24 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                                     allowfullscreen></iframe>";
                                                 @endphp
                                                 <br>
-                                                <a href="{{ $serviceUsers->IntermediateChange->cha_video }}">Link del video</a>
+                                                <a
+                                                href="{{ $serviceUsers->IntermediateChange->cha_video }}">
+                                                Link del video
+                                            </a>
                                             @else
-                                                <h4>Aun no se subio ningun video</h4>
+                                                <h4>
+                                                    Aun no se subio ningun video
+                                                </h4>
                                                 @if(auth()->user()->id == $user->id)
-                                                    <label for="" class="text-info">Se habilitara subir video cuando llegue por lo menos al 25% de las donaciones.
-                                                        Se habilitara en el perfil del reto, de click <a href="{{ route('showProfileServiceRetos',$retoActivo->id) }}" >AQUI</a>
+                                                    <label
+                                                    for=""
+                                                    class="text-info">
+                                                    Se habilitara subir video cuando llegue
+                                                    por lo menos al 25% de las donaciones.
+                                                        Se habilitara en el perfil del reto, de click
+                                                        <a
+                                                        href="{{ route('showProfileServiceRetos',$retoActivo->id) }}" >
+                                                        AQUI</a>
                                                     </label>
                                                 @endif
                                             @endif
@@ -683,14 +827,20 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                     </div>
 
                                     <br>
-                                    <div class="row col-sm-12">
-                                        <div class="col-md-6">
+                                    <div
+                                    class="row col-sm-12">
+                                        <div
+                                        class="col-md-6">
                                             <label>Sobre el reto</label>
                                         </div>
 
 
-                                        <div class="col-md-12">
-                                            <p class="small">{{ $retoActivo->descripcion }}</p>
+                                        <div
+                                        class="col-md-12">
+                                            <p
+                                            class="small">
+                                            {{ $retoActivo->descripcion }}
+                                        </p>
                                         </div>
                                     </div>
 
@@ -711,53 +861,110 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
 
 
 
-                            <div class="tab-pane fade" id="historia" role="tabpanel" aria-labelledby="historia-tab">
+                            <div
+                            class="tab-pane fade"
+                            id="historia"
+                            role="tabpanel"
+                            aria-labelledby="historia-tab">
 
-                                  {{-- Eston son los titulos de la izquierda  --}}
-                                <div class="row">
-                                    <div class="col-4">
-                                      <div class="list-group" id="list-tab" role="tablist">
+                                <div
+                                class="row">
+                                    <div
+                                    class="col-4">
+                                      <div
+                                      class="list-group"
+                                      id="list-tab"
+                                      role="tablist">
 
                                         @foreach($user->UseOccIntermediate->where('use_occ_group_payment',true) as $serviceUsers)
                                             @if($serviceUsers->IntermediateChange->cha_active)
-                                                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="{{ '#list-change-'.$serviceUsers->id}}"  role="tab" aria-controls="home">{{ $serviceUsers->IntermediateChange->cha_name }}</a>
+                                                <a
+                                                class="list-group-item list-group-item-action active"
+                                                id="list-home-list"
+                                                data-toggle="list"
+                                                href="{{ '#list-change-'.$serviceUsers->id}}"
+                                                role="tab"
+                                                aria-controls="home">
+                                                {{ $serviceUsers->IntermediateChange->cha_name }}
+                                            </a>
                                             @else
-                                                <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="{{ '#list-change-'.$serviceUsers->id}}"  role="tab" aria-controls="home">{{ $serviceUsers->IntermediateChange->cha_name }}</a>
+                                                <a
+                                                class="list-group-item list-group-item-action"
+                                                id="list-home-list"
+                                                data-toggle="list"
+                                                href="{{ '#list-change-'.$serviceUsers->id}}"
+                                                role="tab"
+                                                aria-controls="home">
+                                                {{ $serviceUsers->IntermediateChange->cha_name }}
+                                            </a>
                                             @endif
                                         @endforeach
                                       </div>
                                     </div>
-                                    <div class="col-8">
-                                      <div class="tab-content rounded rounded-lg " id="nav-tabContent">
+                                    <div
+                                    class="col-8">
+                                      <div
+                                      class="tab-content rounded rounded-lg "
+                                      id="nav-tabContent">
 
-                                        {{-- Los apartados de cada cuadro --}}
-                                        {{-- Primer panel --}}
+
 
                                         @foreach($user->UseOccIntermediate->where('use_occ_group_payment',true) as $serviceUsers)
                                         @if($serviceUsers->IntermediateChange->cha_active)
 
-                                        <div class="tab-pane fade show active bg-white rounded" id="{{ 'list-change-'.$serviceUsers->id}}" role="tabpanel" aria-labelledby="list-home-list">
-                                            <div class="row col-sm-12">
-                                                <div class="col-md-6">
-                                                    <label>{{ $serviceUsers->IntermediateChange->cha_name }}</label>
+                                        <div
+                                        class="tab-pane fade show active bg-white rounded"
+                                        id="{{ 'list-change-'.$serviceUsers->id}}"
+                                        role="tabpanel"
+                                        aria-labelledby="list-home-list">
+                                            <div
+                                            class="row col-sm-12">
+                                                <div
+                                                class="col-md-6">
+                                                    <label>
+                                                        {{ $serviceUsers->IntermediateChange->cha_name }}
+                                                    </label>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <a href="{{ route('showProfileServiceRetos',$serviceUsers->id) }}" class="badge badge-light text-dark"><p>Ir al perfil del reto <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                                                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                                                <div
+                                                class="col-md-6">
+                                                    <a
+                                                    href="{{ route('showProfileServiceRetos',$serviceUsers->id) }}"
+                                                    class="badge badge-light text-dark">
+                                                    <p>Ir al perfil del reto
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                        width="16"
+                                                        height="16"
+                                                        fill="currentColor"
+                                                        class="bi bi-box-arrow-up-right"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                        fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                                                        <path
+                                                        fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
                                                       </svg> </p></a>
 
                                                 </div>
                                             </div>
-                                            <div class="container col-md-6">
-                                                <img src="{{ $serviceUsers->imagen }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="No existe miniatura">
+                                            <div
+                                            class="container col-md-6">
+                                                <img
+                                                src="{{ $serviceUsers->imagen }}"
+                                                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                                alt="No existe miniatura">
                                             </div>
 
-                                            <div class="row col-sm-12">
+                                            <div
+                                            class="row col-sm-12">
 
-                                                <div class="col-md-6">
+                                                <div
+                                                class="col-md-6">
                                                     <br>
-                                                    <label class="small">El reto está en curso.</label>
+                                                    <label
+                                                    class="small">
+                                                    El reto está en curso.
+                                                </label>
 
 
                                                 </div>
@@ -767,12 +974,21 @@ href="https://vjs.zencdn.net/7.2/video-js.min.css" rel="stylesheet">
                                         </div>
                                         @else
 
-                                        <div class="tab-pane fade bg-white rounded" id="{{ 'list-change-'.$serviceUsers->id}}" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <div class="row col-sm-12">
-                                                <div class="col-md-6">
-                                                    <label>Nombre del reto</label>
+                                        <div
+                                        class="tab-pane fade bg-white rounded"
+                                        id="{{ 'list-change-'.$serviceUsers->id}}"
+                                        role="tabpanel"
+                                        aria-labelledby="list-profile-list">
+                                            <div
+                                            class="row col-sm-12">
+                                                <div
+                                                class="col-md-6">
+                                                    <label>
+                                                        Nombre del reto
+                                                    </label>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div
+                                                class="col-md-6">
                                                 <a
                                                 href="{{ route('showProfileServiceRetos', $serviceUsers->id) }}"
                                                 class="badge badge-light text-dark">
