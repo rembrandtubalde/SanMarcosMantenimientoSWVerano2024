@@ -21,4 +21,10 @@ export abstract class MongooseRepository<T extends BaseEntity> {
 
 		await collection.updateOne({ _id: id }, { $set: document }, { upsert: true });
 	}
+
+	protected async delete(id: string): Promise<void> {
+		const collection = await this.collection();
+
+		await collection.deleteOne({ _id: id });
+	}
 }
