@@ -4,8 +4,12 @@
 @section('contenido_js')
     <!-- Core theme JS-->
     @livewireStyles
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-    <script src="https://js.pusher.com/7.0/pusher.min.js" integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous">
+    </script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"
+        integrity="sha384-zvPTdTn0oNW7YuTZj1NueYOFJSJNDFJGdKwMMlWDtr3b4xarXd2ydDUajHfnszL7" crossorigin="anonymous">
+    </script>
     
 @endsection
 
@@ -37,17 +41,24 @@
                 <section class="py-5">
                     <div class="container px-4 px-lg-5 my-5">
                         <div class="row gx-4 gx-lg-5 align-items-center">
-                            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" alt="..." /></div>
+                            <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
+                                src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" alt="..." />
+                            </div>
                             <div class="col-md-6">
                                 <h1 class="display-5 fw-bolder">{{ $serviceProfile->ser_tal_name }}</h1>
-                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseTal->id) }}" class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseTal->name." ".$serviceProfile->IntermediateUseTal->lastname }}</a>
+                                <a href="{{ route('perfil',$serviceProfile->IntermediateUseTal->id) }}"
+                                    class="h5 fw-bolder">
+                                    {{ $serviceProfile->IntermediateUseTal->name." ".$serviceProfile->
+                                        IntermediateUseTal->lastname }}
+                                </a>
                                 <br>
-                                <label><strong>Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseTal->email }} <label></label>
+                                <label><strong>Email : &nbsp;</strong> </label>
+                                {{ $serviceProfile->IntermediateUseTal->email }}
+                                 <label></label>
                                 <br>
-                                <label><strong>Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseTal->birthdate }} <label></label>
-    
-
-
+                                <label><strong>Año de nacimiento : &nbsp;</strong> </label>
+                                {{ $serviceProfile->IntermediateUseTal->birthdate }}
+                                 <label></label>
 
                                 <div class="card text-center">
                                     <div class="card-header">
@@ -69,13 +80,33 @@
                                     <div class="card-body">
                                       <h5 class="card-title">S/{{ $serviceProfile->precio }}</h5>
                                         <h5>Calificación por usuarios
-                                            <h4> 
+                                            <h4>
                                                 <ul class="list-inline">
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ? ' yellow': ''}}"></em></li>
-                                                <li class="list-inline-item"><em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ? ' yellow': ''}}"></em></li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 1 ?
+                                                     ' yellow': ''}}">
+                                                    </em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 2 ?
+                                                     ' yellow': ''}}">
+                                                    </em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 3 ?
+                                                     ' yellow': ''}}">
+                                                    </em>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 4 ?
+                                                     ' yellow': ''}}">
+                                                     </em>
+                                                 </li>
+                                                <li class="list-inline-item">
+                                                    <em class="fa fa-star {{$serviceProfile->calificacionT >= 5 ?
+                                                     ' yellow': ''}}">
+                                                    </em>
+                                                </li>
                                                 </ul>
                                             </h4>
                                         </h5>
@@ -87,7 +118,8 @@
                                         @endphp
                                         @if(auth()->user()!=null)
                                             @if(auth()->user()->id == $serviceProfile->IntermediateUseTal->id)
-                                                <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
+                                                <button class="btn btn-outline-dark flex-shrink-0" disabled
+                                                    type="button">
                                                     <em class="bi-cart-fill me-1"></em>
                                                     Tu eres el del servicio
                                                 </button>
@@ -103,14 +135,21 @@
 
                                                 @endforeach
                                                 @if($receivedServiceNow == true)
-                                                    <button class="btn btn-outline-dark flex-shrink-0" disabled type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button class="btn btn-outline-dark flex-shrink-0" disabled
+                                                        type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
                                                         <em class="bi-cart-fill me-1"></em>
                                                         Ya lo contrataste
                                                     </button>
                                                     <br>
-                                                    <div class="text-danger">* Para comunicarte con el que ofrece el servicio, presione <a href="">AQUI</a> </div>
+                                                    <div class="text-danger">
+                                                        * Para comunicarte con el que ofrece el servicio, presione
+                                                        <a href="">AQUI</a> </div>
                                                 @else
-                                                    <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button
+                                                        class="btn btn-outline-dark flex-shrink-0 btn-details-now-data"
+                                                        type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal">
                                                         <em class="bi-cart-fill me-1"></em>
                                                         Contratar
                                                     </button>
@@ -119,7 +158,9 @@
                                                 @endif
                                             @endif
                                         @else
-                                            <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
+                                            <button class="btn btn-outline-dark flex-shrink-0"
+                                                onclick="window.location.href='{{ route('registrouser') }}'"
+                                                type="button">
                                                 <em class="bi-cart-fill me-1"></em>
                                                 Contratar
                                             </button>
@@ -142,15 +183,25 @@
             <section class="py-5">
                 <div class="container px-4 px-lg-5 my-5">
                     <div class="row gx-4 gx-lg-5 align-items-center">
-                        <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{  $serviceProfile->imagen  }}" style="width:512px !important;" alt="..." /></div>
+                        <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
+                            src="{{  $serviceProfile->imagen  }}"
+                            style="width:512px !important;" alt="..." /></div>
                         <div class="col-md-6">
                             <h1 class="display-5 fw-bolder">{{ $serviceProfile->ser_tal_name }}</h1>
 
-                            <a href="{{ route('perfil',$serviceProfile->IntermediateUseTal->id) }}" class="h5 fw-bolder">{{ $serviceProfile->IntermediateUseTal->name." ".$serviceProfile->IntermediateUseTal->lastname }}</a>
+                            <a href="{{ route('perfil',$serviceProfile->IntermediateUseTal->id) }}"
+                                class="h5 fw-bolder">
+                                {{ $serviceProfile->IntermediateUseTal->name." ".$serviceProfile->
+                                    IntermediateUseTal->lastname }}
+                            </a>
                             <br>
-                            <label><strong>Email : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseTal->email }} <label></label>
+                            <label><strong>Email : &nbsp;</strong> </label>
+                                {{ $serviceProfile->IntermediateUseTal->email }}
+                            <label></label>
                             <br>
-                            <label><strong>Año de nacimiento : &nbsp;</strong> </label> {{ $serviceProfile->IntermediateUseTal->birthdate }} <label></label>
+                            <label><strong>Año de nacimiento : &nbsp;</strong> </label>
+                                {{ $serviceProfile->IntermediateUseTal->birthdate }}
+                            <label></label>
                             <br>
                             <div class="card text-center">
                                 <div class="card-header">
@@ -196,14 +247,20 @@
 
                                             @endforeach
                                             @if($receivedServiceNow == true)
-                                                <button class="btn btn-outline-dark flex-shrink-0" disabled type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button class="btn btn-outline-dark flex-shrink-0" disabled
+                                                    type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <em class="bi-cart-fill me-1"></em>
                                                     Ya lo contrataste
                                                 </button>
                                                 <br>
-                                                <div class="text-danger">* Para comunicarte con el que ofrece el servicio, presione <a href="">AQUI</a> </div>
+                                                <div class="text-danger">
+                                                    * Para comunicarte con el que ofrece el servicio, presione
+                                                    <a href=""> AQUI</a>
+                                                </div>
                                             @else
-                                                <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <button class="btn btn-outline-dark flex-shrink-0 btn-details-now-data"
+                                                    type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">
                                                     <em class="bi-cart-fill me-1"></em>
                                                     Contratar
                                                 </button>
@@ -212,7 +269,9 @@
                                             @endif
                                         @endif
                                     @else
-                                        <button class="btn btn-outline-dark flex-shrink-0" onclick="window.location.href='{{ route('registrouser') }}'" type="button">
+                                        <button class="btn btn-outline-dark flex-shrink-0"
+                                            onclick="window.location.href='{{ route('registrouser') }}'"
+                                            type="button">
                                             <em class="bi-cart-fill me-1"></em>
                                             Contratar
                                         </button>
@@ -244,16 +303,23 @@
 
         <form class="" action="{{ route('contractDetailsData') }}" method="POST" enctype="" novalidate>
             @csrf
-            <input type="hidden" class="set-user-offer-input" name="userOffer" value="{{ $serviceProfile->use_id }}" required>
-            <input type="hidden" class="set-price-offer-input" name="priceOffer" value="{{ $serviceProfile->precio }}" required>
-            <input type="hidden" class="set-service-offer-input" name="serviceOffer" value="{{ $serviceProfile->id }}" required>
+            <input type="hidden" class="set-user-offer-input" name="userOffer"
+                value="{{ $serviceProfile->use_id }}" required>
+            <input type="hidden" class="set-price-offer-input" name="priceOffer"
+                value="{{ $serviceProfile->precio }}" required>
+            <input type="hidden" class="set-service-offer-input" name="serviceOffer"
+                value="{{ $serviceProfile->id }}" required>
             <input type="hidden" class="set-type-offer-input" name="typeOfJob" value="2" required>
-            <input type="hidden" class="set-service-offer-input" name="img1" value="{{ $serviceProfile->imagen }}" required>
+            <input type="hidden" class="set-service-offer-input" name="img1"
+                value="{{ $serviceProfile->imagen }}" required>
             <input type="hidden" class="set-status-offer-input" name="statusInitial" value="1" required>
 
             {{-- Datos que no se procesan, solo para mejorar el estilo --}}
-            <input type="hidden" class="set-service-name-input" name="serviceName" value="{{ $serviceProfile->ser_tal_name }}" required>
-            <input type="hidden" class="set-user-offer-name-input" name="userNameProvider" value="{{ $serviceProfile->IntermediateUseTal->name.$serviceProfile->IntermediateUseTal->lastname}}" required>
+            <input type="hidden" class="set-service-name-input" name="serviceName"
+                value="{{ $serviceProfile->ser_tal_name }}" required>
+            <input type="hidden" class="set-user-offer-name-input" name="userNameProvider"
+                value="{{ $serviceProfile->IntermediateUseTal->name.$serviceProfile->IntermediateUseTal->lastname}}"
+                required>
             {{-- Fin datos que no se procesas --}}
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ventanaModal" aria-hidden="true">
@@ -271,14 +337,17 @@
                                 <label>Hora: </label><br>
                                 <input type="time" class="form-control" value="{{ old('hourForm') }}" name="hourForm">
                                 <label class="m-1">Fecha: </label>
-                                <input type="date" class="form-control" value="{{ old('dateForm') }}" name="dateForm" min="2020-11-02" id="fechaContrato" required>
+                                <input type="date" class="form-control" value="{{ old('dateForm') }}" name="dateForm"
+                                    min="2020-11-02" id="fechaContrato" required>
 
                                 <label class="m-1" for="">Lugar</label>
-                                <input type="text" class="form-control" name="addressForm" value="{{ old('addressForm') }}" placeholder="Lugar">
+                                <input type="text" class="form-control" name="addressForm"
+                                    value="{{ old('addressForm') }}" placeholder="Lugar">
 
 
                                 <label class="m-1">Descripcion</label><br>
-                                <input class="form-control" name="descriptionForm" value="{{ old('descriptionForm') }}" placeholder="Descripcion">
+                                <input class="form-control" name="descriptionForm" value="{{ old('descriptionForm') }}"
+                                    placeholder="Descripcion">
                             </div>
                         </div>
 
@@ -350,7 +419,10 @@
                         <div class="clear"></div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn" style="background-color: rgba(10, 169, 190, 0.61)">Calificar</button>
+                        <button type="submit" class="btn"
+                            style="background-color: rgba(10, 169, 190, 0.61)">
+                            Calificar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -374,7 +446,10 @@
                             <h5 class="card-title">Preguntas Frecuentes</h5>
                             @auth
                                 @if(auth()->user()->id == $serviceProfile->use_id)
-                                <button type="button" class="btn btn-sm btn-primary" name="btnpregunta" data-toggle="modal" data-target="#Modalpregunta">Añadir Pregunta Frecuente</button>
+                                <button type="button" class="btn btn-sm btn-primary" name="btnpregunta"
+                                    data-toggle="modal" data-target="#Modalpregunta">
+                                    Añadir Pregunta Frecuente
+                                </button>
                                 @endif
                             @endauth
 
@@ -402,7 +477,8 @@
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab"
+                                    aria-controls="posts" aria-selected="true">
                                     Realizar Comentario</a>
                             </li>
                         </ul>
@@ -410,7 +486,8 @@
                 <form action="{{ route('registrarComent') }}" method="post" class="form-horizontal">
                     <div class="card-body">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                            <div class="tab-pane fade show active" id="posts" role="tabpanel"
+                                aria-labelledby="posts-tab">
                                 <div class="form-group">
                                     <label class="sr-only" for="message">post</label>
                                     {{ csrf_field() }}
@@ -418,7 +495,9 @@
                                     <input type="hidden" name="typeJobFromComment" value="2">
                                     <input type="hidden" name="serviceId" value="{{ $serviceProfile->id }}">
 
-                                    <textarea class="form-control @error('comentario') is-invalid @enderror" id="message" rows="3" placeholder="Escriba lo que piensa..." name="comentario"></textarea>
+                                    <textarea class="form-control @error('comentario') is-invalid @enderror"
+                                        id="message" rows="3" placeholder="Escriba lo que piensa..."
+                                        name="comentario"></textarea>
                                     @error('comentario')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -427,7 +506,10 @@
                                 </div>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn" style="background-color: rgba(10, 169, 190, 0.61)">Comentar</button>
+                                <button type="submit" class="btn"
+                                    style="background-color: rgba(10, 169, 190, 0.61)">
+                                    Comentar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -446,14 +528,17 @@
                                 <div class="">
                                     <a class="text-decoration-none" href="#">
                                         @if($serviceProfile->use_id == $coment->use_id)
-                                        <img class="" src="https://i.postimg.cc/ryg6tyH9/operator-m.png" width="50" height="50" alt="...">
+                                        <img class="" src="https://i.postimg.cc/ryg6tyH9/operator-m.png"
+                                            width="50" height="50" alt="...">
                                         @else
-                                        <img class="" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" width="50" height="50" alt="...">
+                                        <img class="" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/
+                                            33/avat-01-512.png" width="50" height="50" alt="...">
                                         @endif
                                     </a>
                                 </div>
                                 <div class="flex-grow-1 pl-2">
-                                    <a class="text-decoration-none" href="{{ route('perfil',$coment->PostCommentUser->id) }}">
+                                    <a class="text-decoration-none"
+                                        href="{{ route('perfil',$coment->PostCommentUser->id) }}">
                                         <h2 class="text-capitalize h5 mb-0">{{ $coment->PostCommentUser->name }}</h2>
                                     </a>
                                     <p class="small text-secondary m-0 mt-1">Posteado el {{ $coment->created_at }}</p>
@@ -485,7 +570,7 @@
                                                     @php
                                                         $likeUser = true;
                                                         break;
-                                                    @endphp                                                    
+                                                    @endphp
                                                 @endif
                                             @endforeach
                                             @if($likeUser==true)
@@ -494,9 +579,12 @@
                                                 @csrf
                                                 <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
                                                 <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                <button class="small text-decoration-none" type="submit"
+                                                    style="border: none;background-color:transparent;
+                                                        color:#007bff !important;text-transform:none !important;
+                                                        padding:0px">
                                                     <em class="fa fa-thumbs-up"></em>  Me gusta
-                                                </button>    
+                                                </button>
                                             </form>
 
 
@@ -505,21 +593,32 @@
                                                     @csrf
                                                     <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
                                                     <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                    <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                    <button class="small text-decoration-none" type="submit"
+                                                        style="border: none;background-color:transparent;
+                                                            color:#007bff !important;text-transform:none !important;
+                                                            padding:0px">
                                                         <em class="far fa-thumbs-up"></em>  Me gusta
-                                                    </button>    
+                                                    </button>
                                                 </form>
 
                                             @endif
                                             @else
-                                                <button class="small text-decoration-none" type="button" onclick="window.location.href='{{ route('registrouser') }}'" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                <button class="small text-decoration-none" type="button"
+                                                    onclick="window.location.href='{{ route('registrouser') }}'"
+                                                    style="border: none; background-color:transparent;
+                                                        color:#007bff !important; text-transform:none !important;
+                                                        padding:0px">
                                                     <em class="far fa-thumbs-up"></em>  Me gusta
-                                                </button>    
+                                                </button>
                                             @endauth
                                         </li>
-                                        <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-right-0 border-top-0 border-bottom-0">
-                                            <a class="small text-decoration-none" data-toggle="collapse" href="#id{{$coment->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <em class="fas fa-comment-alt"></em> {{ $coment->UseComPostAnswer->count() }} Comentario
+                                        <li class="list-group-item flex-fill text-center p-0 px-lg-2 border
+                                            border-right-0 border-top-0 border-bottom-0">
+                                            <a class="small text-decoration-none" data-toggle="collapse"
+                                                href="#id{{$coment->id}}" role="button" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                <em class="fas fa-comment-alt"></em>
+                                                {{ $coment->UseComPostAnswer->count() }} Comentario
                                             </a>
                                         </li>
                                     </ul>
@@ -537,9 +636,16 @@
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="usCom" value="{{ auth()->user()->id }}">
                                                 <input type="hidden" name="ComId" value="{{ $coment->id }}">
-                                                    <input type="text" class="form-control @error('comentarioRespuesta') is-invalid @enderror" name="comentarioRespuesta" placeholder="Escribir algo..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                    <input type="text"
+                                                        class="form-control
+                                                         @error('comentarioRespuesta') is-invalid @enderror"
+                                                        name="comentarioRespuesta"
+                                                        placeholder="Escribir algo..."
+                                                        aria-label="Recipient's username"
+                                                        aria-describedby="basic-addon2">
                                                     <div class="input-group-append">
-                                                        <button class="text-decoration-none text-white btn btn-primary" style="background-color: rgb(0, 0, 0)">Responder</button>
+                                                        <button class="text-decoration-none text-white btn btn-primary"
+                                                            style="background-color: rgb(0, 0, 0)">Responder</button>
                                                     </div>
                                                     @error('comentarioRespuesta')
                                                         <span class="invalid-feedback" role="alert">
@@ -561,15 +667,26 @@
                                                     <div class="">
                                                         <a class="text-decoration-none" href="#">
                                                         @if($serviceProfile->use_id == $comentR->use_id)
-                                                            <img class="profile-pic" src="https://i.postimg.cc/ryg6tyH9/operator-m.png" width="40" height="40" alt="...">
+                                                            <img class="profile-pic"
+                                                                src="https://i.postimg.cc/ryg6tyH9/operator-m.png"
+                                                                width="40" height="40" alt="...">
                                                             @else
-                                                            <img class="profile-pic" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" width="40" height="40" alt="...">
+                                                            <img class="profile-pic"src="https://cdn3.iconfinder.com/
+                                                                data/icons/avatars-round-flat/33/avat-01-512.png"
+                                                                width="40" height="40" alt="...">
                                                             @endif
                                                         </a>
                                                     </div>
                                                     <div class="flex-grow-1 pl-2">
-                                                        <a class="text-decoration-none text-capitalize h6 m-0" href="#">{{ $comentR->PostCommentUser->name }}</a><label class="text-muted small"> &nbsp; Respondiendo a {{ $coment->PostCommentUser->name }}</label>
-                                                        <p class="small m-0 text-muted">Posteado el {{ $comentR->created_at }}</p>
+                                                        <a class="text-decoration-none text-capitalize h6 m-0" href="#">
+                                                            {{ $comentR->PostCommentUser->name }}
+                                                        </a>
+                                                        <label class="text-muted small">
+                                                            &nbsp; Respondiendo a {{ $coment->PostCommentUser->name }}
+                                                        </label>
+                                                        <p class="small m-0 text-muted">
+                                                            Posteado el {{ $comentR->created_at }}
+                                                        </p>
                                                     </div>
                                                     
                                                 </div>
@@ -601,9 +718,13 @@
                             <h5 class="card-title m-0">Oficios Disponibles</h5>
                             <div class="list-group list-group-flush">
                                 @foreach($SerOcc as $so)
-                                {{-- <a href="{{ route('showProfileServiceOccupation',$so->id) }}" class="list-group-item list-group-item-action text-primary">{{ $so->ser_occ_name }}</a> --}}
+                                {{-- <a href="{{ route('showProfileServiceOccupation',$so->id) }}"
+                                    class="list-group-item list-group-item-action text-primary">
+                                        {{ $so->ser_occ_name }}
+                                    </a> --}}
                                 @endforeach
-                                {{-- <a href="{{ route('showOccupationService') }}" class="btn btn-sm btn-primary">Ver más</a> --}}
+                                {{-- <a href="{{ route('showOccupationService') }}"
+                                    class="btn btn-sm btn-primary">Ver más</a> --}}
                             </div>
                         </div>
                     </div>
@@ -612,9 +733,13 @@
                             <h5 class="card-title m-0">Talentos</h5>
                             <div class="list-group list-group-flush">
                                 @foreach($SerTal as $st)
-                                {{-- <a href="{{ route('showProfileServiceTalent',$st->id) }}" class="list-group-item list-group-item-action text-primary">{{ $st->ser_tal_name }}</a> --}}
+                                {{-- <a href="{{ route('showProfileServiceTalent',$st->id) }}"
+                                    class="list-group-item list-group-item-action text-primary">
+                                        {{ $st->ser_tal_name }}
+                                    </a> --}}
                                 @endforeach
-                                {{-- <a href="{{ route('showTalentService') }}" class="btn btn-sm btn-primary">Ver más</a> --}}
+                                {{-- <a href="{{ route('showTalentService') }}"
+                                    class="btn btn-sm btn-primary">Ver más</a> --}}
                             </div>
                         </div>
                     </div>
@@ -647,7 +772,9 @@
 
                             <div class="form-group col-md-12">
                             <label for="inputEmail4">Escribir Pregunta Frecuente</label>
-                            <input type="text" name="pregunta" class="form-control @error('pregunta') is-invalid @enderror" id="inputPregunta" placeholder="Escriba la Pregunta Frecuente*" value="{{ old('pregunta')}}" />
+                            <input type="text" name="pregunta"
+                                class="form-control @error('pregunta') is-invalid @enderror" id="inputPregunta"
+                                placeholder="Escriba la Pregunta Frecuente*" value="{{ old('pregunta')}}" />
                             @error('pregunta')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -660,7 +787,9 @@
 
                             <div class="form-group col-md-12">
                             <label for="inputEmail4">Responder Pregunta Frecuente</label>
-                            <input type="text" name="respuesta" class="form-control @error('respuesta') is-invalid @enderror" id="inputRespuesta" placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
+                            <input type="text" name="respuesta"
+                                class="form-control @error('respuesta') is-invalid @enderror" id="inputRespuesta"
+                                placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
                             @error('respuesta')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -678,7 +807,9 @@
 
                     </button>
 
-                    <button id="cerrarBtn" type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                    <button id="cerrarBtn" type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                        Cerrar
+                    </button>
 
                     </div>
 
