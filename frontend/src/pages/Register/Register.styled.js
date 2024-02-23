@@ -11,8 +11,8 @@ const wrapperBackgroundColor = theme('mode', {
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
-  background-image: url(${props => props.backgroundImage});
+  min-height: 100vh;
+  background-image: url(${(props) => props.backgroundImage});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -29,14 +29,14 @@ export const FormWrapper = styled.div`
   border-radius: 20px;
 `;
 
-export const TitleContainer = styled.div `
+export const TitleContainer = styled.div`
   text-align: center;
   font-size: 18px;
-  color: #A766E3;
+  color: #a766e3;
   margin: 12px 0 24px 0;
 `;
 
-export const InputsContainer = styled.div `
+export const InputsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -47,18 +47,19 @@ export const FormPrompt = styled.div`
   margin-bottom: 16px;
 
   & > a {
-    color: ${colors.primaryColor}
+    color: ${colors.primaryColor};
   }
 `;
 
-export const Separator = styled.div `
+export const Separator = styled.div`
   color: var(--dark-grey);
   font-size: 14px;
   margin: 12px 0;
   text-align: center;
   position: relative;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     width: 30%;
@@ -72,6 +73,6 @@ export const Separator = styled.div `
     bottom: 50%;
   }
   &::after {
-    bottom: 50%
+    bottom: 50%;
   }
 `;

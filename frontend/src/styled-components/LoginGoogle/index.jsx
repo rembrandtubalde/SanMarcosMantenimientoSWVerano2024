@@ -5,7 +5,7 @@ import './index.css';
 export const LoginGoogle = ({ handleGoogleLogin }) => {
   return (
     <button className="google-icon-wrapper" onClick={handleGoogleLogin}>
-      <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+      <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="google button" />
       <span className="google-icon-text">Google</span>
     </button>
   );

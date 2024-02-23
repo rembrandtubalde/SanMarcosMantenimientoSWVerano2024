@@ -144,7 +144,7 @@ export const Register = () => {
             />
           </RegisterStyled.InputsContainer>
           <RegisterStyled.FormPrompt>
-            <SubTitle fontSize='14px'>Si aún no tienes cuenta, regístrate{' '}</SubTitle>
+            <SubTitle fontSize='14px'>¿Ya tienes una cuenta? ingresa{' '}</SubTitle>
             <Link to='/'>aquí.</Link>
           </RegisterStyled.FormPrompt>
           <Button
