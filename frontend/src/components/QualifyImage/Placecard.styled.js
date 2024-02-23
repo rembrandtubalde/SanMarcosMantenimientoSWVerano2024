@@ -32,27 +32,30 @@ const selectButtonHoverColor = theme('mode', {
 
 export const Wrapper = styled.div`
   position: relative;
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 25px;
 `;
 
 export const Container = styled.div`
-  width: ${props => props.fixed ? '300px': '100%'};
+  width: ${(props) => (props.fixed ? '300px' : '100%')};
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const FavButton = styled.button`
   all: unset;
-	position: absolute;
-	font-size: 32px;
-	right: 0;
-	padding: 10px;
-	cursor: pointer;
+  position: absolute;
+  font-size: 32px;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
 
   &:disabled {
-	  cursor: initial;
+    cursor: initial;
   }
 
   & i {
@@ -63,7 +66,7 @@ export const FavButton = styled.button`
 `;
 
 export const Image = styled.div`
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.src});
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -73,28 +76,28 @@ export const Image = styled.div`
 
 export const Info = styled.div`
   display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
 
   & > span {
-	  font-size: 22px;
+    font-size: 22px;
   }
 `;
 
 export const Score = styled.div`
   display: flex;
-	align-items: center;
-	font-size: 22px;
+  align-items: center;
+  font-size: 22px;
 `;
 
 export const Rating = styled.div`
   display: flex;
-	align-items:center;
-	padding: 2px;
-	border-radius: 6px;
-	background-color: ${colors.lightYellow};
-	margin-right: 8px;
+  align-items: center;
+  padding: 2px;
+  border-radius: 6px;
+  background-color: ${colors.lightYellow};
+  margin-right: 8px;
 
   & i {
     height: 100%;
@@ -107,19 +110,18 @@ export const Rating = styled.div`
 
 export const SelectButton = styled(Link)`
   all: unset;
-	background-color: ${selectButtonBackgroundColor};
-	border-radius: 16px;
-	border: 3px solid ${selectButtonBackgroundColor};
-	padding: 14px 0;
+  background-color: ${selectButtonBackgroundColor};
+  border-radius: 16px;
+  border: 3px solid ${selectButtonBackgroundColor};
+  padding: 14px 0;
   color: ${selectButtonColor};
-	text-align: center;
-	font-size: 24px;
-	cursor: pointer;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
   self-align: flex-end;
-
 
   &:hover {
     background-color: ${selectButtonHoverBackgroundColor};
-	  color: ${selectButtonHoverColor};
+    color: ${selectButtonHoverColor};
   }
 `;

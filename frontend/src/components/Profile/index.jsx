@@ -67,7 +67,7 @@ const Profile = (props) => {
     <ProfileStyled.Wrapper>
       <ProfileStyled.Container>
         <ProfileStyled.Image>
-          <img src={image} alt="profile" />
+          {image ? <img src={image} alt="profile" />: <img src='https://us.123rf.com/450wm/hugok1000/hugok10001905/hugok1000190500198/123291745-ilustraci%C3%B3n-de-avatar-de-perfil-predeterminado-en-azul-y-blanco-sin-persona.jpg' alt="profile" /> }
         </ProfileStyled.Image>
         {isOpen && (
           <>

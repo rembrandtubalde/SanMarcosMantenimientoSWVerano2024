@@ -15,7 +15,7 @@ const textColorEmail = theme('mode', {
   dark: colors.white7,
 });
 
-export const Wrapper = styled.div `
+export const Wrapper = styled.div`
   width: 100%;
 `;
 
@@ -29,10 +29,11 @@ export const Image = styled.div`
   & img {
     border-radius: 50%;
     width: 100%;
+    height: 65px;
   }
 `;
 
-export const Info = styled(motion.div) `
+export const Info = styled(motion.div)`
   flex: 1;
   padding-left: 24px;
   align-self: center;
@@ -58,7 +59,7 @@ export const Info = styled(motion.div) `
 //   margin-top: 12px;
 // `
 
-export const Button = styled(motion.button) `
+export const Button = styled(motion.button)`
   all: unset;
   align-self: center;
   font-size: 24px;

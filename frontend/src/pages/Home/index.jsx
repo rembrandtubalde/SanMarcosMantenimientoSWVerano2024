@@ -32,7 +32,7 @@ export const Home = () => {
       <div className='location__places'>
         <div className='location__recommended'>
           <Title marginBottom='2rem'>Más visitados</Title>
-          <div className='location__list' style={{ gap: 30 }}>
+          <div className='location__list' style={{ gap: 20 }}>
             {places.length > 0 ? (
               <ListPlaces places={places} toFormat toFavorite fixed route='buscar/'  />
             ) : (
