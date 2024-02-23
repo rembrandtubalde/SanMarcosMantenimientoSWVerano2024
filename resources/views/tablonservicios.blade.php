@@ -28,7 +28,7 @@
 
 
 @section('content')
-    <div class="row">
+    <div class="row" style= "margin-top: 20px; margin-bottom: 40px;">
         <div class="col-10 my-2">
             @isset($agregado)
                 <div class="alert alert-success alert-dismissible fade show ml-1" role="alert">
@@ -46,7 +46,7 @@
                     </button>
                 </div>
             @endif
-            <div class="row my-2" style="margin:0px;display: flex; align-items: center; justify-content: center;">
+            <div class="row my-2" style="margin:20px; display: flex; align-items: center; justify-content: center;">
                 <div class="col-4" style="margin:0px;">
                     <h5 style="margin-bottom: 0px;">Servicios registrados:</h5>
                 </div>
@@ -84,10 +84,11 @@
                                 <p class="card-text">{{ $servicio->descripcion }}</p>
 
                                 <div style="display: flex;justify-content: space-between;align-items: center;">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$servicio->id}}">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal-{{$servicio->id}}">
                                         @if ($servicio->use_id == auth()->user()->id)
                                             Tu solicitud
-                                        @else   
+                                        @else
                                             Ver detalles
                                         @endif
                                     </button>
@@ -97,26 +98,40 @@
                                         <span class="badge badge-warning" style="font-size: 100%;">O</span>
                                     @endif
                                 </div>
-                                <div class="modal fade" id="myModal-{{$servicio->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="myModal-{{$servicio->id}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle"><p style="margin-bottom: 0px;">Servicio: {{ $servicio->servicio }}</p></h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle">
+                                            <p style="margin-bottom: 0px;">Servicio: {{ $servicio->servicio }}</p>
+                                        </h5>
                                         </div>
                                             <div class="modal-body" style="padding: 16px 16px 16px 16px;">
-                                                <p><i class="fas fa-info-circle" style="margin-right: 15px;"></i>Descripcion: {{ $servicio->descripcion }}</p>
-                                                <p><i class="fas fa-tags" style="margin-right: 15px;width: 16px;"></i>Tipo: {{ $servicio->tipo }}</p>
-                                                <p><i class="fas fa-dollar-sign" style="margin-right: 15px;width: 16px;"></i>Precio: {{ $servicio->precio }}</p>
+                                                <p>
+                                                    <i class="fas fa-info-circle" style="margin-right: 15px;"></i>
+                                                    Descripcion: {{ $servicio->descripcion }}
+                                                </p>
+                                                <p>
+                                                    <i class="fas fa-tags" style="margin-right: 15px;width: 16px;"></i>
+                                                    Tipo: {{ $servicio->tipo }}
+                                                </p>
+                                                <p><i class="fas fa-dollar-sign" style="margin-right: 15px;
+                                                    width: 16px;"></i>Precio: {{ $servicio->precio }}</p>
                                             </div>
                                             <div class="modal-footer">
                                                 @if ($servicio->use_id == auth()->user()->id)
-                                                    <form method="POST" class="eliminar-servicio" action="{{route("servicio.destroy",$servicio->id) }}">
+                                                    <form method="POST" class="eliminar-servicio"
+                                                        action="{{route("servicio.destroy",$servicio->id) }}">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" class="btn btn-danger" Value="Eliminar solicitud"/>
+                                                        <input type="submit" class="btn btn-danger"
+                                                            Value="Eliminar solicitud"/>
                                                     </form>
                                                 @endif
-                                                <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">
+                                                    Cerrar
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
