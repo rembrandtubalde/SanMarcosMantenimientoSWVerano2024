@@ -8,10 +8,12 @@
 @section('contenido_cSS')
 <link rel="stylesheet" href="{{ asset('/css/styleLoginCss.css') }}">
 
-<link href="{{ asset('/css/estilos.css') }}" rel="stylesheet"> 
+<link href="{{ asset('/css/estilos.css') }}" rel="stylesheet">
 
-<link href="{{ asset('/css/style.css') }}" rel="stylesheet"> 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;
+    1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
 @endsection
 
@@ -28,7 +30,10 @@
             <div class="caja__trasera-register">
                 <h3>¿Aún no tienes una cuenta?</h3>
                 <p>Regístrate para que puedas iniciar sesión</p>
-                <button id="btn__registrarse" onclick="window.location.href='{{ route('registrouser') }}'">Regístrarse</button>
+                <button id="btn__registrarse"
+                    onclick="window.location.href='{{ route('registrouser') }}'">
+                    Regístrarse
+                </button>
             </div>
         </div>
 
@@ -42,7 +47,14 @@
 
                     <h2>Iniciar Sesión</h2>
 
-                    <input id="email" type="email" placeholder="Correo electrónico" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input id="email"
+                        type="email"
+                        placeholder="Correo electrónico"
+                        class="form-control @error('email') is-invalid @enderror"
+                        name="email"
+                        value="{{ old('email') }}"
+                        required autocomplete="email" autofocus>
+
                     @error('email')
                         <br>
                         <span class="invalid-feedback" role="alert">
@@ -50,7 +62,12 @@
                         </span>
                     @enderror
 
-                    <input id="password" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <input id="password"
+                        type="password"
+                        placeholder="Contraseña"
+                        class="form-control @error('password') is-invalid @enderror"
+                        name="password"
+                        required autocomplete="current-password">
 
                     @error('password')
                         <br>
@@ -58,6 +75,7 @@
                         <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+
                     <button type="submit" class="btn btn-primary">
                         {{ __('Entrar') }}
                     </button>
