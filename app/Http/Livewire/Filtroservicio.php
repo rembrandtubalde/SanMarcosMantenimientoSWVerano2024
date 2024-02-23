@@ -19,6 +19,8 @@ class Filtroservicio extends Component
     public $talentoS = false;
     public $ocupacionS = false;
     public $tipo = "";
+    public $serviciosTec; 
+    public $serviciosTal;
 
     protected $rules = [
         'precio' => 'required|numeric|min:1|regex:/^[\d]{1,3}(\.[\d]{1,2})?$/'
@@ -35,6 +37,17 @@ class Filtroservicio extends Component
     {
         $this->validateOnly($propertyName);
         $validatedData = $this->validate();
+    }
+
+    public function mount()
+    {
+        $this->servicio();
+    }
+
+    public function servicio()
+    {
+        $this->serviciosTec = ServiceOccupation::all();
+        $this->serviciosTal = ServiceTalent::all();
     }
 
     public function talentoM()
@@ -57,7 +70,12 @@ class Filtroservicio extends Component
                     ->where("precio","<=", $this->precio)
                     ->where("precio",">",0)
                     //->orderBy('calificacion', $this->calificacion)
-                    ->get()],['tipo' => $this->tipo]);
+                    ->get(),
+                'tipo' => $this->tipo,
+                'serviciosTec' => $this->serviciosTec,
+                'serviciosTal' => $this->serviciosTal
+            ]);
+                    
         }else{
             $this->tipo = "Ocupaciones";
             return view('livewire.filtroservicio',[
@@ -66,7 +84,11 @@ class Filtroservicio extends Component
                     ->where("precio",">",0)
                     ->where("precio","<=", $this->precio)
                     //->orderBy('calificacion', $this->calificacion)
-                    ->get()],['tipo' => $this->tipo]);
+                    ->get(),
+                    'tipo' => $this->tipo,
+                    'serviciosTec' => $this->serviciosTec,
+                    'serviciosTal' => $this->serviciosTal
+                ]);
         }
     }
 }
