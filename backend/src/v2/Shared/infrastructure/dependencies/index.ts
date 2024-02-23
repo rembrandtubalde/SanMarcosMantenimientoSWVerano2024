@@ -10,6 +10,7 @@ import { SaveFavoriteController } from '../../../../api/controllers/SaveFavorite
 import { UserFavoritesController } from '../../../../api/controllers/UserFavoritesController';
 import { DeleteFavorite } from '../../../Favorite/application/DeleteFavorite';
 import { DeleteFavoriteController } from '../../../../api/controllers/DeleteFavoriteController';
+import { FindFavoritePlaces } from '../../../User/application/FindFavoritePlaces';
 
 const mongoConfig = MongooseConfigFactory.createConfig();
 const mongoClient = MongoClientFactory.createClient(mongoConfig);

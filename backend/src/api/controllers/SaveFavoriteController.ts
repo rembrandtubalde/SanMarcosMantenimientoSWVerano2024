@@ -1,4 +1,4 @@
-import { Request, Response, raw } from 'express';
+import { Request, Response } from 'express';
 import { Controller } from './Controller';
 import { FavoritePhoto } from '../../v2/Favorite/domain/FavoritePhoto';
 import { FavoriteReview } from '../../v2/Favorite/domain/FavoriteReview';

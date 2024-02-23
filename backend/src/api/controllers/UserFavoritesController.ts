@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { Controller } from './Controller';
 import { findFavoritesByUser } from '../../v2/Shared/infrastructure/dependencies';
-import { Favorite } from '../../v2/Favorite/domain/Favorite';
 import httpStatus from 'http-status';
 
 export interface CustomRequest extends Request {
