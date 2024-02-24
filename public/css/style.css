@@ -329,7 +329,7 @@ z-index: 999;}
 }
 
 .button-radius .icon:before{
-  font-family: 'FontAwesome';
+  font-family: 'FontAwesome', sans-serif;
   content: "\f105";
   font-size: 14px;
   color: #fff;
@@ -521,7 +521,7 @@ z-index: 999;}
 .maincontent-area {padding-bottom: 50px; padding-top:20px;}
 
 .product-wid-title {
-  font-family: raleway;
+  font-family: Raleway, sans-serif; 
   font-size: 30px;
   font-weight: 100;
   margin-bottom: 40px;
@@ -586,7 +586,7 @@ padding: 35px 0 180px;}
   color: #5a88ca;
 }
 .footer-wid-title {
-  font-family: raleway;
+  font-family: raleway, sans-serif; 
   font-size: 30px;
   font-weight: 100;color: #fff
 }
@@ -641,7 +641,7 @@ padding: 35px 0 180px;}
     display: inline-block;
     font-size: 18px;
     padding: 7px 20px;
-    text-transform: uppercase;border: 1px solid #5a88ca;
+    text-transform: uppercase;
 }
 .newsletter-form input[type="submit"]:hover {background: #222;border-color: #666}
 .newsletter-form {
@@ -711,7 +711,7 @@ width: 10px;
 .product-big-title-area {background: url(img/crossword.png) repeat scroll 0 0 #5a88ca}
 
 .product-bit-title h2 {
-  font-family: raleway;
+  font-family: raleway, sans-serif;
   font-size: 50px;
   font-weight: 200;
   margin: 0;
