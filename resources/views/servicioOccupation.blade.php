@@ -165,7 +165,6 @@
                                                         Contratar
                                                     </button>
 
-
                                                 @endif
                                             @endif
                                         @else
@@ -195,12 +194,10 @@
                     <div class="px-4 px-lg-5 my-5">
                         <div class="row gx-4 gx-lg-5 align-items-center">
                             <div class="col-md-6">
-                               <div class="d-flex justify-content-center">
-                                 <img class="card-img-top mb-5 mb-md-0"
-                                     src="{{  $serviceProfile->imagen  }}"
-                                     style="width:512px !important;"
-                                     alt="..." />
-                                </div>
+                                <img class="card-img-top mb-5 mb-md-0"
+                                src="{{  $serviceProfile->imagen  }}"
+                                style="width:512px !important;"
+                                alt="..." />
                             </div>
                             <div class="col-md-6">
                                 <h1 class="display-5 fw-bolder">{{ $serviceProfile->ser_occ_name }}</h1>
@@ -391,42 +388,85 @@
 
 
             {{-- Datos que no se procesan, solo para mejorar el estilo --}}
-            <input type="hidden" class="set-service-name-input" name="serviceName" value="{{ $serviceProfile->ser_occ_name }}" required>
-            <input type="hidden" class="set-user-offer-name-input" name="userNameProvider" value="{{ $serviceProfile->IntermediateUseOcc->name.$serviceProfile->IntermediateUseOcc->lastname}}" required>
+            <input
+                 type="hidden"
+                 class="set-service-name-input"
+                 name="serviceName"
+                 value="{{ $serviceProfile->ser_occ_name }}"
+                 required>
+            <input
+                 type="hidden"
+                 class="set-user-offer-name-input"
+                 name="userNameProvider"
+                 value="{{ $serviceProfile->IntermediateUseOcc->name.$serviceProfile->IntermediateUseOcc->lastname}}"
+                 required>
             {{-- Fin datos que no se procesas --}}
 
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ventanaModal" aria-hidden="true">
+            <div
+                 class="modal fade"
+                 id="exampleModal"
+                 tabindex="-1"
+                 aria-labelledby="ventanaModal"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="text-center">
-                            <h5 class="modal-title m-2" id="ventanaModal">Contratar servicio</h5>
+                            <h5 class="modal-title m-2"
+                                id="ventanaModal">Contratar servicio</h5>
                         </div>
                         <!-- Cuerpo modal -->
                         <div class="modal-corpo">
                             <div class="m-1" id="formulario">
                                 <label class="">Contratado por: Usuario nuevo</label><br>
                                 <label>Hora: </label><br>
-                                <input type="time" class="form-control" value="{{ old('hourForm') }}" name="hourForm">
+                                <input
+                                     type="time"
+                                     class="form-control"
+                                     value="{{ old('hourForm') }}"
+                                     name="hourForm">
                                 <label class="m-1">Fecha: </label>
-                                <input type="date" class="form-control" value="{{ old('dateForm') }}" name="dateForm" min="2020-11-02" id="fechaContrato" required>
+                                <input
+                                     type="date"
+                                     class="form-control"
+                                     value="{{ old('dateForm') }}"
+                                     name="dateForm"
+                                     min="2020-11-02"
+                                     id="fechaContrato"
+                                     required>
 
-                                <label class="m-1" for="">Lugar</label>
-                                <input type="text" class="form-control" name="addressForm" value="{{ old('addressForm') }}" placeholder="Lugar">
-
-
+                                <label
+                                     class="m-1"
+                                     for="">Lugar
+                                    </label>
+                                <input
+                                     type="text"
+                                     class="form-control"
+                                     name="addressForm"
+                                     value="{{ old('addressForm') }}"
+                                     placeholder="Lugar">
                                 <label class="m-1">Descripcion</label><br>
-                                <input class="form-control" name="descriptionForm" value="{{ old('descriptionForm') }}" placeholder="Descripcion">
+                                <input
+                                     class="form-control"
+                                     name="descriptionForm"
+                                     value="{{ old('descriptionForm') }}"
+                                     placeholder="Descripcion">
                             </div>
                         </div>
 
                         <!-- Botones pie -->
                         <div class="form-group row justify-content-center">
                             <div class="col-sm-3">
-                            <input type="submit" value="Siguiente" class="btn btn-primary"/>
+                            <input
+                                 type="submit"
+                                 value="Siguiente"
+                                 class="btn btn-primary"/>
                             </div>
                             <div class="col-sm-3">
-                            <input type="submit" value="Cancelar" class="btn btn-danger" data-bs-dismiss="modal" />
+                            <input
+                                 type="submit"
+                                 value="Cancelar"
+                                 class="btn btn-danger"
+                                 data-bs-dismiss="modal" />
                             </div>
                         </div>
 
@@ -469,26 +509,65 @@
               <p>Tambien puede calificar como 0 estrellas, sin dar click a ninguna</p>
         
 
-                <form action="{{ route('registrarScore') }}" method="post">
+                <form
+                    action="{{ route('registrarScore') }}"
+                    method="post">
                 {{ csrf_field() }}
-                <input type="hidden" name="usCom" value="{{ auth()->user()->id }}">
-                <input type="hidden" name="typeJobFromScore" value="1">
-                <input type="hidden" name="serviceId" value="{{ $serviceProfile->id }}">
+                <input
+                     type="hidden"
+                     name="usCom"
+                     value="{{ auth()->user()->id }}">
+                <input
+                     type="hidden"
+                     name="typeJobFromScore"
+                     value="1">
+                <input
+                    type="hidden"
+                    name="serviceId"
+                    value="{{ $serviceProfile->id }}">
                     <div class="rating">
-                        <input id="star5" name="calificacion" type="radio" value="5" class="radio-btn hide" />
+                        <input
+                             id="star5"
+                             name="calificacion"
+                             type="radio"
+                             value="5"
+                             class="radio-btn hide" />
                         <label for="star5">&#9733;</label>
-                        <input id="star4" name="calificacion" type="radio" value="4" class="radio-btn hide" />
+                        <input
+                             id="star4"
+                             name="calificacion"
+                             type="radio"
+                             value="4"
+                             class="radio-btn hide" />
                         <label for="star4">&#9733;</label>
-                        <input id="star3" name="calificacion" type="radio" value="3" class="radio-btn hide" />
+                        <input
+                             id="star3"
+                             name="calificacion"
+                             type="radio"
+                             value="3"
+                             class="radio-btn hide" />
                         <label for="star3">&#9733;</label>
-                        <input id="star2" name="calificacion" type="radio" value="2" class="radio-btn hide" />
+                        <input
+                             id="star2"
+                             name="calificacion"
+                             type="radio"
+                             value="2"
+                             class="radio-btn hide" />
                         <label for="star2">&#9733;</label>
-                        <input id="star1" name="calificacion" type="radio" value="1" class="radio-btn hide" />
+                        <input
+                             id="star1"
+                             name="calificacion"
+                             type="radio"
+                             value="1"
+                             class="radio-btn hide" />
                         <label for="star1">&#9733;</label>
                         <div class="clear"></div>
                     </div>
                     <div class="text-right">
-                        <button type="submit" class="btn" style="background-color: rgba(10, 169, 190, 0.61)">Calificar</button>
+                        <button
+                             type="submit"
+                             class="btn"
+                             style="background-color: rgba(10, 169, 190, 0.61)">Calificar</button>
                     </div>
                 </form>
             </div>
@@ -512,7 +591,12 @@
                             <h5 class="card-title">Preguntas Frecuentes</h5>
                             @auth
                                 @if(auth()->user()->id == $serviceProfile->use_id)
-                                <button type="button" class="btn btn-sm btn-primary" name="btnpregunta" data-toggle="modal" data-target="#Modalpregunta">Añadir Pregunta Frecuente</button>
+                                <button
+                                     type="button"
+                                     class="btn btn-sm btn-primary"
+                                     name="btnpregunta"
+                                     data-toggle="modal"
+                                     data-target="#Modalpregunta">Añadir Pregunta Frecuente</button>
                                 @endif
                             @endauth
 
@@ -538,34 +622,70 @@
 
             <section class="card">
                     <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs card-header-tabs"
+                            id="myTab"
+                            role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+                                <a class="nav-link active"
+                                   id="posts-tab"
+                                   data-toggle="tab"
+                                   href="#posts"
+                                   role="tab"
+                                   aria-controls="posts"
+                                   aria-selected="true">
                                     Realizar Comentario</a>
                             </li>
                         </ul>
                     </div>
-                <form action="{{ route('registrarComent') }}" method="post" class="form-horizontal">
+                <form
+                     action="{{ route('registrarComent') }}"
+                     method="post"
+                     class="form-horizontal">
                     <div class="card-body">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                        <div
+                             class="tab-content"
+                             id="myTabContent">
+                            <div class="tab-pane fade show active"
+                                 id="posts"
+                                 role="tabpanel"
+                                 aria-labelledby="posts-tab">
                                 <div class="form-group">
-                                    <label class="sr-only" for="message">post</label>
+                                    <label class="sr-only"
+                                           for="message">post</label>
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="usCom" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="typeJobFromComment" value="1">
-                                    <input type="hidden" name="serviceId" value="{{ $serviceProfile->id }}">
+                                    <input
+                                         type="hidden"
+                                         name="usCom"
+                                         value="{{ auth()->user()->id }}">
+                                    <input
+                                         type="hidden"
+                                         name="typeJobFromComment"
+                                         value="1">
+                                    <input
+                                         type="hidden"
+                                         name="serviceId"
+                                         value="{{ $serviceProfile->id }}">
 
-                                    <textarea class="form-control @error('comentario') is-invalid @enderror" id="message" rows="3" placeholder="Escriba lo que piensa..." name="comentario"></textarea>
+                                    <textarea
+                                         class="form-control @error('comentario') is-invalid @enderror"
+                                         id="message"
+                                         rows="3"
+                                         placeholder="Escriba lo que piensa..."
+                                         name="comentario"></textarea>
                                     @error('comentario')
-                                        <span class="invalid-feedback" role="alert">
+                                        <span
+                                             class="invalid-feedback"
+                                             role="alert">
                                         <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="btn" style="background-color: rgba(10, 169, 190, 0.61)">Comentar</button>
+                                <button
+                                     type="submit"
+                                     class="btn"
+                                     style="background-color: rgba(10, 169, 190, 0.61)">Comentar</button>
                             </div>
                         </div>
                     </div>
@@ -582,16 +702,31 @@
                             <!-- post header -->
                             <div class="row m-0">
                                 <div class="">
-                                    <a class="text-decoration-none" href="#">
+                                    <a
+                                         class="text-decoration-none"
+                                         href="#">
                                         @if($serviceProfile->use_id == $coment->use_id)
-                                        <img class="" src="https://i.postimg.cc/ryg6tyH9/operator-m.png" width="50" height="50" alt="...">
+                                        <img
+                                             class=""
+                                             src="https://i.postimg.cc/ryg6tyH9/operator-m.png"
+                                             width="50"
+                                             height="50"
+                                             alt="...">
                                         @else
-                                        <img class="" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" width="50" height="50" alt="...">
+                                        <img
+                                             class=""
+                                             src=
+                                        "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"
+                                             width="50"
+                                             height="50"
+                                             alt="...">
                                         @endif
                                     </a>
                                 </div>
                                 <div class="flex-grow-1 pl-2">
-                                    <a class="text-decoration-none" href="{{ route('perfil',$coment->PostCommentUser->id) }}">
+                                    <a
+                                         class="text-decoration-none"
+                                         href="{{ route('perfil',$coment->PostCommentUser->id) }}">
                                         <h2 class="text-capitalize h5 mb-0">{{ $coment->PostCommentUser->name }}</h2>
                                     </a>
                                     <p class="small text-secondary m-0 mt-1">Posteado el {{ $coment->created_at }}</p>
@@ -623,42 +758,87 @@
                                                     @php
                                                         $likeUser = true;
                                                         break;
-                                                    @endphp                                                    
+                                                    @endphp
                                                 @endif
                                             @endforeach
                                             @if($likeUser==true)
 
-                                            <form action="{{ route('dislikeComment') }}" method="POST">
+                                            <form
+                                                 action="{{ route('dislikeComment') }}"
+                                                 method="POST">
                                                 @csrf
-                                                <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                                <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                <input
+                                                     type="hidden"
+                                                     name="idUser"
+                                                     value="{{ auth()->user()->id }}">
+                                                <input
+                                                     type="hidden"
+                                                     name="idPost"
+                                                     value="{{ $coment->id }}">
+                                                <button
+                                                     class="small text-decoration-none"
+                                                     type="submit"
+                                                     style="border: none;
+                                                            background-color:transparent;
+                                                            color:#007bff !important;
+                                                            text-transform:none !important;padding:0px">
                                                     <em class="fa fa-thumbs-up"></em>  Me gusta
-                                                </button>    
+                                                </button>
                                             </form>
 
 
                                             @else
                                                 <form action="{{ route('likeComment') }}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="idUser" value="{{ auth()->user()->id }}">
-                                                    <input type="hidden" name="idPost" value="{{ $coment->id }}">
-                                                    <button class="small text-decoration-none" type="submit" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                    <input
+                                                         type="hidden"
+                                                         name="idUser"
+                                                         value="{{ auth()->user()->id }}">
+                                                    <input
+                                                         type="hidden"
+                                                         name="idPost"
+                                                         value="{{ $coment->id }}">
+                                                    <button
+                                                         class="small text-decoration-none"
+                                                         type="submit"
+                                                         style="border: none;
+                                                                background-color:transparent;
+                                                                color:#007bff !important;
+                                                                text-transform:none !important;padding:0px">
                                                         <em class="far fa-thumbs-up"></em>  Me gusta
-                                                    </button>    
+                                                    </button>
                                                 </form>
 
                                             @endif
                                             @else
-                                                <button class="small text-decoration-none" type="button" onclick="window.location.href='{{ route('registrouser') }}'" style="border: none;background-color:transparent; color:#007bff !important;text-transform:none !important;padding:0px">
+                                                <button
+                                                     class="small text-decoration-none"
+                                                     type="button"
+                                                     onclick="window.location.href='{{ route('registrouser') }}'"
+                                                     style="border: none;
+                                                            background-color:transparent;
+                                                            color:#007bff !important;text-transform:none !important;
+                                                            padding:0px">
                                                     <em class="far fa-thumbs-up"></em>  Me gusta
-                                                </button>    
+                                                </button>
                                             @endauth
 
                                         </li>
-                                        <li class="list-group-item flex-fill text-center p-0 px-lg-2 border border-right-0 border-top-0 border-bottom-0">
-                                            <a class="small text-decoration-none" data-toggle="collapse" href="#id{{$coment->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                <em class="fas fa-comment-alt"></em> {{ $coment->UseComPostAnswer->count() }} Comentario
+                                        <li
+                                             class="list-group-item flex-fill
+                                                    text-center p-0 px-lg-2 border
+                                                    border-right-0
+                                                    border-top-0
+                                                    border-bottom-0">
+                                            <a
+                                                 class="small text-decoration-none"
+                                                 data-toggle="collapse"
+                                                 href="#id{{$coment->id}}"
+                                                 role="button"
+                                                 aria-expanded="false"
+                                                 aria-controls="collapseExample">
+                                                <em class="fas fa-comment-alt"></em>
+                                                {{ $coment->UseComPostAnswer->count() }} Comentario
                                             </a>
                                         </li>
                                     </ul>
@@ -667,18 +847,38 @@
 
                                 <!-- collapsed comments begins -->
                                 <div class="collapse" id="id{{$coment->id}}">
-                                    <div class="card border border-right-0 border-left-0 border-bottom-0 mt-1">
+                                    <div class="card border
+                                        border-right-0
+                                        border-left-0
+                                        border-bottom-0 mt-1">
                                         <!-- new comment form -->
                                         @auth
                                         <section class="mt-3">
-                                            <form action="{{ route('registrarComentR') }}" method="post">
+                                            <form action="{{ route('registrarComentR') }}"
+                                                  method="post">
                                                 <div class="input-group input-group">
                                                 {{ csrf_field() }}
-                                                <input type="hidden" name="usCom" value="{{ auth()->user()->id }}">
-                                                <input type="hidden" name="ComId" value="{{ $coment->id }}">
-                                                <input type="text" class="form-control @error('comentarioRespuesta') is-invalid @enderror" name="comentarioRespuesta" placeholder="Escribir algo..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <input
+                                                     type="hidden"
+                                                     name="usCom"
+                                                     value="{{ auth()->user()->id }}">
+                                                <input
+                                                     type="hidden"
+                                                     name="ComId"
+                                                     value="{{ $coment->id }}">
+                                                <input
+                                                     type="text"
+                                                     class="form-control @error('comentarioRespuesta')
+                                                     is-invalid @enderror"
+                                                     name="comentarioRespuesta"
+                                                     placeholder="Escribir algo..."
+                                                     aria-label="Recipient's username"
+                                                     aria-describedby="basic-addon2">
                                                     <div class="input-group-append">
-                                                        <button class="text-decoration-none text-white btn btn-primary" style="background-color: rgb(0, 0, 0)">Responder</button>
+                                                        <button
+                                                             class="text-decoration-none
+                                                             text-white btn btn-primary"
+                                                             style="background-color: rgb(0, 0, 0)">Responder</button>
                                                     </div>
                                                     @error('comentarioRespuesta')
                                                         <span class="invalid-feedback" role="alert">
@@ -693,21 +893,41 @@
                                         <section>
                                         @foreach( $coment->UseComPostAnswer as $comentR)
 
-                                            <div class="card p-2 mt-3" style="background-color: rgb(154, 231, 195)">
+                                            <div class="card p-2 mt-3"
+                                                 style="background-color: rgb(154, 231, 195)">
                                                 <!-- comment header -->
                                                 <div class="d-flex">
                                                     <div class="">
-                                                        <a class="text-decoration-none" href="#">
+                                                        <a
+                                                             class="text-decoration-none"
+                                                             href="#">
                                                         @if($serviceProfile->use_id == $comentR->use_id)
-                                                            <img class="profile-pic" src="https://i.postimg.cc/ryg6tyH9/operator-m.png" width="40" height="40" alt="...">
+                                                            <img
+                                                                 class="profile-pic"
+                                                                 src=
+                                                            "https://i.postimg.cc/ryg6tyH9/operator-m.png"
+                                                                 width="40"
+                                                                 height="40"
+                                                                 alt="...">
                                                             @else
-                                                            <img class="profile-pic" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png" width="40" height="40" alt="...">
+                                                            <img
+                                                                 class="profile-pic"
+                                                                 src=
+                                                                 "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"
+                                                                 width="40"
+                                                                 height="40"
+                                                                 alt="...">
                                                             @endif
                                                         </a>
                                                     </div>
                                                     <div class="flex-grow-1 pl-2">
-                                                        <a class="text-decoration-none text-capitalize h6 m-0" href="#">{{ $comentR->PostCommentUser->name }}</a><label class="text-muted small"> &nbsp; Respondiendo a {{ $coment->PostCommentUser->name }}</label>
-                                                        <p class="small m-0 text-muted">Posteado el {{ $comentR->created_at }}</p>
+                                                        <a
+                                                             class="text-decoration-none text-capitalize h6 m-0"
+                                                             href="#">{{ $comentR->PostCommentUser->name }}</a><label
+                                                             class="text-muted small"> &nbsp;
+                                                             Respondiendo a {{ $coment->PostCommentUser->name }}</label>
+                                                        <p class="small m-0 text-muted">Posteado el
+                                                            {{ $comentR->created_at }}</p>
                                                     </div>
                                                     
                                                 </div>
@@ -715,7 +935,8 @@
                                                 <!-- comment header -->
                                                 <!-- comment body -->
                                                 <div class="card-body p-0">
-                                                    <p class="card-text h7 mb-1">{{ $comentR->comentario }}</p>
+                                                    <p class="card-text h7 mb-1">
+                                                        {{ $comentR->comentario }}</p>
                                                 </div>
                                             </div>
 
@@ -729,7 +950,7 @@
                             </footer>
                             <!-- post footer ends -->
                         </div>
-                        <!---pt2 del comentariooooooooooooooooooooo >
+                        <!---pt2 del comentariooooooooooooooooooooo -->
                             <!-- Post Begins -->
 
                         @endforeach
@@ -742,9 +963,13 @@
                             <h5 class="card-title m-0">Oficios Disponibles</h5>
                             <div class="list-group list-group-flush">
                                 @foreach($SerOcc as $so)
-                                {{-- <a href="{{ route('showProfileServiceOccupation',$so->id) }}" class="list-group-item list-group-item-action text-primary">{{ $so->ser_occ_name }}</a> --}}
+                                {{-- <a
+                                         href="{{ route('showProfileServiceOccupation',$so->id) }}"
+                                         class="list-group-item list-group-item-action text-primary">
+                                         {{ $so->ser_occ_name }}</a> --}}
                                 @endforeach
-                                {{-- <a href="{{ route('showOccupationService') }}" class="btn btn-sm btn-primary">Ver más</a> --}}
+                                {{-- <a href="{{ route('showOccupationService') }}"
+                                        class="btn btn-sm btn-primary">Ver más</a> --}}
                             </div>
                         </div>
                     </div>
@@ -753,9 +978,14 @@
                             <h5 class="card-title m-0">Talentos</h5>
                             <div class="list-group list-group-flush">
                                 @foreach($SerTal as $st)
-                                {{-- <a href="{{ route('showProfileServiceTalent',$st->id) }}" class="list-group-item list-group-item-action text-primary">{{ $st->ser_tal_name }}</a> --}}
+                                {{-- <a
+                                     href="{{ route('showProfileServiceTalent',$st->id) }}"
+                                     class="list-group-item list-group-item-action text-primary">
+                                     {{ $st->ser_tal_name }}</a> --}}
                                 @endforeach
-                                {{-- <a href="{{ route('showTalentService') }}" class="btn btn-sm btn-primary">Ver más</a> --}}
+                                {{-- <a
+                                         href="{{ route('showTalentService') }}"
+                                         class="btn btn-sm btn-primary">Ver más</a> --}}
                             </div>
                         </div>
                     </div>
@@ -769,7 +999,10 @@
 
 
         <!-- The Modal -->
-        <form action="{{ route('registrarPreg') }}" method="post" class="form-horizontal">
+        <form
+             action="{{ route('registrarPreg') }}"
+             method="post"
+             class="form-horizontal">
             <div class="modal fade" id="Modalpregunta">
                 <div class="modal-dialog">
                 <div class="modal-content">
@@ -777,7 +1010,10 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                     <h4 class="modal-title">Añadir pregunta frecuente</h4>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button
+                         type="button"
+                         class="close"
+                         data-dismiss="modal">×</button>
                     </div>
 
                     <!-- Modal body -->
@@ -785,16 +1021,30 @@
                     <div class="modal-corpo">
 
                         {{ csrf_field() }}
-                        <input type="hidden" name="typeJobFromQuestion" value="1">
-                        <input type="hidden" name="serviceId" value="{{ $serviceProfile->id }}">
+                        <input
+                             type="hidden"
+                             name="typeJobFromQuestion"
+                             value="1">
+                        <input
+                             type="hidden"
+                             name="serviceId"
+                             value="{{ $serviceProfile->id }}">
 
                         <div class="form-row">
 
                         <div class="form-group col-md-12">
                             <label for="inputEmail4">Escribir Pregunta Frecuente</label>
-                            <input type="text" name="pregunta" class="form-control @error('pregunta') is-invalid @enderror" id="inputPregunta" placeholder="Escriba la Pregunta Frecuente*" value="{{ old('pregunta')}}" />
+                            <input
+                                 type="text"
+                                 name="pregunta"
+                                 class="form-control @error('pregunta') is-invalid @enderror"
+                                 id="inputPregunta"
+                                 placeholder="Escriba la Pregunta Frecuente*"
+                                 value="{{ old('pregunta')}}" />
                             @error('pregunta')
-                                <span class="invalid-feedback" role="alert">
+                                <span
+                                     class="invalid-feedback"
+                                     role="alert">
                                 <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -804,10 +1054,19 @@
                         <div class="form-row">
 
                             <div class="form-group col-md-12">
-                            <label for="inputEmail4">Responder Pregunta Frecuente</label>
-                            <input type="text" name="respuesta" class="form-control @error('respuesta') is-invalid @enderror" id="inputRespuesta" placeholder="Responda la Pregunta Frecuente*" value="{{ old('respuesta')}}" />
+                            <label
+                                 for="inputEmail4">Responder Pregunta Frecuente</label>
+                            <input
+                                 type="text"
+                                 name="respuesta"
+                                 class="form-control @error('respuesta') is-invalid @enderror"
+                                 id="inputRespuesta"
+                                 placeholder="Responda la Pregunta Frecuente*"
+                                 value="{{ old('respuesta')}}" />
                             @error('respuesta')
-                                <span class="invalid-feedback" role="alert">
+                                <span
+                                     class="invalid-feedback"
+                                     role="alert">
                                 <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -823,11 +1082,16 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-success">Publicar Pregunta
-
+                    <button
+                         type="submit"
+                         class="btn btn-outline-success">Publicar Pregunta
                     </button>
 
-                    <button id="cerrarBtn" type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+                    <button
+                         id="cerrarBtn"
+                         type="button"
+                         class="btn btn-outline-danger"
+                         data-dismiss="modal">Cerrar</button>
 
                     </div>
 
