@@ -3,6 +3,8 @@ from fastapi import FastAPI, Query
 from typing import List, Dict, Union
 from enum import Enum
 from pydantic import BaseModel
+import random
+
 
 import pandas as pd
 
@@ -194,7 +196,7 @@ def get_actor(
 
 
 # Creando la función 5: Sistema de recomendacion de películas con mayor rating en base al año dado.
-# Se hizo un cambio más y otro extra
+# Se hizo un cambio más
 @app.get(
         "/recomendation",
         summary = "Recomendación",
