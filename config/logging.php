@@ -4,7 +4,9 @@ use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 
-if (!defined('RUTALOG')) define('RUTALOG','logs/laravel.log');
+if (!defined('RUTALOG')){
+    define('RUTALOG','logs/laravel.log');
+}
 
 return [
 

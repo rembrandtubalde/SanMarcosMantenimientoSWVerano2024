@@ -6,8 +6,14 @@
   <meta name="description" content="Colorlib Templates">
   <meta name="author" content="Colorlib">
   <meta name="keywords" content="Colorlib Templates">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integridad="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anónimo">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integridad="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous">
+</script>
 
 @endsection
 
@@ -15,8 +21,12 @@
 
     <link rel="stylesheet" href="{{ asset('css/registro.css') }}" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-RFZC58YeKApoNsIbBxf4z6JJXmh+geBSgkCQXFyh+4tiFSJmJBt+2FbjxW7Ar16M" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integridad="sha384-RFZC58YeKApoNsIbBxf4z6JJXmh+geBSgkCQXFyh+4tiFSJmJBt+2FbjxW7Ar16M"
+    crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+    rel="stylesheet">
 
 @endsection
 
@@ -38,27 +48,30 @@
 
 
                           <li class="nav-item" role="presentation">
-                            <a class="nav-link @if (Route::currentRouteName() != 'offerMyServiceChange') active @endif" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">
+                          <a class="nav-link @if (Route::currentRouteName() != 'offerMyServiceChange') active @endif"
+                          id="service-tab" data-toggle="tab" href="#service" role=" pestaña" aria-controls="servicio" aria-selected="true">
                               <button type="button" class="btn btn-primary btn-lg">Servicio Técnico</button>
                             </a>
                           </li>
                           <li class="nav-item" role="presentation">
-                            <a class="nav-link" id="talent-tab" data-toggle="tab" href="#talent" role="tab" aria-controls="talent" aria-selected="false">
+                          <a class="nav-link" id="talent-tab" data-toggle="tab" href="#talent" role="tab" aria-controls="talent" aria-selected="false">
                               <button type="button" class="btn btn-secondary btn-lg">Talento</button>
                             </a>
                           </li>
                           <li class="nav-item" role="presentation">
-                            <a class="nav-link @if (Route::currentRouteName() == 'offerMyServiceChange') active @endif" id="reto-tab" data-toggle="tab" href="#reto" role="tab" aria-controls="reto" aria-selected="false">
+                          <a class="nav-link @if (Route::currentRouteName() == 'offerMyServiceChange') active @endif"
+                          id="reto-tab" data-toggle="tab" href="#reto" role=" pestaña" aria-controls="reto" aria-selected="false">
                               <button type="button" class="btn btn-info btn-lg">Reto</button>
                             </a>
-                          </li>                          
+                          </li>
 
 
                         </ul>
                     </div>
                     <div class="tab-content" id="myTabContent">
                     {{-- Registro de Tecnico --}}
-                      <div class="tab-pane fade @if (Route::currentRouteName() != 'offerMyServiceChange') show active @endif" id="service" role="tabpanel" aria-labelledby="service-tab">
+                    <div class="desvanecimiento del panel de pestañas @if (Route::currentRouteName() != 'offerMyServiceChange') muestra activo @endif"
+                    id="servicio" role="tabpanel" aria-labelledby="service-tab">
                         <form action=" {{route('servicio.tecnico')}} " method="POST" enctype="multipart/form-data">
                           @csrf
                           <div class="form-group">
