@@ -11,7 +11,7 @@
 //       might need to adjust the width in some cases.
 
 (function($) {
-  var defaults = {
+  let defaults = {
       topSpacing: 0,
       bottomSpacing: 0,
       className: 'is-sticky',
@@ -25,13 +25,13 @@
     sticked = [],
     windowHeight = $window.height(),
     scroller = function() {
-      var scrollTop = $window.scrollTop(),
+      let scrollTop = $window.scrollTop(),
         documentHeight = $document.height(),
         dwh = documentHeight - windowHeight,
         extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
 
-      for (var i = 0; i < sticked.length; i++) {
-        var s = sticked[i],
+      for (let i = 0; i < sticked.length; i++) {
+        let s = sticked[i],
           elementTop = s.stickyWrapper.offset().top,
           etse = elementTop - s.topSpacing - extra;
 
@@ -45,7 +45,7 @@
           }
         }
         else {
-          var newTop = documentHeight - s.stickyElement.outerHeight()
+          let newTop = documentHeight - s.stickyElement.outerHeight()
             - s.topSpacing - s.bottomSpacing - scrollTop - extra;
           if (newTop < 0) {
             newTop = newTop + s.topSpacing;
@@ -70,8 +70,8 @@
     resizer = function() {
       windowHeight = $window.height();
 
-      for (var i = 0; i < sticked.length; i++) {
-        var s = sticked[i];
+      for (let i = 0; i < sticked.length; i++) {
+        let s = sticked[i];
         if (typeof s.getWidthFrom !== 'undefined' && s.responsiveWidth === true) {
           s.stickyElement.css('width', $(s.getWidthFrom).width());
         }
@@ -79,13 +79,13 @@
     },
     methods = {
       init: function(options) {
-        var o = $.extend({}, defaults, options);
+        let o = $.extend({}, defaults, options);
         return this.each(function() {
-          var stickyElement = $(this);
+          let stickyElement = $(this);
 
-          var stickyId = stickyElement.attr('id');
-          var wrapperId = stickyId ? stickyId + '-' + defaults.wrapperClassName : defaults.wrapperClassName 
-          var wrapper = $('<div></div>')
+          let stickyId = stickyElement.attr('id');
+          let wrapperId = stickyId ? stickyId + '-' + defaults.wrapperClassName : defaults.wrapperClassName 
+          let wrapper = $('<div></div>')
             .attr('id', stickyId + '-sticky-wrapper')
             .addClass(o.wrapperClassName);
           stickyElement.wrapAll(wrapper);
@@ -98,7 +98,7 @@
             stickyElement.css({"float":"none"}).parent().css({"float":"right"});
           }
 
-          var stickyWrapper = stickyElement.parent();
+          let stickyWrapper = stickyElement.parent();
           stickyWrapper.css('height', stickyElement.outerHeight());
           sticked.push({
             topSpacing: o.topSpacing,
@@ -115,10 +115,10 @@
       update: scroller,
       unstick: function(options) {
         return this.each(function() {
-          var unstickyElement = $(this);
+          let unstickyElement = $(this);
 
-          var removeIdx = -1;
-          for (var i = 0; i < sticked.length; i++)
+          let removeIdx = -1;
+          for (let i = 0; i < sticked.length; i++)
           {
             if (sticked[i].stickyElement.get(0) == unstickyElement.get(0))
             {
