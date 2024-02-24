@@ -477,7 +477,6 @@
     -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     display: none;
-    border: 1px solid #e0e0e0;
     margin-top: 5px;
   }
   
@@ -645,7 +644,6 @@
     -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e0e0e0;
     margin-top: 5px;
     overflow: hidden;
   }
@@ -676,7 +674,6 @@
     color: #555;
     font-size: 16px;
     font-family: inherit;
-    padding-left: 22px;
     padding-right: 50px;
   }
   
@@ -705,7 +702,7 @@
   }
   
   .rs-select2 .select2-container .select2-selection--single .select2-selection__arrow:after {
-    font-family: "Material-Design-Iconic-Font";
+    font-family: "Material-Design-Iconic-Font", sans-serif;
     content: '\f2f9';
     font-size: 24px;
     color: #999;
