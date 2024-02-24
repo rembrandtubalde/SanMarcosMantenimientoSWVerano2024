@@ -3,7 +3,9 @@
 use Illuminate\Support\Str;
 
 
-if (!defined('HOSTNUMBERNOW')) define('HOSTNUMBERNOW', '127.0.0.1');
+if (!defined('HOSTNUMBERNOW')){
+    define('HOSTNUMBERNOW', '127.0.0.1');
+}
 
 
 return [
