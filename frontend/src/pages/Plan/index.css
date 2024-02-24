@@ -1,0 +1,100 @@
+.plan {
+    width: 1300px;
+    max-width: 1400px;
+}
+
+.tittle__plan {
+    display: flex;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtittle__plan {
+    display: flex;
+    align-items: baseline;
+    font-size: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    gap: 20px;
+}
+
+.dropdown__plan {
+    width: 23%;
+    padding: 14px 20px;
+    background: var(--sunray);
+    border: 1.5px var(--dark-grey) solid;
+    box-shadow: 0px 4px 8px rgba(28, 37, 44, 0.08);
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--dark-grey);
+    display: flex;
+    justify-content: space-between;
+}
+
+.button__plan {
+    padding: 12px 34px;
+    margin: 12px;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    font-family: inherit;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    box-shadow: 0px 14px 23px rgba(28, 37, 44, 0.08);
+}
+
+.button__plan:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.button__plan-delete {
+    padding: 12px 34px;
+    margin: 12px;
+    border-radius: 30px;
+    background-color: var(--error-red);
+    border: 2px solid var(--error-red);
+    font-family: inherit;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    box-shadow: 0px 14px 23px rgba(28, 37, 44, 0.08);
+}
+
+.button__plan-delete:hover {
+    background-color: var(--white);
+    color: var(--error-red);
+}
+
+.input__content {
+    display: flex;
+    flex-direction: row;
+}
+
+.input__plan {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: var(--dark-grey);
+    border: 1.5px var(--dark-grey) solid;
+    background-color: var(--sunray);
+    border-radius: 20px;
+    transition: .2s;
+    margin-right: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 23%;
+}
+
+.input__plan::placeholder {
+    color: var(--dark-grey);
+}
+
+.input__plan:focus {
+    background-color: var(--white);
+    color: var(--text-grey);
+}

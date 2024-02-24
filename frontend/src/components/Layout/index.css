@@ -1,0 +1,13 @@
+.layout {
+	display: flex;
+	flex-direction: row;
+}
+
+.layout__content {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+  justify-content: space-between;
+  padding: 64px 48px;
+	flex: 1;
+}

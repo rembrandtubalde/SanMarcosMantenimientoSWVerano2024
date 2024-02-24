@@ -1,0 +1,7 @@
+.scannerwork
+node_modules
+.env
+dist
+coverage
+.husky
+sonar-project.properties
